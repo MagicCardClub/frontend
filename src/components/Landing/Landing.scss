@@ -1,0 +1,131 @@
+@import "../../styles/config/config.scss";
+
+main {
+  width: 100vw;
+  margin: 1em 0 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  @include flex($justify: space-evenly);
+  width: 100%;
+  // height: max-content;
+  box-sizing: border-box;
+}
+
+.hero_texts {
+  @include showBorder($color: black);
+  width: 45%;
+  @include flex($flex: column, $align: flex-start, $justify: space-around);
+  box-sizing: border-box;
+  position: relative;
+  top: -100px;
+
+  .first,
+  .second,
+  .third {
+    @include showBorder($color: black);
+    width: 100%;
+  }
+
+  .first {
+    @include showBorder($color: black);
+    height: 400px;
+
+    span {
+      width: 100%;
+      @include showBorder($color: black);
+      position: relative;
+
+      &:first-of-type {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 106.806px;
+        letter-spacing: -0.01em;
+      }
+      &:nth-of-type(2n) {
+        font-style: normal;
+        font-weight: 900;
+        font-size: 151.096px;
+        letter-spacing: -0.045em;
+        top: -75px;
+      }
+
+      &:nth-of-type(3n) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 92.5078px;
+        letter-spacing: -0.08em;
+        top: -135px;
+      }
+    }
+  }
+  .second {
+    @include showBorder($color: black);
+    position: relative;
+
+    span {
+      width: 100%;
+      @include showBorder($color: black);
+      position: relative;
+
+      &:first-of-type {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 67.6587px;
+        letter-spacing: -0.045em;
+      }
+      &:nth-of-type(2n) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 47.794px;
+        letter-spacing: -0.01em;
+        top: -25px;
+      }
+    }
+  }
+
+  .third {
+    @include showBorder($color: black);
+    position: relative;
+    top: -15px;
+
+    span {
+      width: 100%;
+      @include showBorder($color: black);
+      position: relative;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 41.2466px;
+      line-height: 69px;
+      letter-spacing: -0.045em;
+
+      &:nth-of-type(2n) {
+        top: -25px;
+      }
+    }
+  }
+}
+
+.hero_image {
+  @include showBorder($color: black);
+  width: 50%;
+  // background-image: url("../utils/hero/hero_image.png");
+  height: 1000px;
+  @include flex($align: center, $justify: center);
+
+  img {
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    right: 20px;
+    top: 0px;
+  }
+
+  .img_shadow {
+    background-color: black;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+}
