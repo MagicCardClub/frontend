@@ -5,6 +5,10 @@ import heroImg from "../../assets/images/hero/hero_image.png";
 const Landing = () => {
   return (
     <main>
+      {/* different patches of colors on page */}
+      <div className="color_one"></div>
+      <div className="color_two"></div>
+      <div className="color_three"></div>
       <div className="hero">
         <div className="hero_texts">
           <div className="first">

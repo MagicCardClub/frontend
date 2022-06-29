@@ -1,13 +1,16 @@
 import React from "react";
 import "./Footer.scss";
 import giftImage from "../../assets/images/footer/three_gifts.png";
+import { AiOutlineTwitter } from "react-icons/ai";
+import { FaDiscord } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
       <nav>
-        <ul>
+        <ul className="site_nav">
           <li>
             <a href="#link">Home</a>
           </li>
@@ -31,6 +34,24 @@ const Footer = () => {
           </li>
           <li>
             <a href="#link">Terms of Service</a>
+          </li>
+        </ul>
+
+        <ul className="sm_links">
+          <li>
+            <a href="link">
+              <AiOutlineTwitter />
+            </a>
+          </li>
+          <li>
+            <a href="link">
+              <FaDiscord />
+            </a>
+          </li>
+          <li>
+            <a href="link">
+              <FaTelegramPlane />
+            </a>
           </li>
         </ul>
       </nav>
