@@ -1,9 +1,9 @@
 import React from "react";
 import "./Header.scss";
 import logo from "../../assets/images/hero/mc_logo.png";
-// AiOutlineTwitter
-// FaDiscord
-// FaTelegramPlane
+import { AiOutlineTwitter } from "react-icons/ai";
+import { FaDiscord } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -17,25 +17,31 @@ const Header = () => {
       </div>
       <ul className="site_links">
         <li>
-          <a href="#">About</a>
+          <a href="link">About</a>
         </li>
         <li>
-          <a href="#">Roadmap</a>
+          <a href="roadmap">Roadmap</a>
         </li>
         <li>
-          <a href="#">Community</a>
+          <a href="comms">Community</a>
         </li>
       </ul>
 
       <ul className="sm_links">
         <li>
-          <a href="link">tweet</a>
+          <a href="link">
+            <AiOutlineTwitter />
+          </a>
         </li>
         <li>
-          <a href="link">discord</a>
+          <a href="link">
+            <FaDiscord />
+          </a>
         </li>
         <li>
-          <a href="link">telegram</a>
+          <a href="link">
+            <FaTelegramPlane />
+          </a>
         </li>
       </ul>
 
