@@ -1,6 +1,9 @@
 import React from "react";
 import "./Header.scss";
 import logo from "../../assets/images/hero/mc_logo.png";
+// AiOutlineTwitter
+// FaDiscord
+// FaTelegramPlane
 
 const Header = () => {
   return (
@@ -13,9 +16,15 @@ const Header = () => {
         </div>
       </div>
       <ul className="site_links">
-        <li>About</li>
-        <li>Roadmap</li>
-        <li>Community</li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Roadmap</a>
+        </li>
+        <li>
+          <a href="#">Community</a>
+        </li>
       </ul>
 
       <ul className="sm_links">

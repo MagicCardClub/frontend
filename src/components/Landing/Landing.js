@@ -38,9 +38,12 @@ const Landing = () => {
       </div>
 
       <div className="newsletter">
-        <div>texts texts</div>
+        <div className="text">
+          Get the latest update on upcoming gift card <br /> types for your
+          family, friends and loved ones.
+        </div>
         <form action="">
-          <input type="text" />
+          <input type="text" placeholder="enter email" />
           <br />
           <button>Subscribe to Newletter</button>
         </form>

@@ -17,10 +17,14 @@ header {
 
   button {
     border: 1px solid black;
-    width: 120px;
+    width: 180px;
+    height: 50px;
     padding: 5px;
     border-radius: 10px;
     outline: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
   }
 }
 .logo {
@@ -36,6 +40,14 @@ header {
 
 .site_links {
   width: 450px;
+  font-family: "Monda";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 39px;
+  a {
+    text-decoration: none;
+  }
 }
 
 .sm_links {
