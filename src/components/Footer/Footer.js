@@ -10,32 +10,23 @@ const Footer = () => {
   return (
     <footer>
       <nav>
-        <ul className="site_nav">
-          <li>
-            <a href="#link">Home</a>
-          </li>
-          <li>
-            <a href="#link">Community</a>
-          </li>
-          <li>
-            <a href="#link">Disclaimer</a>
-          </li>
-          <li>
-            <a href="#link">About</a>
-          </li>
-          <li>
-            <a href="#link">Feedback</a>
-          </li>
-          <li>
-            <a href="#link">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#link">Roadmap</a>
-          </li>
-          <li>
-            <a href="#link">Terms of Service</a>
-          </li>
-        </ul>
+        <div className="site_nav">
+          <a href="#link">Home</a>
+
+          <a href="#link">Community</a>
+
+          <a href="#link">Disclaimer</a>
+
+          <a href="#link">About</a>
+
+          <a href="#link">Feedback</a>
+
+          <a href="#link">Privacy Policy</a>
+
+          <a href="#link">Roadmap</a>
+
+          <a href="#link">Terms of Service</a>
+        </div>
 
         <ul className="sm_links">
           <li>
@@ -55,9 +46,11 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
-      <div className="gift_image">
+
+      <div className="gift_img">
         <img src={giftImage} alt="gifts" />
       </div>
+
       <div className="copyright">
         <span>&copy;</span>
         <div className="magic-card">

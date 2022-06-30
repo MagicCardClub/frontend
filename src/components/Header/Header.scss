@@ -8,6 +8,11 @@ header {
   height: 100px;
   box-sizing: border-box;
 
+  @include respondMax(lg-tablet) {
+    width: 100%;
+    height: 70px;
+  }
+
   @include respondMax(mobile) {
     width: 100%;
     height: 70px;
@@ -36,6 +41,13 @@ header {
     font-size: 20px;
     cursor: pointer;
 
+    @include respondMax(lg-tablet) {
+      width: 13%;
+      height: 30px;
+      font-size: 11px;
+      border-radius: 4px;
+    }
+
     @include respondMax(mobile) {
       width: 95px;
       height: 30px;
@@ -51,6 +63,10 @@ header {
   @include flex($justify: space-around);
   cursor: pointer;
 
+  @include respondMax(lg-tablet) {
+    width: auto;
+  }
+
   @include respondMax(mobile) {
     width: auto;
   }
@@ -59,7 +75,7 @@ header {
     width: 60px;
     height: 50px;
 
-    @include respondMax(mobile) {
+    @include respondMax(lg-tablet) {
       width: 35px;
       height: 30px;
     }
@@ -69,7 +85,7 @@ header {
     font-weight: 700;
     font-size: 20px;
 
-    @include respondMax(mobile) {
+    @include respondMax(lg-tablet) {
       display: none;
     }
     span:first-of-type {
@@ -85,7 +101,7 @@ header {
   width: 35%;
   line-height: 39px;
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     @include flex($justify: space-around);
     width: 45%;
   }
@@ -111,7 +127,7 @@ header {
 .sm_links {
   width: 15%;
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     display: none;
   }
   a {
@@ -123,5 +139,10 @@ header {
     @include flex();
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

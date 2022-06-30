@@ -61,7 +61,7 @@ main {
   box-sizing: border-box;
   // @include showBorder($color: black);
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     @include flex($justify: center, $align: column);
     width: 100%;
   }
@@ -76,7 +76,7 @@ main {
   top: -100px;
   box-sizing: border-box;
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     width: 100%;
     @include flex($flex: column, $align: center, $justify: space-around);
     box-sizing: border-box;
@@ -95,7 +95,7 @@ main {
     // @include showBorder($color: black);
     height: 400px;
 
-    @include respondMax(mobile) {
+    @include respondMax(lg-tablet) {
       width: 100%;
       height: auto;
       // @include showBorder($color: black);
@@ -109,7 +109,7 @@ main {
       width: 100%;
       position: relative;
 
-      @include respondMax(mobile) {
+      @include respondMax(lg-tablet) {
         width: max-content;
         box-sizing: border-box;
         position: static;
@@ -123,6 +123,11 @@ main {
         font-size: 100px;
         letter-spacing: 3px;
 
+        @include respondMax(lg-tablet) {
+          font-size: 50px;
+          letter-spacing: inherit;
+        }
+
         @include respondMax(mobile) {
           font-size: 25px;
           letter-spacing: inherit;
@@ -134,6 +139,13 @@ main {
         font-size: 140px;
         letter-spacing: 3px;
         top: -60px;
+
+        @include respondMax(lg-tablet) {
+          font-size: 70px;
+          position: relative;
+          letter-spacing: inherit;
+          top: -7px;
+        }
 
         @include respondMax(mobile) {
           font-size: 50px;
@@ -150,6 +162,11 @@ main {
         letter-spacing: 2px;
         top: -105px;
 
+        @include respondMax(lg-tablet) {
+          font-size: 50px;
+          letter-spacing: inherit;
+        }
+
         @include respondMax(mobile) {
           font-size: 25px;
           letter-spacing: inherit;
@@ -161,6 +178,21 @@ main {
     // @include showBorder($color: black);
     position: relative;
 
+    @include respondMax(lg-tablet) {
+      width: 100%;
+      height: auto;
+      // @include showBorder($color: black);
+      @include flex($flex: column wrap, $align: center, $justify: center);
+      box-sizing: border-box;
+      position: static;
+      margin: 30em auto 0;
+      box-sizing: border-box;
+
+      br {
+        display: none;
+      }
+    }
+
     @include respondMax(mobile) {
       width: 100%;
       height: auto;
@@ -168,7 +200,7 @@ main {
       @include flex($flex: column wrap, $align: center, $justify: center);
       box-sizing: border-box;
       position: static;
-      margin: 25em auto 0;
+      margin: 23em auto 0;
       box-sizing: border-box;
 
       br {
@@ -180,7 +212,7 @@ main {
       width: 100%;
       position: relative;
 
-      @include respondMax(mobile) {
+      @include respondMax(lg-tablet) {
         width: max-content;
         position: static;
       }
@@ -190,6 +222,10 @@ main {
         font-weight: 600;
         font-size: 67.6587px;
         letter-spacing: -0.045em;
+
+        @include respondMax(lg-tablet) {
+          font-size: 40px;
+        }
 
         @include respondMax(mobile) {
           font-size: 30px;
@@ -201,6 +237,10 @@ main {
         font-size: 47.794px;
         letter-spacing: -0.01em;
         top: -15px;
+
+        @include respondMax(lg-tablet) {
+          font-size: 40px;
+        }
 
         @include respondMax(mobile) {
           font-size: 21px;
@@ -214,7 +254,7 @@ main {
     position: relative;
     top: 10px;
 
-    @include respondMax(mobile) {
+    @include respondMax(lg-tablet) {
       width: 100%;
       height: auto;
       // @include showBorder($color: black);
@@ -238,6 +278,14 @@ main {
       line-height: 69px;
       letter-spacing: -0.045em;
 
+      @include respondMax(lg-tablet) {
+        font-size: 25px;
+        width: max-content;
+        position: static;
+        margin: 0 2px;
+        line-height: inherit;
+      }
+
       @include respondMax(mobile) {
         font-size: 16px;
         width: max-content;
@@ -260,9 +308,18 @@ main {
   @include flex($align: center, $justify: center);
   box-sizing: border-box;
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     position: absolute;
     top: 150px;
+    right: 120px;
+    width: 90%;
+    height: 400px;
+  }
+
+  @include respondMax(mobile) {
+    position: absolute;
+    top: 120px;
+    right: 30px;
     width: 90%;
     height: 400px;
   }
@@ -272,9 +329,16 @@ main {
     position: absolute;
     width: 950px;
     height: 1000px;
-    right: 20px;
+    right: 0px;
     top: 0px;
     box-sizing: border-box;
+
+    @include respondMax(lg-tablet) {
+      top: 0px;
+      right: 50px;
+      width: 90%;
+      height: 500px;
+    }
 
     @include respondMax(mobile) {
       top: 0px;
@@ -293,10 +357,20 @@ main {
     height: 26px;
     border-radius: 70%;
 
+    @include respondMax(lg-tablet) {
+      position: absolute;
+      width: 450px;
+      height: 10px;
+      top: 490px;
+      right: 40px;
+    }
+
     @include respondMax(mobile) {
+      position: absolute;
       width: 200px;
       height: 8px;
       top: 370px;
+      right: auto;
     }
   }
 }
@@ -308,8 +382,15 @@ main {
   padding: 5px;
   box-sizing: border-box;
 
+  @include respondMax(lg-tablet) {
+    @include flex($align: center, $justify: space-evenly);
+    width: 100%;
+    margin: 2em auto 0;
+    padding: 5px;
+  }
+
   @include respondMax(mobile) {
-    @include flex($align: center, $justify: space-around);
+    @include flex($align: center, $justify: space-evenly);
     width: 70%;
     margin: 1em auto 0;
     padding: 5px;
@@ -329,10 +410,18 @@ main {
     background: #575757;
     border: 1px solid transparent;
 
-    @include respondMax(mobile) {
-      width: 37%;
+    @include respondMax(lg-tablet) {
+      width: 25%;
       height: 50px;
       font-size: 20px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }
+
+    @include respondMax(mobile) {
+      width: 40%;
+      height: 40px;
+      font-size: 18px;
       border-radius: 8px;
       letter-spacing: 1px;
     }
@@ -347,7 +436,7 @@ main {
       border: 2px solid rgba(255, 255, 255, 0.6);
       text-shadow: 0px 1.83514px 1.83514px rgba(0, 0, 0, 0.25);
 
-      @include respondMax(mobile) {
+      @include respondMax(lg-tablet) {
         color: rgba(155, 155, 155, 0.41);
       }
     }
@@ -361,6 +450,11 @@ main {
   padding: 5px;
   box-sizing: border-box;
 
+  @include respondMax(lg-tablet) {
+    width: 70%;
+    margin: 3em auto 0;
+  }
+
   @include respondMax(mobile) {
     width: 90%;
     margin: 3em auto 0;
@@ -373,6 +467,16 @@ main {
     font-size: 26px;
     letter-spacing: -0.045em;
     color: white;
+
+    @include respondMax(lg-tablet) {
+      font-size: 18px;
+      letter-spacing: inherit;
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
 
     @include respondMax(mobile) {
       font-size: 15px;
@@ -392,7 +496,7 @@ main {
     padding: 10px 0;
     box-sizing: border-box;
 
-    @include respondMax(mobile) {
+    @include respondMax(lg-tablet) {
       @include flex($align: center, $justify: space-evenly, $flex: column);
       // @include showBorder($color: black);
       height: max-content;
@@ -409,6 +513,16 @@ main {
       letter-spacing: -0.045em;
       border-radius: 15px;
       box-sizing: border-box;
+
+      @include respondMax(lg-tablet) {
+        @include showBorder(#9d9d9d);
+        background: #252525;
+        color: #959292;
+        font-size: 15px;
+        width: 60%;
+        height: 35px;
+        border-radius: 10px;
+      }
 
       @include respondMax(mobile) {
         @include showBorder(#9d9d9d);
@@ -438,6 +552,14 @@ main {
       border-radius: 15px;
       cursor: pointer;
       box-sizing: border-box;
+
+      @include respondMax(lg-tablet) {
+        font-size: 15px;
+        width: 60%;
+        height: 35px;
+        margin: 0;
+        border-radius: 10px;
+      }
 
       @include respondMax(mobile) {
         font-size: 15px;
