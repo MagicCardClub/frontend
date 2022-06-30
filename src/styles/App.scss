@@ -1,14 +1,9 @@
 @import "./config/config.scss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .App {
   background-color: $color-page-basic;
   width: 100vw;
+  height: max-content;
 
   @include respondMax(mobile) {
     width: 100%;
