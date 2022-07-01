@@ -3,7 +3,7 @@
 .App {
   background-color: $color-page-basic;
   width: 100vw;
-  height: max-content;
+  height: auto;
 
   @include respondMax(mobile) {
     width: 100%;
