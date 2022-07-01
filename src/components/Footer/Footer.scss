@@ -13,11 +13,11 @@ footer {
   }
 
   nav {
-    width: 60%;
-    // @include showBorder(black);
+    width: 100%;
+    @include showBorder(black);
     height: 300px;
     // margin: 5em 0 0 3em;
-    margin: 5em auto 0;
+    // margin: 5em auto 0;
     @include flex(center, space-around);
 
     @include respondMax(lg-tablet) {
@@ -28,11 +28,23 @@ footer {
     }
 
     .site_nav {
-      // @include showBorder(black);
+      @include showBorder(black);
       height: 100%;
       width: 80%;
       @include flex(center, space-around, row wrap);
       box-sizing: border-box;
+
+      @include respondMin(desktop) {
+        @include flex(center, space-around, row wrap);
+        width: 45%;
+        height: 70%;
+      }
+
+      @include respondMax(sm-desktop) {
+        @include flex(center, space-around, row wrap);
+        width: 60%;
+        height: 70%;
+      }
 
       @include respondMax(lg-tablet) {
         @include flex(center, flex-start, row wrap);
@@ -51,6 +63,7 @@ footer {
         text-decoration: none;
         text-align: left;
         font-size: 29px;
+        margin: 0 5px 0;
 
         @include respondMax(lg-tablet) {
           width: 150px;
@@ -58,6 +71,7 @@ footer {
           font-style: normal;
           letter-spacing: inherit;
           font-size: 15px;
+          margin: 0;
         }
 
         @include respondMax(mobile) {
