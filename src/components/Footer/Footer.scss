@@ -13,10 +13,10 @@ footer {
   }
 
   nav {
-    width: 60%;
+    width: 100%;
     // @include showBorder(black);
-    height: 300px;
-    margin: 5em 0 0 3em;
+    height: 250px;
+    @include flex(center, space-around);
 
     @include respondMax(lg-tablet) {
       @include flex(center, space-around);
@@ -28,17 +28,31 @@ footer {
     .site_nav {
       // @include showBorder(black);
       height: 100%;
-      width: 80%;
-      @include flex(center, flex-start, row wrap);
+      width: 95%;
+      @include flex(center, space-around, row wrap);
       box-sizing: border-box;
 
+      @include respondMin(desktop) {
+        @include flex(center, space-around, row wrap);
+        width: 54%;
+        height: 80%;
+      }
+
+      @include respondMax(sm-desktop) {
+        @include flex(center, space-around, row wrap);
+        width: 50%;
+        height: 70%;
+      }
+
       @include respondMax(lg-tablet) {
+        @include flex(center, flex-start, row wrap);
         width: 70%;
         height: 100px;
       }
 
       a {
-        width: 200px;
+        // width: 200px;
+        width: max-content;
         font-weight: 500;
         font-style: normal;
         letter-spacing: -0.045em;
@@ -47,6 +61,13 @@ footer {
         text-decoration: none;
         text-align: left;
         font-size: 29px;
+        padding: 0 3px;
+        margin: 0 5px 0;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          text-decoration: underline;
+        }
 
         @include respondMax(lg-tablet) {
           width: 150px;
@@ -54,6 +75,7 @@ footer {
           font-style: normal;
           letter-spacing: inherit;
           font-size: 15px;
+          margin: 0;
         }
 
         @include respondMax(mobile) {
