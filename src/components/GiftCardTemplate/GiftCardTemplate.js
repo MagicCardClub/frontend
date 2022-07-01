@@ -24,7 +24,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
             <img
               src={image}
               alt={text}
-              style={{ width: "110px", height: "120px" }}
+              style={{ width: "100px", height: "110px" }}
             />
           </span>
         );

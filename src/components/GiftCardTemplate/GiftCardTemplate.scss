@@ -16,12 +16,16 @@
 
   span {
     // @include showBorder(black);
-    margin: 0 0 0 5px;
+    margin: 0 0 0 14px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+    &:first-of-type {
+      margin: 0 0 0 25px;
+    }
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.7);
     }
 
     &.active-edit-card {
