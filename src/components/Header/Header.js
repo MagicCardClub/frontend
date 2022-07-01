@@ -29,17 +29,17 @@ const Header = () => {
 
       <ul className="sm_links">
         <li>
-          <a href="link">
+          <a href="https://twitter.com/MagicCardClub" target="_blank">
             <AiOutlineTwitter />
           </a>
         </li>
         <li>
-          <a href="link">
+          <a href="https://discord.gg/6ktZrzfQR6" target="_blank">
             <FaDiscord />
           </a>
         </li>
         <li>
-          <a href="link">
+          <a href="https://t.me/xp9q6CkkCjQxMjdi" target="_blank">
             <FaTelegramPlane />
           </a>
         </li>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Landing.scss";
 import heroImg from "../../assets/images/hero/hero_image.png";
+import heroImageMobile from "../../assets/images/hero/heroImageMobile.png";
 
 const Landing = () => {
   return (
@@ -32,6 +33,8 @@ const Landing = () => {
 
         <div className="hero_image">
           <img src={heroImg} alt="heroimg" />
+          <img src={heroImageMobile} alt="heroimg" />
+
           <div className="img_shadow"></div>
         </div>
       </div>

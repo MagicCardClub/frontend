@@ -16,7 +16,9 @@ footer {
     width: 60%;
     // @include showBorder(black);
     height: 300px;
-    margin: 5em 0 0 3em;
+    // margin: 5em 0 0 3em;
+    margin: 5em auto 0;
+    @include flex(center, space-around);
 
     @include respondMax(lg-tablet) {
       @include flex(center, space-around);
@@ -29,16 +31,18 @@ footer {
       // @include showBorder(black);
       height: 100%;
       width: 80%;
-      @include flex(center, flex-start, row wrap);
+      @include flex(center, space-around, row wrap);
       box-sizing: border-box;
 
       @include respondMax(lg-tablet) {
+        @include flex(center, flex-start, row wrap);
         width: 70%;
         height: 100px;
       }
 
       a {
-        width: 200px;
+        // width: 200px;
+        width: max-content;
         font-weight: 500;
         font-style: normal;
         letter-spacing: -0.045em;

@@ -1,0 +1,32 @@
+@import "../../styles/config/config.scss";
+
+.gc-template {
+  //   @include showBorder(black);
+  @include flex(center, center, row);
+  position: relative;
+  right: 20px;
+  top: 23px;
+  width: 845px;
+  padding-left: 60px;
+  height: 179px;
+  background-image: url("../../assets/images/selecttemplate/trapeziumtwodesktop.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+
+  span {
+    // @include showBorder(black);
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.active-edit-card {
+      @include showBorder(black);
+      transform: scale(1.4);
+    }
+  }
+}
