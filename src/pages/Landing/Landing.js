@@ -7,9 +7,15 @@ const Landing = () => {
   return (
     <main>
       {/* different patches of colors on page */}
+<<<<<<<< HEAD:src/pages/Landing/Landing.js
       {/* <div className="color_one"></div>
       <div className="color_two"></div>
       <div className="color_three"></div> */}
+========
+      <div className="color_one"></div>
+      <div className="color_two"></div>
+      <div className="color_three"></div>
+>>>>>>>> 45055b57e2ba6bcb9236bd44f498e240c3f76bc8:src/components/Landing/Landing.js
       <div className="hero">
         <div className="hero_texts">
           <div className="first">
