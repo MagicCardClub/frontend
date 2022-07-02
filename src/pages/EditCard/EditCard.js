@@ -15,12 +15,14 @@ const EditCard = () => {
       <div className="edit-header">
         <div className="box-1"></div>
         <div className="box-2">
-          <span>Mint price per NFT Gift card = 0.025 ETH</span>
+          <span>Mint price per NFT Gift Card = 0.025 ETH</span>
         </div>
       </div>
 
       <SelectTemplate handleSelectedTemplate={handleSelectedTemplate} />
-      <EditCardModal selectedTemplate={selectedTemplate} />
+      <div className="edit-card-modal_container">
+        <EditCardModal selectedTemplate={selectedTemplate} />
+      </div>
     </div>
   );
 };

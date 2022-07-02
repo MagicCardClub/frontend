@@ -3,7 +3,7 @@ import "./GiftCardTemplate.scss";
 import { giftcardtemplates } from "../../data/templates";
 
 const GiftCardTemplate = ({ handleSelectedTemplate }) => {
-  const [activeEdit, setActiveEdit] = useState(null);
+  const [activeCard, setActiveCard] = useState(null);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -13,19 +13,20 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
     };
   }, []);
 
-  //ref for targetting active template
+  //ref for targetting active gift card template
   const activeTemplate = useRef(false);
 
-  //setting active template index
-  const setActive = (index) => {
-    setActiveEdit(index);
+  //setting active gift card template index
+  const handleActiveCard = (index) => {
+    setActiveCard(index);
     activeTemplate.current = true;
   };
 
-  //handling blur event
+  //handling blur event to set any
+  // active gift card template to non-active
   const handleClickOutside = () => {
     if (activeTemplate.current) {
-      setActiveEdit(null);
+      setActiveCard(null);
       activeTemplate.current = false;
     }
   };
@@ -37,11 +38,11 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
         return (
           <span
             ref={activeTemplate}
-            className={index === activeEdit ? "active-edit-card" : ""}
+            className={index === activeCard ? "active-edit-card" : ""}
             key={index}
             onClick={() => {
               handleSelectedTemplate(id);
-              setActive(index);
+              handleActiveCard(index);
             }}
           >
             <img
