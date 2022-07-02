@@ -1,4 +1,4 @@
-@import "../../styles/config/config.scss";
+@import '../../styles/config/config.scss';
 
 .gc-template {
   //   @include showBorder(black);
@@ -9,7 +9,7 @@
   width: 845px;
   padding-left: 60px;
   height: 179px;
-  background-image: url("../../assets/images/selecttemplate/trapeziumtwodesktop.png");
+  background-image: url('../../assets/images/selecttemplate/trapeziumtwodesktop.png');
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
