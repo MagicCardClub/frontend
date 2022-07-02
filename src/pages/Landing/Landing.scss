@@ -439,12 +439,25 @@ main {
     &:first-of-type {
       margin: 0 0;
       text-shadow: 0px 1.83514px 1.83514px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+      &:hover {
+        background-color: inherit;
+        color: rgba(218, 218, 218, 0.73);
+        border: 2px solid rgba(255, 255, 255, 0.6);
+      }
     }
     &:nth-of-type(2n) {
       background-color: inherit;
       color: rgba(218, 218, 218, 0.73);
       border: 2px solid rgba(255, 255, 255, 0.6);
       text-shadow: 0px 1.83514px 1.83514px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        border: 1px solid transparent;
+        background: #575757;
+        color: rgba(218, 218, 218, 0.73);
+      }
 
       @include respondMax(lg-tablet) {
         color: rgba(155, 155, 155, 0.41);
