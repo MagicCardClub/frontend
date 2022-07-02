@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.scss";
-import logo from "../../assets/images/hero/mc_logo.png";
+import logo from "../../assets/images/header/mc_logo.png";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
@@ -29,17 +29,29 @@ const Header = () => {
 
       <ul className="sm_links">
         <li>
-          <a href="https://twitter.com/MagicCardClub" target="_blank">
+          <a
+            href="https://twitter.com/MagicCardClub"
+            target="_blank"
+            rel="noreferrer"
+          >
             <AiOutlineTwitter />
           </a>
         </li>
         <li>
-          <a href="https://discord.gg/6ktZrzfQR6" target="_blank">
+          <a
+            href="https://discord.gg/6ktZrzfQR6"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaDiscord />
           </a>
         </li>
         <li>
-          <a href="https://t.me/xp9q6CkkCjQxMjdi" target="_blank">
+          <a
+            href="https://t.me/xp9q6CkkCjQxMjdi"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaTelegramPlane />
           </a>
         </li>
