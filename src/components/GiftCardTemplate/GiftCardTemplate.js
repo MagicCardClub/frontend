@@ -3,7 +3,11 @@ import './GiftCardTemplate.scss'
 import { giftcardtemplates } from '../../data/templates'
 
 const GiftCardTemplate = ({ handleSelectedTemplate }) => {
+<<<<<<< HEAD
   const [activeEdit, setActiveEdit] = useState(null)
+=======
+  const [activeCard, setActiveCard] = useState(null);
+>>>>>>> 9c209c70b4c1228056c47f3d9ea680ab534f9a54
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside)
@@ -13,6 +17,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
     }
   }, [])
 
+<<<<<<< HEAD
   //ref for targetting active template
   const activeTemplate = useRef(false)
 
@@ -21,12 +26,28 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
     setActiveEdit(index)
     activeTemplate.current = true
   }
+=======
+  //ref for targetting active gift card template
+  const activeTemplate = useRef(false);
 
-  //handling blur event
+  //setting active gift card template index
+  const handleActiveCard = (index) => {
+    setActiveCard(index);
+    activeTemplate.current = true;
+  };
+>>>>>>> 9c209c70b4c1228056c47f3d9ea680ab534f9a54
+
+  //handling blur event to set any
+  // active gift card template to non-active
   const handleClickOutside = () => {
     if (activeTemplate.current) {
+<<<<<<< HEAD
       setActiveEdit(null)
       activeTemplate.current = false
+=======
+      setActiveCard(null);
+      activeTemplate.current = false;
+>>>>>>> 9c209c70b4c1228056c47f3d9ea680ab534f9a54
     }
   }
 
@@ -37,11 +58,19 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
         return (
           <span
             ref={activeTemplate}
+<<<<<<< HEAD
             className={index === activeEdit ? 'active-edit-card' : ''}
             key={index}
             onClick={() => {
               handleSelectedTemplate(id)
               setActive(index)
+=======
+            className={index === activeCard ? "active-edit-card" : ""}
+            key={index}
+            onClick={() => {
+              handleSelectedTemplate(id);
+              handleActiveCard(index);
+>>>>>>> 9c209c70b4c1228056c47f3d9ea680ab534f9a54
             }}
           >
             <img

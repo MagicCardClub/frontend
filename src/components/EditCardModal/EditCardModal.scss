@@ -1,12 +1,9 @@
 @import "../../styles/config/config.scss";
 
-.edit-card_modal {
-  @include showBorder;
+.blank_card {
   @include flex();
-  width: 680px;
-  height: 600px;
-  margin: 2.5em auto 0;
+  width: max-content;
+  height: max-content;
   background: #000000;
-  border: 5px solid #404040;
-  border-radius: 18px;
+  cursor: pointer;
 }

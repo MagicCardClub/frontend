@@ -46,3 +46,14 @@
     }
   }
 }
+
+.edit-card-modal_container {
+  @include showBorder;
+  @include flex();
+  width: 680px;
+  height: 600px;
+  margin: 2.5em auto 0;
+  background: #000000;
+  border: 5px solid #404040;
+  border-radius: 18px;
+}
