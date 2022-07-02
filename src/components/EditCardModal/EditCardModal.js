@@ -14,13 +14,12 @@ const EditCardModal = ({ selectedTemplate }) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [index]);
+  }, [selectedTemplate]);
 
   const handleBlankIndex = (selectedTemplate) => {
     if (selectedTemplate > cards.length) {
       setIndex(0);
     }
-    console.log(index);
   };
 
   const { image, text } = cards[index];
