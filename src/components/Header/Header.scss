@@ -26,7 +26,6 @@ header {
   }
 
   //connect wallet button
-
   button {
     border: 1px solid transparent;
     background: #575757;
@@ -96,7 +95,7 @@ header {
     }
   }
 }
-
+//in-site navigation links
 .site_links {
   width: 35%;
   line-height: 39px;
@@ -114,6 +113,11 @@ header {
     font-weight: 400;
     font-size: 23px;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     @include respondMax(mobile) {
       font-family: "Monda";
@@ -124,6 +128,7 @@ header {
   }
 }
 
+//social media links
 .sm_links {
   width: 15%;
 
