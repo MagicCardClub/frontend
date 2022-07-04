@@ -1,31 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./EditCardModal.scss";
-import { blankCard } from "../../data/blankCard";
+import { FaEthereum } from "react-icons/fa";
+import defaultImage from "assets/images/defaultImage.webp";
 
-const EditCardModal = ({ selectedTemplate }) => {
-  const [cards, setCards] = useState(blankCard);
-  const [index, setIndex] = useState(selectedTemplate);
+const EditCardModal = (props) => {
+  const { image, color, ethereumCount } = props;
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleBlankIndex();
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [selectedTemplate]);
-
-  const handleBlankIndex = (selectedTemplate) => {
-    if (selectedTemplate > cards.length) {
-      setIndex(0);
-    }
-  };
-
-  const { image, text } = cards[index];
   return (
     <div className="blank_card">
-      <img src={image} alt={text} />
+      <img src={image} alt={color} />
+      <div className="user-name_image" style={{ backgroundColor: color }}>
+        <img src={defaultImage} alt="user image" />
+        <div className="name">User's name</div>
+      </div>
+      <div className="eth-number_container">
+        <div className="eth-logo">
+          <FaEthereum />
+        </div>
+        <span>{ethereumCount.toFixed(3)}</span>
+      </div>
     </div>
   );
 };

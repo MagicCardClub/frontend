@@ -1,4 +1,4 @@
-@import "../../styles/config/config.scss";
+@import "styles/config/config.scss";
 
 header {
   // @include showBorder($color: white);
@@ -114,6 +114,11 @@ header {
     font-weight: 400;
     font-size: 23px;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     @include respondMax(mobile) {
       font-family: "Monda";

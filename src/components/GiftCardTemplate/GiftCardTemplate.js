@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GiftCardTemplate.scss";
-import { giftcardtemplates } from "../../data/templates";
+import { giftcardtemplates } from "data/templates";
 
 const GiftCardTemplate = ({ handleSelectedTemplate }) => {
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -39,9 +39,9 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
           <span
             ref={activeTemplate}
             className={index === activeCard ? "active-edit-card" : ""}
-            key={index}
+            key={id}
             onClick={() => {
-              handleSelectedTemplate(id);
+              handleSelectedTemplate(index);
               handleActiveCard(index);
             }}
           >
