@@ -18,7 +18,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
 
   //setting active template index
   const setActive = (index) => {
-    setActiveEdit(index)
+    setActiveCard(index)
     activeTemplate.current = true
   }
 
@@ -26,7 +26,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
   // active gift card template to non-active
   const handleClickOutside = () => {
     if (activeTemplate.current) {
-      setActiveEdit(null)
+      setActiveCard(null)
       activeTemplate.current = false
     }
   }
@@ -42,7 +42,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
             key={id}
             onClick={() => {
               handleSelectedTemplate(index)
-              handleActiveCard(index)
+              setActive(index)
             }}
           >
             <img
