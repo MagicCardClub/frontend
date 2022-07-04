@@ -24,11 +24,7 @@ const EditCardModal = ({ selectedTemplate }) => {
 
   const { image, text } = cards[index]
   return (
-<<<<<<< HEAD
     <div className='edit-card_modal'>
-=======
-    <div className="blank_card">
->>>>>>> 9c209c70b4c1228056c47f3d9ea680ab534f9a54
       <img src={image} alt={text} />
     </div>
   )
