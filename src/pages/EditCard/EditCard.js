@@ -62,19 +62,15 @@ const EditCard = () => {
             <GiFeather />
           </button>
 
-<<<<<<< HEAD
-          <div className='card-color_options'>
-=======
           <div
-            className="add-name_modal"
-            style={{ borderWidth: 1, borderColor: color, borderStyle: "solid" }}
+            className='add-name_modal'
+            style={{ borderWidth: 1, borderColor: color, borderStyle: 'solid' }}
           >
-            <input type="text" />
+            <input type='text' />
             <button>Save</button>
           </div>
 
-          <div className="card-color_options">
->>>>>>> de3c5ae767dacf0358db3c0c51ca033823184c8c
+          <div className='card-color_options'>
             {cards.options.map((card, index) => {
               return (
                 <span
