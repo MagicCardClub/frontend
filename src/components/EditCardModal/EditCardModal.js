@@ -13,8 +13,13 @@ const EditCardModal = (props) => {
         <img src={defaultImage} alt='user image' />
         <div className='name'>User's name</div>
       </div>
+<<<<<<< HEAD
       <div className='eth-number_container'>
         <div className='eth-logo'>
+=======
+      <div className="eth-number_container">
+        <div className="eth-logo" style={{ backgroundColor: color }}>
+>>>>>>> de3c5ae767dacf0358db3c0c51ca033823184c8c
           <FaEthereum />
         </div>
         <span>{ethereumCount.toFixed(3)}</span>
