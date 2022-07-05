@@ -14,7 +14,7 @@ const EditCardModal = (props) => {
         <div className="name">User's name</div>
       </div>
       <div className="eth-number_container">
-        <div className="eth-logo">
+        <div className="eth-logo" style={{ backgroundColor: color }}>
           <FaEthereum />
         </div>
         <span>{ethereumCount.toFixed(3)}</span>
