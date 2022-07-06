@@ -47,7 +47,7 @@
 }
 
 .slides {
-  @include showBorder();
+  // @include showBorder();
   width: 45%;
   height: 500px;
   display: grid;
