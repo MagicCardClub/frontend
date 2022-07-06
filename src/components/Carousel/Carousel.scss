@@ -9,7 +9,7 @@
 }
 
 .template {
-  // @include showBorder(white);
+  @include showBorder(white);
   position: absolute;
   width: 50%;
   height: 100%;
@@ -43,5 +43,86 @@
     height: 100%;
     // pointer-events: none;
     cursor: pointer;
+  }
+}
+
+.slides {
+  // @include showBorder();
+  width: 45%;
+  height: 500px;
+  display: grid;
+  overflow: hidden;
+
+  > .slide {
+    grid-area: 2 / 2;
+  }
+}
+
+// .slide {
+//transform-style: preserve-3d;
+// border: solid 1px red;
+
+// &[data-active] {
+//   .slideContent > * {
+//     transform: none;
+//     opacity: 1;
+//   }
+// }
+// }
+
+.slideContent {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: transform 1s ease-in-out;
+  opacity: 0.7;
+
+  display: grid;
+  align-content: center;
+
+  transform-style: preserve-3d;
+  transform: perspective(2000px) translateX(calc(100% * var(--offset)))
+    rotateY(calc(-45deg * var(--dir)));
+}
+
+.slideBackground {
+  position: fixed;
+  top: 0;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+  pointer-events: none;
+
+  transform: translateX(calc(10% * var(--dir)));
+}
+
+.slide[data-active] {
+  z-index: 2;
+  pointer-events: auto;
+
+  .slideBackground {
+    opacity: 0.2;
+    transform: none;
+  }
+
+  .slideContent {
+    --x: calc(var(--px) - 0.5);
+    --y: calc(var(--py) - 0.5);
+    opacity: 1;
+
+    transform: perspective(1000px);
+
+    &:hover {
+      transition: none;
+      transform: perspective(1000px) rotateY(calc(var(--x) * 45deg))
+        rotateX(calc(var(--y) * -45deg));
+    }
   }
 }
