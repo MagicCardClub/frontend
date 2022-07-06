@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "styles/App.scss";
-import Header from "components/Header/Header";
-import Landing from "pages/Landing/Landing";
-import Footer from "components/Footer/Footer";
-import { landingCarousel } from "data/landingCarousel";
+import React, { useState } from 'react'
+import 'styles/App.scss'
+import Header from 'components/Header/Header'
+import Landing from 'pages/Landing/Landing'
+import Footer from 'components/Footer/Footer'
+import { landingCarousel } from 'data/landingCarousel'
 
 const App = () => {
-  const [carousel, setCarousel] = useState(landingCarousel);
-  const [bgImage, setBgImage] = useState(0);
+  const [carousel, setCarousel] = useState(landingCarousel)
+  const [bgImage, setBgImage] = useState(0)
 
   const changeBackground = (imageId) => {
-    setBgImage(imageId);
-  };
+    setBgImage(imageId)
+  }
 
   const {
     background,
@@ -21,11 +21,11 @@ const App = () => {
     headerIconBg,
     headerIconColor,
     headerBg,
-  } = carousel[bgImage];
+  } = carousel[bgImage]
 
   return (
     <div
-      className="App"
+      className='App'
       style={{ backgroundImage: `url(${background})`, transitionDuration: 3 }}
     >
       <Header
@@ -42,7 +42,7 @@ const App = () => {
       />
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
