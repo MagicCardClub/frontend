@@ -1,9 +1,9 @@
 @import "./config/config.scss";
 
 .App {
-  background-color: $color-page-basic;
+  background-position: top;
+  background-repeat: no-repeat;
   width: 100vw;
-  height: auto;
 
   @include respondMax(mobile) {
     width: 100%;

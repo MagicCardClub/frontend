@@ -4,9 +4,10 @@ header {
   // @include showBorder($color: white);
   @include flex($justify: space-around);
   height: 70px;
-  width: 100%;
-  height: 100px;
+  width: 95%;
+  height: 150px;
   box-sizing: border-box;
+  margin: auto;
 
   @include respondMax(lg-tablet) {
     width: 100%;
@@ -18,6 +19,28 @@ header {
     height: 70px;
   }
 
+  .navs {
+    // @include showBorder($color: white);
+    @include flex($justify: space-around);
+    border-radius: 20px;
+    height: 70px;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    margin: auto;
+    background-blend-mode: overlay;
+
+    @include respondMax(lg-tablet) {
+      width: 100%;
+      height: 70px;
+    }
+
+    @include respondMax(mobile) {
+      width: 100%;
+      height: 70px;
+    }
+  }
+
   ul {
     @include flex($justify: space-around);
     padding: 5px;
@@ -26,7 +49,7 @@ header {
   }
 
   //connect wallet button
-  button {
+  .connect-btn {
     border: 1px solid transparent;
     background: #575757;
     color: white;
@@ -71,8 +94,8 @@ header {
   }
 
   img {
-    width: 60px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 
     @include respondMax(lg-tablet) {
       width: 35px;

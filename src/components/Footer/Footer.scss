@@ -12,6 +12,138 @@ footer {
     background-color: #d9d9d9;
   }
 
+  .newsletter {
+    // @include showBorder($color: black);
+    @include flex(center, space-around, column);
+    width: 55%;
+    height: max-content;
+    margin: 10em auto 2em;
+    padding: 5px;
+    box-sizing: border-box;
+
+    @include respondMax(lg-tablet) {
+      width: 70%;
+      margin: 3em auto 0;
+    }
+
+    @include respondMax(mobile) {
+      width: 90%;
+      margin: 3em auto 0;
+    }
+
+    .text {
+      // @include showBorder($color: black);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 26px;
+      letter-spacing: -0.045em;
+      color: black;
+
+      @include respondMax(lg-tablet) {
+        font-size: 18px;
+        letter-spacing: inherit;
+        text-align: center;
+
+        br {
+          display: none;
+        }
+      }
+
+      @include respondMax(mobile) {
+        font-size: 15px;
+        letter-spacing: inherit;
+        text-align: center;
+
+        br {
+          display: none;
+        }
+      }
+    }
+
+    form {
+      // @include showBorder($color: black);
+      @include flex($flex: column);
+      margin: 10px 0 0;
+      width: 100%;
+      padding: 10px 0;
+      box-sizing: border-box;
+
+      @include respondMax(lg-tablet) {
+        @include flex($align: center, $justify: space-evenly, $flex: column);
+        // @include showBorder($color: black);
+        height: max-content;
+      }
+
+      input {
+        // @include showBorder($color: black);
+        width: 60%;
+        height: 69px;
+        outline: none;
+        padding: 0 0 0 20px;
+        font-weight: 400;
+        font-size: 23px;
+        letter-spacing: -0.045em;
+        border-radius: 15px;
+        box-sizing: border-box;
+
+        @include respondMax(lg-tablet) {
+          @include showBorder(#9d9d9d);
+          background: #252525;
+          color: #959292;
+          font-size: 15px;
+          width: 60%;
+          height: 35px;
+          border-radius: 10px;
+        }
+
+        @include respondMax(mobile) {
+          @include showBorder(#9d9d9d);
+          background: #252525;
+          color: #959292;
+          font-size: 15px;
+          width: 80%;
+          height: 35px;
+          border-radius: 10px;
+        }
+      }
+
+      button {
+        // @include showBorder($color: white);
+        background-color: black;
+        outline: none;
+        color: white;
+        border: 1px solid white;
+        width: 60%;
+        height: 69px;
+        padding: 0 5px;
+        margin: 0.7em 0 0;
+        font-weight: 500;
+        font-size: 35px;
+        letter-spacing: -0.045em;
+        text-align: center;
+        border-radius: 15px;
+        cursor: pointer;
+        box-sizing: border-box;
+
+        @include respondMax(lg-tablet) {
+          font-size: 15px;
+          width: 60%;
+          height: 35px;
+          margin: 0;
+          border-radius: 10px;
+        }
+
+        @include respondMax(mobile) {
+          font-size: 15px;
+          width: 80%;
+          height: 35px;
+          margin: 0;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
   nav {
     width: 100%;
     // @include showBorder(black);

@@ -1,67 +1,52 @@
-import React from 'react'
-import './Landing.scss'
-import heroImg from '../../assets/images/hero/hero_image.png'
-import heroImageMobile from '../../assets/images/hero/heroImageMobile.png'
+import React from "react";
+import "./Landing.scss";
+import Carousel from "components/Carousel/Carousel";
 
-const Landing = () => {
+const Landing = (props) => {
+  const { carousel, changeBackground, textColorone, textColortwo } = props;
   return (
     <main>
-      {/* different patches of colors on page */}
-      {/* <div className="color_one"></div>
-      <div className="color_two"></div>
-      <div className="color_three"></div> */}
-
-      <div className='color_one'></div>
-      <div className='color_two'></div>
-      <div className='color_three'></div>
-
-      <div className='hero'>
-        <div className='hero_texts'>
-          <div className='first'>
-            <span>MINT</span>
+      <div className="hero">
+        <div className="hero_texts">
+          <div className="first">
+            <span style={{ color: textColorone }}>MINT</span>
             <br />
-            <span>NFT</span>
+            <span style={{ color: textColortwo }}>NFT</span>
             <br />
-            <span>GIFT CARDS</span>
+            <span style={{ color: textColorone }}>GIFT CARDS</span>
           </div>
-          <div className='second'>
-            <span>SEND AND CLAIM</span>
+          <div className="second">
+            <span style={{ color: textColortwo }}>SEND AND CLAIM</span>
             <br />
-            <span>GIFT CARDS AND TOKENS</span>
+            <span style={{ color: textColortwo }}>GIFT CARDS AND TOKENS</span>
           </div>
-          <div className='third'>
-            <span>From family, friends, co-workers</span>
+          <div className="third">
+            <span style={{ color: textColortwo }}>
+              From family, friends, co-workers
+            </span>
             <br />
-            <span>&#38; acquaintances</span>
+            <span style={{ color: textColortwo }}>&#38; acquaintances</span>
           </div>
         </div>
 
-        <div className='hero_image'>
-          <img src={heroImg} alt='heroimg' />
-          <img src={heroImageMobile} alt='heroimg' />
-
-          <div className='img_shadow'></div>
-        </div>
+        <Carousel
+          carousel={carousel}
+          changeBackground={changeBackground}
+          textColorone={textColorone}
+          textColortwo={textColortwo}
+        />
       </div>
 
-      <div className='mint-claim_btn'>
-        <button>MINT</button>
-        <button>CLAIM</button>
-      </div>
-
-      <div className='newsletter'>
-        <div className='text'>
-          Get the latest update on upcoming gift card <br /> types for your
-          family, friends and loved ones.
-        </div>
-        <form action=''>
-          <input type='text' placeholder='enter email' />
-          <br />
-          <button>Subscribe to Newletter</button>
-        </form>
+      <div className="mint-claim_btn">
+        <button style={{ backgroundColor: textColortwo, color: "white" }}>
+          MINT
+        </button>
+        <button style={{ borderColor: textColortwo, color: textColortwo }}>
+          CLAIM
+        </button>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;

@@ -5,59 +5,76 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
-const Header = () => {
+const Header = (props) => {
+  const { headerButtonColor, headerIconBg, headerIconColor, headerBg } = props;
   return (
     <header>
-      <div className="logo">
-        <img src={logo} alt="logo" />
-        <div>
-          <span>Magic</span>
-          <span>Card</span>
+      <div
+        className="navs"
+        style={{
+          backgroundColor: headerBg,
+          backgroundBlendMode: "overlay",
+          // opacity: 0.7,
+        }}
+      >
+        {" "}
+        <div className="logo">
+          <img src={logo} alt="logo" />
+          <div>
+            <span>Magic</span>
+            <span>Card</span>
+          </div>
         </div>
+        <ul className="site_links">
+          <li>
+            <a href="#link">About</a>
+          </li>
+          <li>
+            <a href="#roadmap">Roadmap</a>
+          </li>
+          <li>
+            <a href="#comms">Community</a>
+          </li>
+        </ul>
+        <ul className="sm_links">
+          <li>
+            <a
+              href="https://twitter.com/MagicCardClub"
+              target="_blank"
+              rel="noreferrer"
+              style={{ backgroundColor: headerIconBg, color: headerIconColor }}
+            >
+              <AiOutlineTwitter />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/6ktZrzfQR6"
+              target="_blank"
+              rel="noreferrer"
+              style={{ backgroundColor: headerIconBg, color: headerIconColor }}
+            >
+              <FaDiscord />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://t.me/xp9q6CkkCjQxMjdi"
+              target="_blank"
+              rel="noreferrer"
+              style={{ backgroundColor: headerIconBg, color: headerIconColor }}
+            >
+              <FaTelegramPlane />
+            </a>
+          </li>
+        </ul>
+        <button
+          className="connect-btn"
+          style={{ backgroundColor: headerButtonColor }}
+        >
+          Connect wallet
+        </button>
       </div>
-      <ul className="site_links">
-        <li>
-          <a href="#link">About</a>
-        </li>
-        <li>
-          <a href="#roadmap">Roadmap</a>
-        </li>
-        <li>
-          <a href="#comms">Community</a>
-        </li>
-      </ul>
-
-      <ul className="sm_links">
-        <li>
-          <a
-            href="https://twitter.com/MagicCardClub"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <AiOutlineTwitter />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://discord.gg/6ktZrzfQR6"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaDiscord />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://t.me/xp9q6CkkCjQxMjdi"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaTelegramPlane />
-          </a>
-        </li>
-      </ul>
-
-      <button>Connect wallet</button>
     </header>
   );
 };

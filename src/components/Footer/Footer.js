@@ -9,6 +9,18 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
+      <div className="newsletter">
+        <div className="text">
+          Get the latest update on upcoming gift card <br /> types for your
+          family, friends and loved ones.
+        </div>
+        <form action="">
+          <input type="text" placeholder="enter email" />
+          <br />
+          <button>Subscribe to Newletter</button>
+        </form>
+      </div>
+
       <nav>
         <div className="site_nav">
           <a href="#link">Home</a>
