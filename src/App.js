@@ -3,10 +3,9 @@ import "styles/App.scss";
 import Header from "components/Header/Header";
 import Landing from "pages/Landing/Landing";
 import Footer from "components/Footer/Footer";
-import { landingCarousel } from "data/landingCarousel";
+import { landingCarousel as carousel } from "data/landingCarousel";
 
 const App = () => {
-  const [carousel, setCarousel] = useState(landingCarousel);
   const [bgImage, setBgImage] = useState(0);
 
   const changeBackground = (imageId) => {
@@ -26,7 +25,12 @@ const App = () => {
   return (
     <div
       className="App"
-      style={{ backgroundImage: `url(${background})`, transitionDuration: 3 }}
+      style={{
+        backgroundImage: `url(${background})`,
+        transitionDuration: 3,
+        transitionProperty: "all",
+        transitionTimingFunction: "ease-in-out",
+      }}
     >
       <Header
         headerButtonColor={headerButtonColor}
