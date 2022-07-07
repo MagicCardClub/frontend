@@ -105,8 +105,11 @@ export const landingCarousel = [
     headerIconBg: "inherit",
     headerBg: "rgba(65, 65, 65, 0.2)",
     description: "Happy Halloween",
-    footerBg: "",
+    footerBg: "#191B1B",
     footerTextColor: "white",
+    footerButtonColor: "orange",
+    footerIconColor: "white",
+    footerIconBg: "rgba(255, 255, 255, 0.2)",
   },
   {
     id: 5,

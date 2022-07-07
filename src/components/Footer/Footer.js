@@ -27,7 +27,10 @@ const Footer = (props) => {
           <input
             type="text"
             placeholder="enter email"
-            style={{ borderColor: footerButtonColor }}
+            style={{
+              borderColor: footerButtonColor,
+              backgroundColor: "white",
+            }}
           />
           <br />
           <button

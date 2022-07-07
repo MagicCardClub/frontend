@@ -1,23 +1,24 @@
 @import "../../styles/config/config.scss";
 
 footer {
-  @include showBorder(transparent);
+  // @include showBorder(transparent);
   width: 100%;
-  height: max-content;
+  height: auto;
   box-sizing: border-box;
   background-color: white;
-  margin: auto;
+  box-sizing: border-box;
+  // margin: auto;
 
   @include respondMax(mobile) {
     background-color: #d9d9d9;
   }
 
   .newsletter {
-    // @include showBorder($color: black);
+    // @include showBorder(white);
     @include flex(center, space-around, column);
     width: 55%;
-    height: max-content;
-    margin: 4em auto 2em;
+    height: 300px;
+    margin: 0 auto 2em;
     padding: 5px;
     box-sizing: border-box;
 
@@ -85,8 +86,8 @@ footer {
         letter-spacing: -0.045em;
         border-radius: 40px;
         outline: none;
+        color: lighten($color: #000000, $amount: 40%);
         box-sizing: border-box;
-
         @include respondMax(lg-tablet) {
           @include showBorder(#9d9d9d);
           background: #252525;
@@ -293,8 +294,8 @@ footer {
   }
 
   .copyright {
-    // @include showBorder(black);
-    margin: 2em auto;
+    // @include showBorder(white);
+    margin: 10px auto 0;
     width: 200px;
     height: 70px;
     @include flex(center, space-around);
