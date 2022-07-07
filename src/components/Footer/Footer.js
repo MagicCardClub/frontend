@@ -5,39 +5,75 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = (props) => {
+  const {
+    footerBg,
+    footerButtonColor,
+    footerTextColor,
+    footerIconBg,
+    footerIconColor,
+  } = props;
+
   const currentYear = new Date().getFullYear();
+
   return (
-    <footer>
+    <footer style={{ backgroundColor: footerBg }}>
       <div className="newsletter">
-        <div className="text">
+        <div className="text" style={{ color: footerTextColor }}>
           Get the latest update on upcoming gift card <br /> types for your
           family, friends and loved ones.
         </div>
         <form action="">
-          <input type="text" placeholder="enter email" />
+          <input
+            type="text"
+            placeholder="enter email"
+            style={{ borderColor: footerButtonColor }}
+          />
           <br />
-          <button>Subscribe to Newletter</button>
+          <button
+            style={{
+              backgroundColor: footerButtonColor,
+              color: "white",
+            }}
+          >
+            Subscribe to Newletter
+          </button>
         </form>
       </div>
 
-      <nav>
-        <div className="site_nav">
-          <a href="#link">Home</a>
+      <nav className="footer-nav">
+        <div className="site_nav" style={{ color: footerTextColor }}>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Home
+          </a>
 
-          <a href="#link">Community</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Community
+          </a>
 
-          <a href="#link">Disclaimer</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Disclaimer
+          </a>
 
-          <a href="#link">About</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            About
+          </a>
 
-          <a href="#link">Feedback</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Feedback
+          </a>
 
-          <a href="#link">Privacy Policy</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Privacy Policy
+          </a>
 
-          <a href="#link">Roadmap</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Roadmap
+          </a>
 
-          <a href="#link">Terms of Service</a>
+          <a href="#link" style={{ color: footerTextColor }}>
+            Terms of Service
+          </a>
         </div>
 
         <ul className="sm_links">
@@ -46,6 +82,10 @@ const Footer = () => {
               href="https://twitter.com/MagicCardClub"
               target="_blank"
               rel="noreferrer"
+              style={{
+                backgroundColor: footerIconBg,
+                color: footerIconColor,
+              }}
             >
               <AiOutlineTwitter />
             </a>
@@ -55,6 +95,10 @@ const Footer = () => {
               href="https://discord.gg/6ktZrzfQR6"
               target="_blank"
               rel="noreferrer"
+              style={{
+                backgroundColor: footerIconBg,
+                color: footerIconColor,
+              }}
             >
               <FaDiscord />
             </a>
@@ -64,6 +108,10 @@ const Footer = () => {
               href="https://t.me/xp9q6CkkCjQxMjdi"
               target="_blank"
               rel="noreferrer"
+              style={{
+                backgroundColor: footerIconBg,
+                color: footerIconColor,
+              }}
             >
               <FaTelegramPlane />
             </a>

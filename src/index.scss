@@ -12,11 +12,12 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+@import "styles/config/config.scss";
 html,
 body {
   margin: 0px;
   padding: 0px;
   width: 100%;
+  height: min-content;
   overflow-x: hidden;
 }

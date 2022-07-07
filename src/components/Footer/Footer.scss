@@ -1,12 +1,12 @@
 @import "../../styles/config/config.scss";
 
 footer {
-  // @include showBorder(black);
+  @include showBorder(transparent);
   width: 100%;
-  height: auto;
+  height: max-content;
   box-sizing: border-box;
   background-color: white;
-  margin: 0;
+  margin: auto;
 
   @include respondMax(mobile) {
     background-color: #d9d9d9;
@@ -17,7 +17,7 @@ footer {
     @include flex(center, space-around, column);
     width: 55%;
     height: max-content;
-    margin: 10em auto 2em;
+    margin: 4em auto 2em;
     padding: 5px;
     box-sizing: border-box;
 
@@ -75,15 +75,16 @@ footer {
       }
 
       input {
-        // @include showBorder($color: black);
+        // @include showBorder(transparent);
+        border-width: 1px;
         width: 60%;
-        height: 69px;
-        outline: none;
+        height: 55px;
         padding: 0 0 0 20px;
         font-weight: 400;
         font-size: 23px;
         letter-spacing: -0.045em;
-        border-radius: 15px;
+        border-radius: 40px;
+        outline: none;
         box-sizing: border-box;
 
         @include respondMax(lg-tablet) {
@@ -108,20 +109,19 @@ footer {
       }
 
       button {
-        // @include showBorder($color: white);
+        @include showBorder(transparent);
         background-color: black;
         outline: none;
         color: white;
-        border: 1px solid white;
         width: 60%;
-        height: 69px;
+        height: 55px;
         padding: 0 5px;
         margin: 0.7em 0 0;
         font-weight: 500;
         font-size: 35px;
         letter-spacing: -0.045em;
         text-align: center;
-        border-radius: 15px;
+        border-radius: 40px;
         cursor: pointer;
         box-sizing: border-box;
 
@@ -144,11 +144,18 @@ footer {
     }
   }
 
-  nav {
+  .footer-nav {
     width: 100%;
     // @include showBorder(black);
     height: 250px;
     @include flex(center, space-around);
+
+    @include respondMin(sm-desktop) {
+      @include flex(center, space-around, column-reverse);
+      width: 100vw;
+      height: 300px;
+      margin: 1em 0 0;
+    }
 
     @include respondMax(lg-tablet) {
       @include flex(center, space-around);
@@ -230,7 +237,9 @@ footer {
       top: -30px;
 
       @include respondMin(sm-desktop) {
-        display: none;
+        @include flex(center, space-around, row wrap);
+        width: 30%;
+        top: 0;
       }
 
       @include respondMax(lg-tablet) {
@@ -238,17 +247,25 @@ footer {
       }
 
       li {
-        width: 30%;
+        width: 33%;
+
+        @include respondMin(sm-desktop) {
+          @include flex(center, space-around, row);
+          width: 30%;
+        }
       }
       a {
+        @include showBorder(transparent);
         display: block;
-        height: 30px;
+        height: 40px;
+        width: 40px;
         background: inherit;
         color: #6c6c6c;
         @include flex();
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
+        font-size: 1.5em;
 
         &:hover {
           transform: scale(1.2);

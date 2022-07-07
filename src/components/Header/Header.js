@@ -14,7 +14,6 @@ const Header = (props) => {
         style={{
           backgroundColor: headerBg,
           backgroundBlendMode: "overlay",
-          // opacity: 0.7,
         }}
       >
         {" "}

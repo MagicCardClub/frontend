@@ -3,7 +3,9 @@ import "./Landing.scss";
 import Carousel from "components/Carousel/Carousel";
 
 const Landing = (props) => {
-  const { carousel, changeBackground, textColorone, textColortwo } = props;
+  const { carousel, changeBackground, textColorone, textColortwo, footerBg } =
+    props;
+
   return (
     <main>
       <div className="hero">
@@ -44,6 +46,16 @@ const Landing = (props) => {
         <button style={{ borderColor: textColortwo, color: textColortwo }}>
           CLAIM
         </button>
+      </div>
+
+      <div
+        className="unpack"
+        style={{
+          backgroundColor: footerBg,
+          boxShadow: `0px 0px 40px 35px ${footerBg}`,
+        }}
+      >
+        Unpack Your Gift Collection
       </div>
     </main>
   );
