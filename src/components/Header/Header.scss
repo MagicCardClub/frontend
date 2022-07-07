@@ -8,6 +8,7 @@ header {
   height: 150px;
   box-sizing: border-box;
   margin: auto;
+  transition: all 1.5s ease-in-out;
 
   @include respondMax(lg-tablet) {
     width: 100%;
@@ -31,13 +32,13 @@ header {
     background-blend-mode: overlay;
 
     @include respondMax(lg-tablet) {
-      width: 100%;
-      height: 70px;
+      width: 90%;
+      height: 55px;
     }
 
     @include respondMax(mobile) {
-      width: 100%;
-      height: 70px;
+      width: 90%;
+      height: 55px;
     }
   }
 
@@ -98,8 +99,8 @@ header {
     height: 40px;
 
     @include respondMax(lg-tablet) {
-      width: 35px;
-      height: 30px;
+      width: 30px;
+      height: 27px;
     }
   }
 
@@ -125,7 +126,7 @@ header {
 
   @include respondMax(lg-tablet) {
     @include flex($justify: space-around);
-    width: 45%;
+    width: 50%;
   }
 
   a {

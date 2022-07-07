@@ -1,18 +1,18 @@
 @import "./config/config.scss";
 
 .App {
-  position: relative;
+  // position: relative;
   z-index: 1;
-  pointer-events: none;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-position: top;
+  background-position: cover;
   background-repeat: no-repeat;
-  width: 100vw;
+  background-size: 100% 1080px;
+  width: 100%;
+  transition: all 1.5s ease-in-out;
 
-  @include respondMax(mobile) {
+  @include respondMax(lg-tablet) {
     width: 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: auto;
   }
 }
