@@ -8,15 +8,9 @@ import { landingCarousel as carousel } from 'data/landingCarousel'
 const App = () => {
   const [bgImage, setBgImage] = useState(0)
 
-<<<<<<< HEAD
-  const changeBackground = (imageId) => {
-    setBgImage(imageId)
-  }
-=======
   const changeBackground = (id) => {
-    setBgImage(id);
-  };
->>>>>>> 135da980111124c3f6f1d802e2ba9b5684196223
+    setBgImage(id)
+  }
 
   const {
     background,
@@ -26,16 +20,12 @@ const App = () => {
     headerIconBg,
     headerIconColor,
     headerBg,
-<<<<<<< HEAD
-  } = carousel[bgImage]
-=======
     footerBg,
     footerButtonColor,
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = carousel[bgImage];
->>>>>>> 135da980111124c3f6f1d802e2ba9b5684196223
+  } = carousel[bgImage]
 
   return (
     <div
