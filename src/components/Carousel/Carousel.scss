@@ -2,8 +2,8 @@
 
 .slides {
   // @include showBorder();
-  width: 45%;
-  height: 500px;
+  width: 55%;
+  height: 600px;
   display: grid;
   overflow: hidden;
 
@@ -35,8 +35,8 @@
 // }
 
 .slideContent {
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
