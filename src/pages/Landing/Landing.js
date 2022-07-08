@@ -43,7 +43,13 @@ const Landing = (props) => {
         <button style={{ backgroundColor: textColortwo, color: "white" }}>
           MINT
         </button>
-        <button style={{ borderColor: textColortwo, color: textColortwo }}>
+        <button
+          style={{
+            borderColor: textColortwo,
+            color: textColortwo,
+            borderWidth: 4,
+          }}
+        >
           CLAIM
         </button>
       </div>
