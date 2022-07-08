@@ -25,7 +25,7 @@ main {
 
 .hero_texts {
   // @include showBorder($color: black);
-  width: 40%;
+  width: 30%;
   @include flex($flex: column, $align: flex-start, $justify: space-around);
   box-sizing: border-box;
   position: relative;
@@ -94,7 +94,7 @@ main {
         font-size: 100px;
         font-family: "Press Start 2P";
         letter-spacing: 3px;
-        top: 10px;
+        top: -5px;
 
         @include respondMax(lg-tablet) {
           font-size: 70px;
@@ -116,7 +116,7 @@ main {
         font-weight: 400;
         font-size: 67px;
         letter-spacing: 2px;
-        top: -5px;
+        top: -30px;
 
         @include respondMax(lg-tablet) {
           font-size: 50px;
@@ -133,7 +133,7 @@ main {
   .second {
     // @include showBorder($color: black);
     position: relative;
-    top: -60px;
+    top: -80px;
 
     @include respondMax(lg-tablet) {
       width: 100%;

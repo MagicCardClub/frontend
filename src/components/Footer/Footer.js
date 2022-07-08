@@ -17,7 +17,12 @@ const Footer = (props) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ backgroundColor: footerBg }}>
+    <footer
+      style={{
+        backgroundColor: footerBg,
+        boxShadow: `0px -10px 20px 10px ${footerBg}`,
+      }}
+    >
       <div className="newsletter">
         <div className="text" style={{ color: footerTextColor }}>
           Get the latest update on upcoming gift card <br /> types for your
