@@ -25,7 +25,7 @@ const App = () => {
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = carousel[4];
+  } = carousel[bgImage];
 
   return (
     <div

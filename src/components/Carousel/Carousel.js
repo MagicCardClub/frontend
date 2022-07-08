@@ -111,8 +111,6 @@ function Carousel(props) {
     const interval = setInterval(play, 20000);
     changeBackground(state.slideIndex);
 
-    console.log(state.slideIndex);
-
     return () => {
       clearInterval(interval);
     };

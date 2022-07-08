@@ -1,6 +1,7 @@
 import React from "react";
 import "./Landing.scss";
 import Carousel from "components/Carousel/Carousel";
+import { BiLinkExternal } from "react-icons/bi";
 
 const Landing = (props) => {
   const { carousel, changeBackground, textColorone, textColortwo, footerBg } =
@@ -58,10 +59,10 @@ const Landing = (props) => {
         className="unpack"
         style={{
           backgroundColor: footerBg,
-          boxShadow: `0px 0px 40px 35px ${footerBg}`,
+          boxShadow: `0px 0px 30px 35px ${footerBg}`,
         }}
       >
-        Unpack Your Gift Collection
+        Unpack Your Gift Collection <BiLinkExternal />
       </div>
     </main>
   );
