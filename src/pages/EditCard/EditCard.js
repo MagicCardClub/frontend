@@ -1,19 +1,26 @@
 import React, { useState } from "react";
+import { GiFeather } from "react-icons/gi";
+
 import "./EditCard.scss";
+import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import SelectTemplate from "components/shared/SelectTemplate/SelectTemplate";
 import EditCardModal from "components/EditCardModal/EditCardModal";
 import { blankCard } from "data/blankCard";
-import { GiFeather } from "react-icons/gi";
+import { useLocalStorage } from "hooks/useLocalStorage";
 
 const EditCard = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(0);
-  const [blankCards, setCards] = useState(blankCard);
-  const [cardOptions, setCardOptions] = useState(0);
+  const [cardOption, setCardOptions] = useState(0);
   const [ethereumCount, setEthereumCount] = useState(0.025);
+  const [nameModal, setNameModal] = useState(false);
+  const [username, setUserName] = useState("");
+
+  //saves username to local storage
+  const [name, setName] = useLocalStorage("name", "");
 
   //sets index for selected template for editing blank cards
   const handleSelectedTemplate = (templateId) => {
-    if (templateId > blankCards.length - 1) {
+    if (templateId > blankCard.length) {
       setSelectedTemplate(0);
     } else {
       setSelectedTemplate(templateId);
@@ -21,28 +28,27 @@ const EditCard = () => {
   };
 
   const addToEthereum = () => {
-    setEthereumCount(ethereumCount + 0.5);
+    if (ethereumCount < 0) {
+      setEthereumCount(0.025);
+    } else {
+      setEthereumCount(ethereumCount + 0.025);
+    }
+
     console.log(ethereumCount.toFixed(3));
   };
 
   const decreaseEthereum = () => {
-    setEthereumCount(ethereumCount - 0.5);
+    setEthereumCount(ethereumCount - 0.025);
     console.log(ethereumCount.toFixed(3));
   };
 
-  const cards = blankCards[selectedTemplate];
+  const cards = blankCard[selectedTemplate];
 
-  const { id, image, color } = cards.options[cardOptions];
+  const { id, image, color } = cards.options[cardOption];
 
   return (
     <div className="edit-card">
-      <div className="edit-header">
-        <div className="box-1"></div>
-        <div className="box-2">
-          <span>Mint price per NFT Gift Card = 0.025 ETH</span>
-        </div>
-      </div>
-
+      <InfoHeader />
       <SelectTemplate handleSelectedTemplate={handleSelectedTemplate} />
       <div className="edit-card-modal_container">
         <EditCardModal
@@ -50,6 +56,7 @@ const EditCard = () => {
           image={image}
           color={color}
           ethereumCount={ethereumCount}
+          name={name}
         />
 
         <div
@@ -59,15 +66,41 @@ const EditCard = () => {
           <button className="add-user-image_btn">+</button>
 
           <button className="add-user-name_btn">
-            <GiFeather />
+            <GiFeather
+              className="icon"
+              onClick={() => {
+                setNameModal(true);
+              }}
+            />
           </button>
 
           <div
-            className="add-name_modal"
-            style={{ borderWidth: 1, borderColor: color, borderStyle: "solid" }}
+            className={`add-name_modal ${nameModal ? "open" : ""}`}
+            style={{ border: `1px solid ${color}` }}
           >
-            <input type="text" />
-            <button>Save</button>
+            <form className="content">
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
+              />
+              <button
+                style={{
+                  backgroundColor: color,
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setNameModal(false);
+                  setName(username);
+                  setUserName("");
+                }}
+              >
+                Save
+              </button>
+            </form>
           </div>
 
           <div className="card-color_options">
@@ -75,8 +108,13 @@ const EditCard = () => {
               return (
                 <span
                   key={index}
-                  className="color"
-                  style={{ backgroundColor: card.color }}
+                  className={index === cardOption ? "active-color" : "color"}
+                  style={{
+                    backgroundColor: card.color,
+                    borderColor: index === cardOption ? "white" : "transparent",
+                    borderWidth: 2,
+                    borderStyle: "solid",
+                  }}
                   onClick={() => {
                     setCardOptions(index);
                   }}
@@ -93,6 +131,8 @@ const EditCard = () => {
             </div>
           </div>
         </div>
+
+        <button className="done-btn">DONE</button>
       </div>
     </div>
   );

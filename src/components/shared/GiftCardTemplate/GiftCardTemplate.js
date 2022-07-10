@@ -3,7 +3,7 @@ import "./GiftCardTemplate.scss";
 import { giftcardtemplates } from "data/templates";
 
 const GiftCardTemplate = ({ handleSelectedTemplate }) => {
-  const [activeCard, setActiveCard] = useState(0);
+  const [activeCard, setActiveCard] = useState(null);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -48,7 +48,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
             <img
               src={image}
               alt={text}
-              style={{ width: "100px", height: "110px" }}
+              style={{ width: "57px", height: "72px" }}
             />
           </span>
         );

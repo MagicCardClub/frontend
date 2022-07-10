@@ -1,17 +1,19 @@
-@import "../../../styles/config/config.scss";
+@import "styles/config/config.scss";
 
 .select-gift-card {
   // @include showBorder(black);
   @include flex(center, center);
-  width: 100%;
-  height: 300px;
+  width: 60%;
+  margin: auto;
+  height: 200px;
   box-sizing: border-box;
+  position: relative;
 
   .selectcard-header {
     // @include showBorder(black);
-    width: 517px;
-    height: 123px;
-    background: transparent;
+    width: 290px;
+    height: 70px;
+    background: red;
     background-image: url("../../../assets/images/selecttemplate/trapeziumonedesktop.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -20,12 +22,11 @@
     font-family: "Noto Serif Thai";
     font-style: normal;
     font-weight: 700;
-    font-size: 29px;
+    font-size: 17px;
     letter-spacing: -0.01em;
     @include flex(center, center, row);
-    position: relative;
-    left: 23px;
-    top: -15px;
+    position: absolute;
+    left: 10px;
 
     span {
       position: relative;
