@@ -1,0 +1,36 @@
+@import "styles/config/config.scss";
+
+.select-gift-card {
+  // @include showBorder(black);
+  @include flex(center, center);
+  width: 60%;
+  margin: auto;
+  height: 200px;
+  box-sizing: border-box;
+  position: relative;
+
+  .selectcard-header {
+    // @include showBorder(black);
+    width: 290px;
+    height: 70px;
+    background: red;
+    background-image: url("../../../assets/images/selecttemplate/trapeziumonedesktop.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Noto Serif Thai";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    @include flex(center, center, row);
+    position: absolute;
+    left: 10px;
+
+    span {
+      position: relative;
+      right: 35px;
+    }
+  }
+}

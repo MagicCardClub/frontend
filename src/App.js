@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "styles/App.scss";
 import Header from "components/Header/Header";
 import Landing from "pages/Landing/Landing";
+// import EditCard from "pages/EditCard/EditCard";
+// import Mint from "pages/Mint/Mint";
 import Footer from "components/Footer/Footer";
 import { landingCarousel as carousel } from "data/landingCarousel";
 
@@ -50,6 +52,8 @@ const App = () => {
         textColortwo={textColortwo}
         footerBg={footerBg}
       />
+      {/* <EditCard /> */}
+      {/* <Mint /> */}
       <Footer
         footerBg={footerBg}
         footerButtonColor={footerButtonColor}

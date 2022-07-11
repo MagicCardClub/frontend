@@ -1,0 +1,73 @@
+@import "styles/config/config.scss";
+
+.blank_card {
+  @include flex(center, center, column);
+  width: 277px;
+  height: 354px;
+  background: black;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .user-name_image {
+    position: absolute;
+    top: 100px;
+    @include flex();
+    @include showBorder(white);
+    width: 100px;
+    height: 120px;
+    border-radius: 10px;
+
+    img {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+    }
+
+    .name {
+      // @include showBorder(white);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2em;
+      width: max-content;
+      height: max-content;
+      font-size: 11px;
+      z-index: 5;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
+
+.eth-number_container {
+  border: 2px solid white;
+  @include flex(center, center);
+  width: 30%;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 290px;
+
+  span {
+    color: white;
+    background-color: black;
+    width: 70%;
+    text-align: center;
+    @include flex;
+    height: 100%;
+  }
+  .eth-logo {
+    width: 30%;
+    height: 100%;
+    @include flex;
+    border-right: 2px solid white;
+    // @include showBorder;
+  }
+}

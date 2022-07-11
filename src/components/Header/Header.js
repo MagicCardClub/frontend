@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.scss";
-import logo from "../../assets/images/hero/mc_logo.png";
+import logo from "../../assets/images/header/mc_logo.png";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
