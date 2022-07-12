@@ -1,0 +1,44 @@
+@import "styles/config/config.scss";
+
+.select-gift-card {
+  // @include showBorder(black);
+  @include flex(center, center);
+  width: 60%;
+  margin: auto;
+  height: 150px;
+  box-sizing: border-box;
+  position: relative;
+
+  .selectcard-header {
+    // @include showBorder(black);
+    width: 290px;
+    height: 70px;
+    background: red;
+    clip-path: polygon(0 0, 78% 0, 100% 100%, 0% 100%);
+    border-radius: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Noto Serif Thai";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    @include flex(center, center, row);
+    position: absolute;
+    left: 5px;
+    filter: url(#round);
+
+    span {
+      // @include showBorder(black);
+      position: absolute;
+      width: max-content;
+    }
+  }
+}
+
+svg {
+  visibility: hidden;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+}

@@ -1,12 +1,19 @@
 import React from "react";
 import "./Header.scss";
-import logo from "../../assets/images/hero/mc_logo.png";
+import logo from "../../assets/images/header/mc_logo.png";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
 const Header = (props) => {
-  const { headerButtonColor, headerIconBg, headerIconColor, headerBg } = props;
+  const {
+    headerButtonColor,
+    headerIconBg,
+    headerIconColor,
+    headerBg,
+    handleConnected,
+    isConnected,
+  } = props;
   return (
     <header>
       <div
@@ -69,9 +76,10 @@ const Header = (props) => {
         </ul>
         <button
           className="connect-btn"
+          onClick={handleConnected}
           style={{ backgroundColor: headerButtonColor }}
         >
-          Connect wallet
+          {isConnected ? "0xjwneu7h" : "Connect wallet"}
         </button>
       </div>
     </header>

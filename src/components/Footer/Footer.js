@@ -24,7 +24,7 @@ const Footer = (props) => {
       }}
     >
       <div className="newsletter">
-        <div className="text" style={{ color: footerTextColor }}>
+        <div className="newsletter-text" style={{ color: footerTextColor }}>
           Get the latest update on upcoming gift card <br /> types for your
           family, friends and loved ones.
         </div>

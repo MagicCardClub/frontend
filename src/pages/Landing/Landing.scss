@@ -265,7 +265,7 @@ main {
 
 .mint-claim_btn {
   // @include showBorder($color: black);
-  width: 55%;
+  width: max-content;
   margin: 0 0 0 4em;
   padding: 5px;
   box-sizing: border-box;
@@ -284,10 +284,16 @@ main {
     padding: 5px;
   }
 
+  //used because of react-router link
+  //remind to set responsive for other views
+  a {
+    margin: 0 1em;
+  }
+
   button {
     width: 200px;
     height: 80px;
-    margin: 0 0.5em;
+    margin: 0 5em;
     border-radius: 23px;
     font-weight: 600;
     font-size: 35px;
