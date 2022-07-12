@@ -67,5 +67,4 @@ const Landing = (props) => {
     </main>
   );
 };
-
 export default Landing;

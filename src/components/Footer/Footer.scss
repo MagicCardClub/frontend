@@ -1,7 +1,7 @@
 @import "../../styles/config/config.scss";
 
 footer {
-  // @include showBorder(transparent);
+  // @include showBorder();
   width: 100%;
   height: auto;
   box-sizing: border-box;
@@ -14,7 +14,7 @@ footer {
   }
 
   .newsletter {
-    // @include showBorder(white);
+    // @include showBorder(black);
     @include flex(center, space-around, column);
     width: 55%;
     height: 300px;
@@ -32,7 +32,7 @@ footer {
       margin: 3em auto 0;
     }
 
-    .text {
+    &-text {
       // @include showBorder($color: black);
       font-style: normal;
       font-weight: 400;

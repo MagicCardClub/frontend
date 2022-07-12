@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "styles/App.scss";
 import Header from "components/Header/Header";
 import Landing from "pages/Landing/Landing";
-// import EditCard from "pages/EditCard/EditCard";
-// import Mint from "pages/Mint/Mint";
+import EditCard from "pages/EditCard/EditCard";
+import Mint from "pages/Mint/Mint";
 import Footer from "components/Footer/Footer";
 import { landingCarousel as carousel } from "data/landingCarousel";
 
@@ -27,7 +29,7 @@ const App = () => {
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = carousel[bgImage];
+  } = carousel[0];
 
   return (
     <div
@@ -45,15 +47,25 @@ const App = () => {
         headerIconColor={headerIconColor}
         headerBg={headerBg}
       />
-      <Landing
-        carousel={carousel}
-        changeBackground={changeBackground}
-        textColorone={textColorone}
-        textColortwo={textColortwo}
-        footerBg={footerBg}
-      />
-      {/* <EditCard /> */}
-      {/* <Mint /> */}
+      <Router>
+        <Routes>
+          <Route
+            path="landing"
+            element={
+              <Landing
+                carousel={carousel}
+                changeBackground={changeBackground}
+                textColorone={textColorone}
+                textColortwo={textColortwo}
+                footerBg={footerBg}
+              />
+            }
+          />
+          <Route path="/" element={<EditCard />} />
+          <Route path="mint" element={<Mint />} />
+        </Routes>
+      </Router>
+
       <Footer
         footerBg={footerBg}
         footerButtonColor={footerButtonColor}

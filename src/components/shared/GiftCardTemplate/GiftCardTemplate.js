@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GiftCardTemplate.scss";
-import { giftcardtemplates } from "data/templates";
+import { landingCarousel as giftcardtemplates } from "data/landingCarousel";
 
 const GiftCardTemplate = ({ handleSelectedTemplate }) => {
   const [activeCard, setActiveCard] = useState(null);
@@ -33,26 +33,26 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
 
   return (
     <div className="gc-template">
-      {giftcardtemplates.map((template, index) => {
-        const { id, image, text } = template;
-        return (
-          <span
-            ref={activeTemplate}
-            className={index === activeCard ? "active-edit-card" : ""}
-            key={id}
-            onClick={() => {
-              handleSelectedTemplate(index);
-              handleActiveCard(index);
-            }}
-          >
-            <img
-              src={image}
-              alt={text}
-              style={{ width: "57px", height: "72px" }}
-            />
-          </span>
-        );
-      })}
+      <div className="box"></div>
+      <div className="templates">
+        {" "}
+        {giftcardtemplates.map((template, index) => {
+          const { id, card } = template;
+          return (
+            <span
+              ref={activeTemplate}
+              className={index === activeCard ? "active-edit-card" : ""}
+              key={id}
+              onClick={() => {
+                handleSelectedTemplate(index);
+                handleActiveCard(index);
+              }}
+            >
+              <img src={card} alt={id} />
+            </span>
+          );
+        })}
+      </div>
     </div>
   );
 };
