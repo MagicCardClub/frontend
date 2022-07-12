@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import "./Mint.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import editedcard from "assets/images/editedimage/editedcard.png";
 
-const Mint = () => {
+const Mint = (props) => {
   const [cardCount, setCardCount] = useState(1);
   const [ethAmount, setEthAmount] = useState(0.025);
+
+  const { mintButtonColor, mintModalBg } = props;
 
   const decreaseCard = () => {
     cardCount === 1 ? setCardCount(1) : setCardCount(cardCount - 1);
@@ -27,7 +31,10 @@ const Mint = () => {
   return (
     <div className="mint">
       <InfoHeader />
-      <div className="mint-action-container">
+      <div
+        className="mint-action-container"
+        style={{ backgroundColor: mintModalBg }}
+      >
         <div className="edited-card_box">
           <img src={editedcard} alt="editedcard" />
         </div>
@@ -47,8 +54,16 @@ const Mint = () => {
           {ethAmount < 0.025 ? 0.025 : ethAmount} ETH
         </div>
         <span className="gas-fee-notice">(Excluding gas fees)</span>
-        <button className="mint-btn">MINT</button>
-        <div className="close-btn">X</div>
+        <Link to="/send">
+          <button
+            className="mint-btn"
+            style={{ backgroundColor: mintButtonColor }}
+          >
+            MINT
+          </button>
+        </Link>
+
+        <button className="close-btn">X</button>
       </div>
     </div>
   );

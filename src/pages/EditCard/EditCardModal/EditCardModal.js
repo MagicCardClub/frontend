@@ -4,10 +4,10 @@ import { FaEthereum } from "react-icons/fa";
 import defaultImage from "assets/images/defaultImage.webp";
 
 const EditCardModal = (props) => {
-  const { image, color, ethereumCount, name } = props;
+  const { image, color, ethereumCount, name, editModalBg } = props;
 
   return (
-    <div className="blank_card">
+    <div className="blank_card" style={{ backgroundColor: editModalBg }}>
       <img src={image} alt={color} />
       <div className="user-name_image" style={{ backgroundColor: color }}>
         <img src={defaultImage} alt="user" />

@@ -1,11 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Landing.scss";
-import Carousel from "components/Carousel/Carousel";
+import Carousel from "pages/Landing/Carousel/Carousel";
 import { BiLinkExternal } from "react-icons/bi";
 
 const Landing = (props) => {
-  const { carousel, changeBackground, textColorone, textColortwo, footerBg } =
-    props;
+  const {
+    carousel,
+    changeBackground,
+    textColorone,
+    textColortwo,
+    footerBg,
+    isConnected,
+  } = props;
 
   return (
     <main>
@@ -41,18 +49,28 @@ const Landing = (props) => {
       </div>
 
       <div className="mint-claim_btn">
-        <button style={{ backgroundColor: textColortwo, color: "white" }}>
-          MINT
-        </button>
-        <button
-          style={{
-            borderColor: textColortwo,
-            color: textColortwo,
-            borderWidth: 4,
-          }}
-        >
-          CLAIM
-        </button>
+        <Link to={isConnected ? "edit" : ""}>
+          <button
+            style={{
+              backgroundColor: isConnected ? textColortwo : "#575757",
+              color: "white",
+            }}
+          >
+            MINT
+          </button>
+        </Link>
+        <Link to="/">
+          <button
+            style={{
+              backgroundColor: "inherit",
+              borderColor: textColortwo,
+              color: textColortwo,
+              borderWidth: 4,
+            }}
+          >
+            CLAIM
+          </button>
+        </Link>
       </div>
 
       <div

@@ -6,11 +6,17 @@ import Header from "components/Header/Header";
 import Landing from "pages/Landing/Landing";
 import EditCard from "pages/EditCard/EditCard";
 import Mint from "pages/Mint/Mint";
+import Send from "pages/Send/Send";
 import Footer from "components/Footer/Footer";
 import { landingCarousel as carousel } from "data/landingCarousel";
 
 const App = () => {
+  const [isConnected, setIsConnected] = useState(false);
   const [bgImage, setBgImage] = useState(0);
+
+  const handleConnected = () => {
+    setIsConnected((prev) => !prev);
+  };
 
   const changeBackground = (id) => {
     setBgImage(id);
@@ -29,7 +35,7 @@ const App = () => {
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = carousel[0];
+  } = carousel[bgImage];
 
   return (
     <div
@@ -42,6 +48,8 @@ const App = () => {
       }}
     >
       <Header
+        handleConnected={handleConnected}
+        isConnected={isConnected}
         headerButtonColor={headerButtonColor}
         headerIconBg={headerIconBg}
         headerIconColor={headerIconColor}
@@ -50,9 +58,10 @@ const App = () => {
       <Router>
         <Routes>
           <Route
-            path="landing"
+            path="/"
             element={
               <Landing
+                isConnected={isConnected}
                 carousel={carousel}
                 changeBackground={changeBackground}
                 textColorone={textColorone}
@@ -61,8 +70,34 @@ const App = () => {
               />
             }
           />
-          <Route path="/" element={<EditCard />} />
-          <Route path="mint" element={<Mint />} />
+          <Route
+            path="edit"
+            element={
+              <EditCard
+                changeBackground={changeBackground}
+                editButtonColor={headerButtonColor}
+                editModalBg={footerBg}
+              />
+            }
+          />
+          <Route
+            path="mint"
+            element={
+              <Mint
+                mintButtonColor={headerButtonColor}
+                mintModalBg={footerBg}
+              />
+            }
+          />
+          <Route
+            path="send"
+            element={
+              <Send
+                sendButtonColor={headerButtonColor}
+                sendModalBg={footerBg}
+              />
+            }
+          />
         </Routes>
       </Router>
 

@@ -35,9 +35,10 @@
 
   span {
     // @include showBorder(black);
-    margin: 0 0 0 14px;
-    width: 57px;
-    height: 72px;
+    margin: 0 0 0 24px;
+    border: none;
+    width: 45px;
+    height: 65px;
     z-index: 20;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
@@ -53,6 +54,7 @@
 
     &.active-edit-card {
       transform: scale(1.6);
+      z-index: 10;
     }
   }
 }

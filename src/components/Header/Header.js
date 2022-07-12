@@ -6,7 +6,14 @@ import { FaDiscord } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
 const Header = (props) => {
-  const { headerButtonColor, headerIconBg, headerIconColor, headerBg } = props;
+  const {
+    headerButtonColor,
+    headerIconBg,
+    headerIconColor,
+    headerBg,
+    handleConnected,
+    isConnected,
+  } = props;
   return (
     <header>
       <div
@@ -69,9 +76,10 @@ const Header = (props) => {
         </ul>
         <button
           className="connect-btn"
+          onClick={handleConnected}
           style={{ backgroundColor: headerButtonColor }}
         >
-          Connect wallet
+          {isConnected ? "0xjwneu7h" : "Connect wallet"}
         </button>
       </div>
     </header>

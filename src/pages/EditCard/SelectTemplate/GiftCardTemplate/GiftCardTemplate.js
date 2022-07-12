@@ -2,8 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import "./GiftCardTemplate.scss";
 import { landingCarousel as giftcardtemplates } from "data/landingCarousel";
 
-const GiftCardTemplate = ({ handleSelectedTemplate }) => {
-  const [activeCard, setActiveCard] = useState(null);
+const GiftCardTemplate = (props) => {
+  const [activeCard, setActiveCard] = useState(0);
+
+  const { color, changeBackground, handleSelectedTemplate, editModalBg } =
+    props;
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -33,7 +36,7 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
 
   return (
     <div className="gc-template">
-      <div className="box"></div>
+      <div className="box" style={{ backgroundColor: editModalBg }}></div>
       <div className="templates">
         {" "}
         {giftcardtemplates.map((template, index) => {
@@ -45,7 +48,12 @@ const GiftCardTemplate = ({ handleSelectedTemplate }) => {
               key={id}
               onClick={() => {
                 handleSelectedTemplate(index);
+                changeBackground(index);
                 handleActiveCard(index);
+              }}
+              style={{
+                boxShadow:
+                  index === activeCard ? `0px 0px 5px 8px ${color}` : "",
               }}
             >
               <img src={card} alt={id} />

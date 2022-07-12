@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { GiFeather } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 import "./EditCard.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
-import SelectTemplate from "components/shared/SelectTemplate/SelectTemplate";
-import EditCardModal from "components/EditCardModal/EditCardModal";
+import SelectTemplate from "pages/EditCard/SelectTemplate/SelectTemplate";
+import EditCardModal from "pages/EditCard/EditCardModal/EditCardModal";
 import { blankCard } from "data/blankCard";
 import { useLocalStorage } from "hooks/useLocalStorage";
 
-const EditCard = () => {
+const EditCard = (props) => {
   const [selectedTemplate, setSelectedTemplate] = useState(0);
   const [cardOption, setCardOptions] = useState(0);
   const [ethereumCount, setEthereumCount] = useState(0.025);
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
+
+  //props
+  const { changeBackground, editButtonColor, editModalBg } = props;
 
   //saves username to local storage
   const [name, setName] = useLocalStorage("name", "");
@@ -49,14 +53,24 @@ const EditCard = () => {
   return (
     <div className="edit-card">
       <InfoHeader />
-      <SelectTemplate handleSelectedTemplate={handleSelectedTemplate} />
-      <div className="edit-card-modal_container">
+      <SelectTemplate
+        color={color}
+        handleSelectedTemplate={handleSelectedTemplate}
+        changeBackground={changeBackground}
+        editButtonColor={editButtonColor}
+        editModalBg={editModalBg}
+      />
+      <div
+        className="edit-card-modal_container"
+        style={{ backgroundColor: editModalBg }}
+      >
         <EditCardModal
           key={id}
           image={image}
           color={color}
           ethereumCount={ethereumCount}
           name={name}
+          editModalBg={editModalBg}
         />
 
         <div
@@ -65,13 +79,13 @@ const EditCard = () => {
         >
           <button className="add-user-image_btn">+</button>
 
-          <button className="add-user-name_btn">
-            <GiFeather
-              className="icon"
-              onClick={() => {
-                setNameModal(true);
-              }}
-            />
+          <button
+            className="add-user-name_btn"
+            onClick={() => {
+              setNameModal(true);
+            }}
+          >
+            <GiFeather className="icon" />
           </button>
 
           <div
@@ -131,8 +145,14 @@ const EditCard = () => {
             </div>
           </div>
         </div>
-
-        <button className="done-btn">DONE</button>
+        <Link to="/mint">
+          <button
+            className="done-btn"
+            style={{ backgroundColor: editButtonColor }}
+          >
+            DONE
+          </button>
+        </Link>
       </div>
     </div>
   );
