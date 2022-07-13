@@ -1,34 +1,22 @@
-<<<<<<< HEAD
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import 'styles/App.scss'
 import Header from 'components/Header/Header'
 import Landing from 'pages/Landing/Landing'
+import EditCard from 'pages/EditCard/EditCard'
+import Mint from 'pages/Mint/Mint'
+import Send from 'pages/Send/Send'
 import Footer from 'components/Footer/Footer'
 import { landingCarousel as carousel } from 'data/landingCarousel'
 
 const App = () => {
+  const [isConnected, setIsConnected] = useState(false)
   const [bgImage, setBgImage] = useState(0)
-=======
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import "styles/App.scss";
-import Header from "components/Header/Header";
-import Landing from "pages/Landing/Landing";
-import EditCard from "pages/EditCard/EditCard";
-import Mint from "pages/Mint/Mint";
-import Send from "pages/Send/Send";
-import Footer from "components/Footer/Footer";
-import { landingCarousel as carousel } from "data/landingCarousel";
-
-const App = () => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [bgImage, setBgImage] = useState(0);
->>>>>>> 3dcafe657b57d6acf8570045791bb810d71917c0
 
   const handleConnected = () => {
-    setIsConnected((prev) => !prev);
-  };
+    setIsConnected((prev) => !prev)
+  }
 
   const changeBackground = (id) => {
     setBgImage(id)
@@ -70,7 +58,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <Landing
                 isConnected={isConnected}
@@ -83,7 +71,7 @@ const App = () => {
             }
           />
           <Route
-            path="edit"
+            path='edit'
             element={
               <EditCard
                 changeBackground={changeBackground}
@@ -93,7 +81,7 @@ const App = () => {
             }
           />
           <Route
-            path="mint"
+            path='mint'
             element={
               <Mint
                 mintButtonColor={headerButtonColor}
@@ -102,7 +90,7 @@ const App = () => {
             }
           />
           <Route
-            path="send"
+            path='send'
             element={
               <Send
                 sendButtonColor={headerButtonColor}
