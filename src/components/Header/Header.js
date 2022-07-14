@@ -1,9 +1,9 @@
 import React from "react";
-import "./Header.scss";
-import logo from "../../assets/images/header/mc_logo.png";
 import { AiOutlineTwitter } from "react-icons/ai";
-import { FaDiscord } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
+
+import "./Header.scss";
+import logo from "assets/images/header/mc_logo.png";
 
 const Header = (props) => {
   const {
@@ -23,7 +23,6 @@ const Header = (props) => {
           backgroundBlendMode: "overlay",
         }}
       >
-        {" "}
         <div className="logo">
           <img src={logo} alt="logo" />
           <div>
@@ -31,6 +30,7 @@ const Header = (props) => {
             <span>Card</span>
           </div>
         </div>
+
         <ul className="site_links">
           <li>
             <a href="#link">About</a>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FiExternalLink } from "react-icons/fi";
 
 import "./Landing.scss";
 import Carousel from "pages/Landing/Carousel/Carousel";
-import { BiLinkExternal } from "react-icons/bi";
 
 const Landing = (props) => {
   const {
@@ -73,15 +73,15 @@ const Landing = (props) => {
         </Link>
       </div>
 
-      <div
-        className="unpack"
+      <button
+        className="unpack-btn"
         style={{
           backgroundColor: footerBg,
           boxShadow: `0px 0px 30px 35px ${footerBg}`,
         }}
       >
-        Unpack Your Gift Collection <BiLinkExternal />
-      </div>
+        Unpack Your Gift Collection <FiExternalLink />
+      </button>
     </main>
   );
 };

@@ -3,7 +3,7 @@
 .info-header {
   // @include showBorder(black);
   @include flex(center, center, column);
-  width: 100%;
+  width: 1300px;
   margin: 2em auto 0;
 
   .box-1 {
@@ -26,8 +26,9 @@
     width: 90%;
     height: 118px;
     border-radius: 0px 0px 50px 50px;
-    background: #211b1b;
+    background: rgba(33, 27, 27, 0.6);
     background-blend-mode: overlay;
+    backdrop-filter: opacity(0.4);
 
     span {
       font-family: "Noto Serif Thai";

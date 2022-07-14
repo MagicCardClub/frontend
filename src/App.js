@@ -95,6 +95,7 @@ const App = () => {
               <Send
                 sendButtonColor={headerButtonColor}
                 sendModalBg={footerBg}
+                unpackColor={headerButtonColor}
               />
             }
           />

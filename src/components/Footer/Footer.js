@@ -1,9 +1,9 @@
 import React from "react";
-import "./Footer.scss";
-import giftImage from "../../assets/images/footer/three_gifts.png";
 import { AiOutlineTwitter } from "react-icons/ai";
-import { FaDiscord } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
+
+import "./Footer.scss";
+import giftImage from "assets/images/footer/three_gifts.png";
 
 const Footer = (props) => {
   const {
