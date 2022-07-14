@@ -1,9 +1,8 @@
 import React from "react";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
-
 import "./Header.scss";
-import logo from "../../assets/images/header/mc_logo.png";
+import logo from "assets/images/header/mc_logo.png";
 
 const Header = (props) => {
   const {
