@@ -1,6 +1,7 @@
 import React from "react";
-import "./EditCardModal.scss";
 import { FaEthereum } from "react-icons/fa";
+
+import "./EditCardModal.scss";
 import defaultImage from "assets/images/defaultImage.webp";
 
 const EditCardModal = (props) => {

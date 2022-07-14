@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FiExternalLink } from "react-icons/fi";
 
 import "./Landing.scss";
 import Carousel from "pages/Landing/Carousel/Carousel";
-import { BiLinkExternal } from "react-icons/bi";
 
 const Landing = (props) => {
   const {
@@ -80,7 +80,7 @@ const Landing = (props) => {
           boxShadow: `0px 0px 30px 35px ${footerBg}`,
         }}
       >
-        Unpack Your Gift Collection <BiLinkExternal />
+        Unpack Your Gift Collection <FiExternalLink />
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { GiFeather } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import {FaFeatherAlt} from 'react-icons/fa'
 
 import "./EditCard.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
@@ -85,7 +85,7 @@ const EditCard = (props) => {
               setNameModal(true);
             }}
           >
-            <GiFeather className="icon" />
+           <FaFeatherAlt/>
           </button>
 
           <div
