@@ -7,7 +7,7 @@ import SentNotif from "./SentNotif/SentNotif";
 import mintedcard from "assets/images/editedimage/editedcard.png";
 
 const Send = (props) => {
-  const [isSent, setIsSent] = useState(true);
+  const [isSent, setIsSent] = useState(false);
   const { sendButtonColor, sendModalBg, unpackColor } = props;
 
   if (isSent) return <SentNotif sentNotif={unpackColor} />;
