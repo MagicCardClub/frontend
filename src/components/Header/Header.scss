@@ -4,7 +4,7 @@ header {
   // @include showBorder($color: white);
   @include flex($justify: space-around);
   height: 70px;
-  width: 95%;
+  width: 1300px;
   height: 150px;
   box-sizing: border-box;
   margin: auto;
@@ -34,6 +34,7 @@ header {
     @include respondMax(lg-tablet) {
       width: 90%;
       height: 55px;
+      border-radius: 10px;
     }
 
     @include respondMax(mobile) {
@@ -52,7 +53,6 @@ header {
   //connect wallet button
   .connect-btn {
     border: 1px solid transparent;
-    background: #575757;
     color: white;
     width: 13%;
     height: 50px;
@@ -72,9 +72,10 @@ header {
     }
 
     @include respondMax(mobile) {
-      width: 95px;
+      width: 80px;
       height: 30px;
-      font-size: 11px;
+      font-size: 60%;
+      padding: none;
       border-radius: 4px;
     }
   }
@@ -99,8 +100,8 @@ header {
     height: 40px;
 
     @include respondMax(lg-tablet) {
-      width: 30px;
-      height: 27px;
+      width: 25px;
+      height: 25px;
     }
   }
 
@@ -126,7 +127,7 @@ header {
 
   @include respondMax(lg-tablet) {
     @include flex($justify: space-around);
-    width: 50%;
+    width: 55%;
   }
 
   a {
@@ -166,7 +167,7 @@ header {
     display: none;
   }
   a {
-    // display: block;
+    display: block;
     width: 30px;
     height: 30px;
     font-size: 1em;
@@ -179,4 +180,9 @@ header {
       transform: scale(1.2);
     }
   }
+}
+
+.header-icon {
+  width: 1.2em;
+  height: 1.2em;
 }

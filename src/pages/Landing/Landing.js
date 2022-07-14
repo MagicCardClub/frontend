@@ -73,15 +73,15 @@ const Landing = (props) => {
         </Link>
       </div>
 
-      <div
-        className="unpack"
+      <button
+        className="unpack-btn"
         style={{
           backgroundColor: footerBg,
           boxShadow: `0px 0px 30px 35px ${footerBg}`,
         }}
       >
         Unpack Your Gift Collection <FiExternalLink />
-      </div>
+      </button>
     </main>
   );
 };

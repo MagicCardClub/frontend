@@ -1,0 +1,16 @@
+@import "styles/config/config.scss";
+
+.sent-notif {
+  @include showBorder;
+  @include flex($flex: column wrap);
+  width: 1000px;
+  height: 500px;
+  margin: 2em auto;
+
+  .sent-circle {
+    width: 300px;
+    height: 300px;
+    border: none;
+    border-radius: 50%;
+  }
+}

@@ -8,11 +8,19 @@ import editedcard from "assets/images/editedimage/editedcard.png";
 const Mint = (props) => {
   const [cardCount, setCardCount] = useState(1);
   const [ethAmount, setEthAmount] = useState(0.025);
+  const [isMinted, setIsMinted] = useState(false);
 
   const { mintButtonColor, mintModalBg } = props;
 
   const decreaseCard = () => {
     cardCount === 1 ? setCardCount(1) : setCardCount(cardCount - 1);
+  };
+
+  const handleMinted = () => {
+    if (!isMinted) {
+      setIsMinted(true);
+    }
+    return;
   };
 
   useEffect(() => {
@@ -54,10 +62,12 @@ const Mint = (props) => {
           {ethAmount < 0.025 ? 0.025 : ethAmount} ETH
         </div>
         <span className="gas-fee-notice">(Excluding gas fees)</span>
-        <Link to="/send">
+
+        <Link to={isMinted ? "/send" : ""} className="send-btn-box">
           <button
             className="mint-btn"
             style={{ backgroundColor: mintButtonColor }}
+            onClick={handleMinted}
           >
             MINT
           </button>

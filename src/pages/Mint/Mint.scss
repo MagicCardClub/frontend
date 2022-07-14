@@ -111,25 +111,31 @@
   background-color: transparent;
 }
 
-.mint-btn {
-  @include flex;
-  // border: none;
+//classname given to "Link' wrapping button for navigation
+.send-btn-box {
+  border: none;
   position: absolute;
   top: 520px;
-  right: 300px;
-  width: 175px;
-  height: 41px;
-  text-align: center;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 18px;
-  color: #ffffff;
-  border-radius: 7px;
-  cursor: pointer;
+  text-decoration: none;
+
+  .mint-btn {
+    @include flex;
+    border: transparent;
+    outline: none;
+    width: 175px;
+    height: 41px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 7px;
+    cursor: pointer;
+  }
 }
 
 .close-btn {
-  border: 1px solid white;
+  border: 2px solid white;
   @include flex;
   text-align: center;
   position: absolute;

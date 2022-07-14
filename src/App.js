@@ -35,7 +35,7 @@ const App = () => {
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = carousel[0];
+  } = carousel[bgImage];
 
   return (
     <div
@@ -95,6 +95,7 @@ const App = () => {
               <Send
                 sendButtonColor={headerButtonColor}
                 sendModalBg={footerBg}
+                unpackColor={headerButtonColor}
               />
             }
           />
