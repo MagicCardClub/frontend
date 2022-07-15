@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaFeatherAlt } from "react-icons/fa";
 
 import "./EditCard.scss";
+import Mint from "pages/EditCard/Mint/Mint";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import SelectTemplate from "pages/EditCard/SelectTemplate/SelectTemplate";
 import EditCardModal from "pages/EditCard/EditCardModal/EditCardModal";
@@ -15,6 +15,7 @@ const EditCard = (props) => {
   const [ethereumCount, setEthereumCount] = useState(0.025);
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
+  const [isEdited, setIsEdited] = useState(false);
 
   //props
   const { changeBackground, editButtonColor, editModalBg } = props;
@@ -145,17 +146,34 @@ const EditCard = (props) => {
             </div>
           </div>
         </div>
-        <Link to="/mint">
-          <button
-            className="done-btn"
-            style={{ backgroundColor: editButtonColor }}
-          >
-            DONE
-          </button>
-        </Link>
+
+        <button
+          className="done-btn"
+          onClick={() => {
+            setIsEdited(true);
+          }}
+          style={{ backgroundColor: editButtonColor }}
+        >
+          DONE
+        </button>
       </div>
+      {isEdited ? (
+        <Mint
+          edited={isEdited}
+          setIsEdited={setIsEdited}
+          mintButtonColor={editButtonColor}
+          mintModalBg={editModalBg}
+        />
+      ) : null}
     </div>
   );
 };
 
 export default EditCard;
+
+/*
+
+
+ 
+              
+*/

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./Mint.scss";
-import InfoHeader from "components/shared/InfoHeader/InfoHeader";
+// import { useTheIndex } from "hooks/useTheIndex";
 import editedcard from "assets/images/editedimage/editedcard.png";
 
 const Mint = (props) => {
@@ -10,7 +10,7 @@ const Mint = (props) => {
   const [ethAmount, setEthAmount] = useState(0.025);
   const [isMinted, setIsMinted] = useState(false);
 
-  const { mintButtonColor, mintModalBg } = props;
+  const { mintButtonColor, mintModalBg, edited, setIsEdited } = props;
 
   const decreaseCard = () => {
     cardCount === 1 ? setCardCount(1) : setCardCount(cardCount - 1);
@@ -37,8 +37,7 @@ const Mint = (props) => {
   }, [cardCount]);
 
   return (
-    <div className="mint">
-      <InfoHeader />
+    <div className={`mint ${edited ? "open" : ""}`}>
       <div
         className="mint-action-container"
         style={{ backgroundColor: mintModalBg }}
@@ -73,7 +72,14 @@ const Mint = (props) => {
           </button>
         </Link>
 
-        <button className="close-btn">X</button>
+        <button
+          className="close-btn"
+          onClick={() => {
+            setIsEdited(false);
+          }}
+        >
+          X
+        </button>
       </div>
     </div>
   );
