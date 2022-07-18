@@ -39,17 +39,18 @@
 
 .edited-card_box {
   position: absolute;
+  // @include showBorder;
   @include flex;
-  width: 255px;
-  height: 309px;
+  width: 280px;
+  height: 320px;
   top: 30px;
-  background: linear-gradient(
-    140deg,
-    #1964f6 -2.35%,
-    #f9f9f9 48.93%,
-    #1964f6 57.78%
-  );
-  border-radius: 12px;
+
+  .frame {
+    position: absolute;
+    @include flex;
+    width: 255px;
+    height: 309px;
+  }
 }
 
 .text {
@@ -151,6 +152,11 @@
     color: #ffffff;
     border-radius: 7px;
     cursor: pointer;
+    transition: border 0.5s linear;
+
+    &:hover {
+      border: 2px solid white;
+    }
   }
 }
 

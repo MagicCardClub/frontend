@@ -1,12 +1,11 @@
 import React, { useState, useRef } from "react";
 import "./GiftCardTemplate.scss";
 import { landingCarousel as giftcardtemplates } from "data/landingCarousel";
-import { useTheIndex } from "hooks/useTheIndex";
 
 const GiftCardTemplate = (props) => {
   const [activeCard, setActiveCard] = useState(0);
+
   //using custom hook to set frame of card
-  const [setTheIndex] = useTheIndex(0);
 
   const { color, changeBackground, handleSelectedTemplate, editModalBg } =
     props;
@@ -25,7 +24,6 @@ const GiftCardTemplate = (props) => {
   //setting active gift card template index
   const handleActiveCard = (index) => {
     setActiveCard(index);
-    //usiing the custom hook
     activeTemplate.current = true;
   };
 
@@ -52,7 +50,6 @@ const GiftCardTemplate = (props) => {
               onClick={() => {
                 handleSelectedTemplate(index);
                 changeBackground(index);
-                setTheIndex(index);
                 handleActiveCard(index);
               }}
               style={{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createRef, useRef } from "react";
 import { FaFeatherAlt } from "react-icons/fa";
 
 import "./EditCard.scss";
@@ -11,11 +11,19 @@ import { useLocalStorage } from "hooks/useLocalStorage";
 
 const EditCard = (props) => {
   const [selectedTemplate, setSelectedTemplate] = useState(0);
-  const [cardOption, setCardOptions] = useState(0);
-  const [ethereumCount, setEthereumCount] = useState(0.025);
+  const [cardOption, setCardOption] = useState(0);
+  const [ethereumCount, setEthereumCount] = useState(0.02);
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
   const [isEdited, setIsEdited] = useState(false);
+
+  //refs
+  const uploadedImage = createRef(null);
+  const imageUploader = useRef(null);
+
+  //edit eth number
+  const [editEth, setEditEth] = useState(false);
+  const [ethNumber, setEthNumber] = useState(0.02);
 
   //props
   const { changeBackground, editButtonColor, editModalBg } = props;
@@ -29,22 +37,44 @@ const EditCard = (props) => {
       setSelectedTemplate(0);
     } else {
       setSelectedTemplate(templateId);
+      setCardOption(0);
     }
   };
 
+  //handlers for increasing or decreasing ethereum
   const addToEthereum = () => {
     if (ethereumCount < 0) {
-      setEthereumCount(0.025);
+      setEthereumCount(0.02);
     } else {
-      setEthereumCount(ethereumCount + 0.025);
+      setEthereumCount((c) => c + 0.02);
     }
-
-    console.log(ethereumCount.toFixed(3));
   };
 
   const decreaseEthereum = () => {
-    setEthereumCount(ethereumCount - 0.025);
-    console.log(ethereumCount.toFixed(3));
+    if (ethereumCount <= 0.02) {
+      setEthereumCount(0.02);
+    } else {
+      setEthereumCount((c) => c - 0.02);
+    }
+  };
+
+  const handleEditing = ({ target }) => {
+    const count = target.value;
+    const newCount = parseFloat(count);
+    setEthNumber(newCount);
+  };
+
+  const handleImageUpload = (e) => {
+    const [file] = e.target.files;
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const cards = blankCard[selectedTemplate];
@@ -67,9 +97,11 @@ const EditCard = (props) => {
       >
         <EditCardModal
           key={id}
+          ref={uploadedImage}
           image={image}
           color={color}
           ethereumCount={ethereumCount}
+          setEditEth={setEditEth}
           name={name}
           editModalBg={editModalBg}
         />
@@ -78,7 +110,20 @@ const EditCard = (props) => {
           className="add-details_container"
           style={{ borderWidth: 2, borderColor: color, borderStyle: "solid" }}
         >
-          <button className="add-user-image_btn">+</button>
+          <button
+            className="add-user-image_btn"
+            onClick={() => imageUploader.current.click()}
+          >
+            +
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            multiple={false}
+            className="choose_image"
+            ref={imageUploader}
+            onChange={handleImageUpload}
+          />
 
           <button
             className="add-user-name_btn"
@@ -131,7 +176,7 @@ const EditCard = (props) => {
                     borderStyle: "solid",
                   }}
                   onClick={() => {
-                    setCardOptions(index);
+                    setCardOption(index);
                   }}
                 ></span>
               );
@@ -141,9 +186,35 @@ const EditCard = (props) => {
           <div className="eth-counts">
             <div className="eth-count_btns">
               <button onClick={decreaseEthereum}>-</button>
-              <span>0.5</span>
+              <span>0.02</span>
               <button onClick={addToEthereum}>+</button>
             </div>
+          </div>
+          <div
+            className={`edit-eth_modal ${editEth ? "open" : ""}`}
+            style={{ border: `1px solid ${color}` }}
+          >
+            <form className="content">
+              <input
+                type="number"
+                id="ethnumber"
+                step="0.02"
+                value={Number.isNaN(ethNumber) ? "" : ethNumber}
+                onChange={handleEditing}
+              />
+              <button
+                style={{
+                  backgroundColor: color,
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setEthereumCount(ethNumber);
+                  setEditEth(false);
+                }}
+              >
+                Done
+              </button>
+            </form>
           </div>
         </div>
 
@@ -163,6 +234,8 @@ const EditCard = (props) => {
           setIsEdited={setIsEdited}
           mintButtonColor={editButtonColor}
           mintModalBg={editModalBg}
+          selectedTemplate={selectedTemplate}
+          ethereumCount={ethereumCount}
         />
       ) : null}
     </div>
@@ -170,10 +243,3 @@ const EditCard = (props) => {
 };
 
 export default EditCard;
-
-/*
-
-
- 
-              
-*/

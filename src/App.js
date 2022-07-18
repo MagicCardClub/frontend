@@ -87,6 +87,7 @@ const App = () => {
                 sendButtonColor={headerButtonColor}
                 sendModalBg={footerBg}
                 unpackColor={headerButtonColor}
+                sendFrames={bgImage}
               />
             }
           />

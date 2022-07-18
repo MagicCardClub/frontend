@@ -1,22 +1,9 @@
 import { useState } from "react";
 
 export const useTheIndex = (initialNumber) => {
-  const [index, setIndex] = useState(() => {
-    if (typeof window === "undefined") {
-      return initialNumber;
-    }
-  });
+  const [theIndex, setTheIndex] = useState();
 
-  const useIndex = (value) => {
-    try {
-      const indexToSet = value;
-      if (typeof indexToSet === "number" || indexToSet !== null) {
-        setIndex(indexToSet);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const setIndex = (value) => {};
 
-  return [index, useIndex];
+  return [theIndex, setIndex];
 };
