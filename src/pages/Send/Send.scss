@@ -21,38 +21,19 @@
   position: relative;
   width: 562px;
   height: 515px;
+  border-radius: 10px;
   // left: 10px;
 
   .minted-card-box {
     position: absolute;
     @include flex;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(
-      147.92deg,
-      #ffe600 100% #f00000,
-      82.57% #e600eb,
-      100% #00c3ee,
-      100% #f4f900,
-      100% #fa0000
-    );
     width: 324px;
     height: 400px;
-    background: linear-gradient(
-      147.92deg,
-      #b57083 -3.73%,
-      #bd8a98 34.27%,
-      #d1d1d1 34.73%,
-      rgba(192, 90, 132, 0.883416) 64.11%,
-      rgba(204, 66, 133, 0.754619) 77.37%,
-      rgba(236, 2, 135, 0.41) 97.24%
-    );
-    border-radius: 14px;
 
-    img {
-      width: 265px;
-      height: 338px;
-    }
+    // img {
+    //   width: 265px;
+    //   height: 338px;
+    // }
   }
 }
 
@@ -64,7 +45,6 @@
   box-sizing: border-box;
 
   input {
-    border: none;
     width: 425px;
     height: 62px;
     background: white;

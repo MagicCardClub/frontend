@@ -79,7 +79,7 @@ const Header = (props) => {
           onClick={handleConnected}
           style={{ backgroundColor: headerButtonColor }}
         >
-          {isConnected ? "0xjwneu7h" : "Connect wallet"}
+          {isConnected ? "0xjwneu7hdytfuygiugctrs" : "Connect wallet"}
         </button>
       </div>
     </header>

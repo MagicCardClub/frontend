@@ -11,24 +11,30 @@ const Mint = (props) => {
     edited,
     setIsEdited,
     selectedTemplate,
-    ethereumCount,
   } = props;
 
   const [cardCount, setCardCount] = useState(1);
-  const [ethAmount, setEthAmount] = useState(ethereumCount);
+  const [mintAmount, setMintAmount] = useState(0.025);
   const [isMinted, setIsMinted] = useState(false);
 
-  useEffect(() => {
-    setEthAmount((ethAmount) => {
-      const newAmount = cardCount * ethAmount;
-      return newAmount;
-    });
-  }, [cardCount]);
-
-  const decreaseCard = () => {
-    cardCount === 1 ? setCardCount(1) : setCardCount((c) => c - 1);
+  //Functions to increase and decrease amount of eth to mint
+  const increaseMintCount = () => {
+    setCardCount(cardCount + 1);
   };
 
+  const decreaseMintCount = () => {
+    if (cardCount === 1) {
+      setCardCount(1);
+    } else {
+      setCardCount(cardCount - 1);
+    }
+  };
+  //side effect to increase mint amount
+  useEffect(() => {
+    setMintAmount(0.025 * cardCount);
+  }, [cardCount]);
+
+  // function to check if mint button has been clicked
   const handleMinted = () => {
     if (!isMinted) {
       setIsMinted(true);
@@ -50,11 +56,11 @@ const Mint = (props) => {
         <div className="text">Enter Number of Gift Cards to Mint.</div>
 
         <div className="amount-of-cards-btn">
-          <button onClick={decreaseCard}>-</button>
+          <button onClick={decreaseMintCount}>-</button>
           <span>{cardCount}</span>
           <button
             onClick={() => {
-              setCardCount((c) => c + 1);
+              increaseMintCount();
             }}
           >
             +
@@ -62,7 +68,7 @@ const Mint = (props) => {
         </div>
 
         <div className="amount-of-eth">
-          {ethAmount < 0.02 ? 0.02 : ethAmount} ETH
+          {mintAmount < 0.025 ? 0.025 : mintAmount.toFixed(3)} ETH
         </div>
         <span className="gas-fee-notice">(Excluding gas fees)</span>
 
