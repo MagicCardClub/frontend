@@ -35,6 +35,7 @@ export const landingCarousel = [
     footerButtonColor: "red",
     footerIconColor: "white",
     footerIconBg: "rgba(217, 217, 217, 0.24)",
+    mintModalBg: "rgba(88, 137, 196, 0.85)",
   },
 
   {
@@ -54,6 +55,7 @@ export const landingCarousel = [
     footerButtonColor: "#C800E9",
     footerIconColor: "#C800E9",
     footerIconBg: "white",
+    mintModalBg: "rgba(18, 179, 198, 0.85)",
   },
 
   {
@@ -73,6 +75,7 @@ export const landingCarousel = [
     footerButtonColor: "#645555",
     footerIconColor: "white",
     footerIconBg: "#645555",
+    mintModalBg: "rgba(215, 192, 18, 0.85)",
   },
 
   {
@@ -92,6 +95,7 @@ export const landingCarousel = [
     footerButtonColor: "rgba(128,0,128, 0.7)",
     footerIconColor: "white",
     footerIconBg: "rgba(255, 255, 255, 0.2)",
+    mintModalBg: "rgba(13, 24, 44, 0.85)",
   },
   {
     id: 4,
@@ -110,6 +114,7 @@ export const landingCarousel = [
     footerButtonColor: "rgba(237, 115, 33, 1)",
     footerIconColor: "white",
     footerIconBg: "rgba(255, 255, 255, 0.2)",
+    mintModalBg: "rgba(25, 27, 27, 0.85)",
   },
   {
     id: 5,
@@ -128,5 +133,6 @@ export const landingCarousel = [
     footerButtonColor: "#1172E2",
     footerIconColor: "white",
     footerIconBg: "#1172E2",
+    mintModalBg: "rgba(255, 157, 255, 0.85)",
   },
 ];

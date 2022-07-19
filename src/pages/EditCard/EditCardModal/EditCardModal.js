@@ -25,7 +25,7 @@ const EditCardModal = forwardRef((props, uploadedImage) => {
         <div className="eth-logo" style={{ backgroundColor: color }}>
           <FaEthereum />
         </div>
-        <span>{ethereumCount}</span>
+        <span>{ethereumCount.toFixed(3)} eth</span>
       </div>
     </div>
   );

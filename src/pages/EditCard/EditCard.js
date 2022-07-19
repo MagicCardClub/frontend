@@ -12,7 +12,7 @@ import { useLocalStorage } from "hooks/useLocalStorage";
 const EditCard = (props) => {
   const [selectedTemplate, setSelectedTemplate] = useState(0);
   const [cardOption, setCardOption] = useState(0);
-  const [ethereumCount, setEthereumCount] = useState(0.02);
+  const [ethereumCount, setEthereumCount] = useState(0.01);
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
   const [isEdited, setIsEdited] = useState(false);
@@ -26,7 +26,7 @@ const EditCard = (props) => {
   const [ethNumber, setEthNumber] = useState(0.02);
 
   //props
-  const { changeBackground, editButtonColor, editModalBg } = props;
+  const { changeBackground, editButtonColor, editModalBg, mintModalBg } = props;
 
   //saves username to local storage
   const [name, setName] = useLocalStorage("name", "");
@@ -44,17 +44,17 @@ const EditCard = (props) => {
   //handlers for increasing or decreasing ethereum
   const addToEthereum = () => {
     if (ethereumCount < 0) {
-      setEthereumCount(0.02);
+      setEthereumCount(0.01);
     } else {
-      setEthereumCount((c) => c + 0.02);
+      setEthereumCount((c) => c + 0.01);
     }
   };
 
   const decreaseEthereum = () => {
-    if (ethereumCount <= 0.02) {
-      setEthereumCount(0.02);
+    if (ethereumCount <= 0.01) {
+      setEthereumCount(0.01);
     } else {
-      setEthereumCount((c) => c - 0.02);
+      setEthereumCount((c) => c - 0.01);
     }
   };
 
@@ -186,7 +186,7 @@ const EditCard = (props) => {
           <div className="eth-counts">
             <div className="eth-count_btns">
               <button onClick={decreaseEthereum}>-</button>
-              <span>0.02</span>
+              <span>0.01</span>
               <button onClick={addToEthereum}>+</button>
             </div>
           </div>
@@ -233,7 +233,7 @@ const EditCard = (props) => {
           edited={isEdited}
           setIsEdited={setIsEdited}
           mintButtonColor={editButtonColor}
-          mintModalBg={editModalBg}
+          mintModalBg={mintModalBg}
           selectedTemplate={selectedTemplate}
           ethereumCount={ethereumCount}
         />

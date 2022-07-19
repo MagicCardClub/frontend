@@ -34,6 +34,7 @@ const App = () => {
     footerTextColor,
     footerIconBg,
     footerIconColor,
+    mintModalBg,
   } = carousel[bgImage];
 
   return (
@@ -53,7 +54,7 @@ const App = () => {
         headerIconBg={headerIconBg}
         headerIconColor={headerIconColor}
         headerBg={headerBg}
-      />
+      />{" "}
       <Router>
         <Routes>
           <Route
@@ -68,7 +69,7 @@ const App = () => {
                 footerBg={footerBg}
               />
             }
-          />
+          />{" "}
           <Route
             path="edit"
             element={
@@ -76,10 +77,10 @@ const App = () => {
                 changeBackground={changeBackground}
                 editButtonColor={headerButtonColor}
                 editModalBg={footerBg}
+                mintModalBg={mintModalBg}
               />
             }
-          />
-
+          />{" "}
           <Route
             path="send"
             element={
@@ -87,20 +88,19 @@ const App = () => {
                 sendButtonColor={headerButtonColor}
                 sendModalBg={footerBg}
                 unpackColor={headerButtonColor}
-                sendFrames={bgImage}
+                sendFrame={bgImage}
               />
             }
-          />
+          />{" "}
         </Routes>
       </Router>
-
       <Footer
         footerBg={footerBg}
         footerButtonColor={footerButtonColor}
         footerTextColor={footerTextColor}
         footerIconColor={footerIconColor}
         footerIconBg={footerIconBg}
-      />
+      />{" "}
     </div>
   );
 };

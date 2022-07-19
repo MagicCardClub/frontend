@@ -4,13 +4,15 @@ import { FiExternalLink } from "react-icons/fi";
 import "./Send.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import SentNotif from "./SentNotif/SentNotif";
-import mintedcard from "assets/images/editedimage/editedcard.png";
+import { sendFrames } from "data/frames";
 
 const Send = (props) => {
   const [isSent, setIsSent] = useState(false);
-  const { sendButtonColor, sendModalBg, unpackColor } = props;
+  const { sendButtonColor, sendModalBg, unpackColor, sendFrame } = props;
 
-  if (isSent) return <SentNotif sentNotif={unpackColor} />;
+  if (isSent) return <SentNotif circleColor={unpackColor} />;
+
+  const { id, frame, text } = sendFrames[sendFrame];
 
   return (
     <div className="send">
@@ -21,15 +23,24 @@ const Send = (props) => {
           className="minted-card-modal"
           style={{ backgroundColor: sendModalBg }}
         >
-          <div className="minted-card-box">
-            <img src={mintedcard} alt="mintedcard" />
-          </div>
+          <img src={frame} alt={text} className="minted-card-box" key={id} />
+          {/* <div className="minted-card-box"> */}
+          {/* <img src={mintedcard} alt="mintedcard" /> */}
+          {/* </div> */}
         </div>
 
         <form action="" className="send-form">
-          <input type="text" placeholder="enter wallet address" />
+          <input
+            type="text"
+            placeholder="enter wallet address"
+            style={{
+              borderColor: unpackColor,
+            }}
+          />
 
-          <button style={{ backgroundColor: sendButtonColor }}>SEND</button>
+          <button  onClick={() => {
+            setIsSent(true);
+          }} style={{ backgroundColor: sendButtonColor }}>SEND</button>
         </form>
         <button
           className="unpack_send"
@@ -37,9 +48,7 @@ const Send = (props) => {
             borderColor: unpackColor,
             color: unpackColor,
           }}
-          onClick={() => {
-            setIsSent(true);
-          }}
+         
         >
           Unpack Your Gift Collection <FiExternalLink />
         </button>
