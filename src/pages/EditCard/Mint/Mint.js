@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 import "./Mint.scss";
 import { mintFrames } from "data/frames";
+// import testimg from "assets/images/defaultImage.webp";
 
-const Mint = (props) => {
+const Mint = forwardRef((props, cardToMint) => {
   const {
     mintButtonColor,
     mintModalBg,
     edited,
     setIsEdited,
+    setShowGreet,
     selectedTemplate,
+    binaryData,
   } = props;
 
   const [cardCount, setCardCount] = useState(1);
@@ -52,6 +55,12 @@ const Mint = (props) => {
       >
         <div className="edited-card_box">
           <img src={frame} alt={text} key={id} className="frame" />
+          <img
+            src={binaryData}
+            alt="convertedimage"
+            ref={cardToMint}
+            className="card-to-mint"
+          />
         </div>
         <div className="text">Enter Number of Gift Cards to Mint.</div>
 
@@ -86,6 +95,7 @@ const Mint = (props) => {
           className="close-btn"
           onClick={() => {
             setIsEdited(false);
+            setShowGreet(false);
           }}
         >
           X
@@ -93,6 +103,6 @@ const Mint = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Mint;
