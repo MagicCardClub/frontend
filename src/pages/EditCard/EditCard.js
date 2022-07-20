@@ -1,4 +1,5 @@
-import React, { useState, createRef, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
+import { toPng } from "html-to-image";
 import { FaFeatherAlt } from "react-icons/fa";
 
 import "./EditCard.scss";
@@ -7,6 +8,7 @@ import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import SelectTemplate from "pages/EditCard/SelectTemplate/SelectTemplate";
 import EditCardModal from "pages/EditCard/EditCardModal/EditCardModal";
 import { blankCard } from "data/blankCard";
+import { greetings } from "data/greetings";
 import { useLocalStorage } from "hooks/useLocalStorage";
 
 const EditCard = (props) => {
@@ -16,9 +18,12 @@ const EditCard = (props) => {
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
   const [isEdited, setIsEdited] = useState(false);
+  const [showGreet, setShowGreet] = useState(false);
 
   //refs
-  const uploadedImage = createRef(null);
+  const uploadedImage = useRef(null);
+  const convertedCard = useRef(null);
+  const cardToMint = useRef(null);
   const imageUploader = useRef(null);
 
   //edit eth number
@@ -29,7 +34,9 @@ const EditCard = (props) => {
   const { changeBackground, editButtonColor, editModalBg, mintModalBg } = props;
 
   //saves username to local storage
-  const [name, setName] = useLocalStorage("name", "");
+  const [name, setName] = useLocalStorage("user's name", "");
+  const [storedEthValue, setStoredEthValue] = useLocalStorage("ethNumber", "");
+  const [binaryData, setBinaryData] = useLocalStorage("binaryData", "");
 
   //sets index for selected template for editing blank cards
   const handleSelectedTemplate = (templateId) => {
@@ -47,6 +54,7 @@ const EditCard = (props) => {
       setEthereumCount(0.01);
     } else {
       setEthereumCount((c) => c + 0.01);
+      setStoredEthValue(ethereumCount);
     }
   };
 
@@ -55,6 +63,7 @@ const EditCard = (props) => {
       setEthereumCount(0.01);
     } else {
       setEthereumCount((c) => c - 0.01);
+      setStoredEthValue(ethereumCount);
     }
   };
 
@@ -63,10 +72,12 @@ const EditCard = (props) => {
     const newCount = parseFloat(count);
     setEthNumber(newCount);
   };
-
+  //user uploading image
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
-    if (file) {
+    if (!file) {
+      console.log("Not a file");
+    } else {
       const reader = new FileReader();
       const { current } = uploadedImage;
       current.file = file;
@@ -77,9 +88,32 @@ const EditCard = (props) => {
     }
   };
 
+  //converting edited card to image
+  const onConvertCard = useCallback(() => {
+    if (convertedCard.current === null) {
+      return;
+    }
+
+    toPng(convertedCard.current, { cacheBust: true })
+      .then((dataUrl) => {
+        setShowGreet(true);
+        setBinaryData(dataUrl);
+      })
+      .then(() => {
+        console.log(binaryData);
+        setTimeout(() => {
+          setIsEdited(true);
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [convertedCard, binaryData, setBinaryData]);
+
   const cards = blankCard[selectedTemplate];
 
   const { id, image, color } = cards.options[cardOption];
+  const { greeting } = greetings[selectedTemplate];
 
   return (
     <div className="edit-card">
@@ -97,12 +131,14 @@ const EditCard = (props) => {
       >
         <EditCardModal
           key={id}
-          ref={uploadedImage}
+          editRefs={{ uploadedImage, convertedCard }}
+          showGreet={showGreet}
           image={image}
           color={color}
           ethereumCount={ethereumCount}
           setEditEth={setEditEth}
           name={name}
+          greeting={greeting}
           editModalBg={editModalBg}
         />
 
@@ -221,7 +257,7 @@ const EditCard = (props) => {
         <button
           className="done-btn"
           onClick={() => {
-            setIsEdited(true);
+            onConvertCard();
           }}
           style={{ backgroundColor: editButtonColor }}
         >
@@ -231,15 +267,18 @@ const EditCard = (props) => {
       {isEdited ? (
         <Mint
           edited={isEdited}
+          ref={cardToMint}
+          binaryData={binaryData}
           setIsEdited={setIsEdited}
+          setShowGreet={setShowGreet}
           mintButtonColor={editButtonColor}
           mintModalBg={mintModalBg}
           selectedTemplate={selectedTemplate}
           ethereumCount={ethereumCount}
+          storedEthValue={storedEthValue}
         />
       ) : null}
     </div>
   );
 };
-
 export default EditCard;
