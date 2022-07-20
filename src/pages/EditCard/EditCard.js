@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { toPng } from "html-to-image";
 import { FaFeatherAlt } from "react-icons/fa";
 
@@ -54,7 +54,6 @@ const EditCard = (props) => {
       setEthereumCount(0.01);
     } else {
       setEthereumCount((c) => c + 0.01);
-      setStoredEthValue(ethereumCount);
     }
   };
 
@@ -63,7 +62,6 @@ const EditCard = (props) => {
       setEthereumCount(0.01);
     } else {
       setEthereumCount((c) => c - 0.01);
-      setStoredEthValue(ethereumCount);
     }
   };
 
@@ -72,6 +70,11 @@ const EditCard = (props) => {
     const newCount = parseFloat(count);
     setEthNumber(newCount);
   };
+
+  useEffect(() => {
+    setStoredEthValue(ethereumCount);
+  }, [ethereumCount, setStoredEthValue]);
+
   //user uploading image
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
