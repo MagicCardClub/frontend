@@ -4,7 +4,7 @@
   @include flex(center, center, column);
   width: 277px;
   height: 354px;
-  background: black;
+  background: transparent;
   border: none;
   cursor: pointer;
   position: relative;
@@ -81,7 +81,7 @@
   box-sizing: border-box;
 
   span {
-    // @include flex;
+    @include flex;
     color: white;
     background-color: black;
     border: none;

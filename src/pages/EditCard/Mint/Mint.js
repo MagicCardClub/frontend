@@ -48,9 +48,9 @@ const Mint = forwardRef((props, cardToMint) => {
   const { id, frame, text } = mintFrames[selectedTemplate];
 
   return (
-    <div className={`mint ${edited ? "open" : ""}`}>
+    <div className="mint">
       <div
-        className="mint-action-container"
+        className={`mint-action-container ${edited ? "open" : ""}`}
         style={{ backgroundColor: mintModalBg }}
       >
         <div className="edited-card_box">
