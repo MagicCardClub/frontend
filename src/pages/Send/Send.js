@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiExternalLink } from "react-icons/fi";
 
 import "./Send.scss";
@@ -8,9 +8,29 @@ import { sendFrames } from "data/frames";
 
 const Send = (props) => {
   const [isSent, setIsSent] = useState(false);
+  const [mintedImage, setMintedImage] = useState();
+  const [ethNumber, setEthNumber] = useState();
   const { sendButtonColor, sendModalBg, unpackColor, sendFrame } = props;
 
-  if (isSent) return <SentNotif circleColor={unpackColor} />;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const data = JSON.parse(localStorage.getItem("binaryData"));
+      const ethToSend = JSON.parse(localStorage.getItem("ethNumber"));
+      if (data) {
+        setMintedImage(data);
+        setEthNumber(ethToSend);
+      }
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [mintedImage, ethNumber]);
+
+  if (isSent) {
+    localStorage.setItem("ethNumber", "");
+    return <SentNotif circleColor={unpackColor} />;
+  }
 
   const { id, frame, text } = sendFrames[sendFrame];
 
@@ -23,24 +43,28 @@ const Send = (props) => {
           className="minted-card-modal"
           style={{ backgroundColor: sendModalBg }}
         >
-          <img src={frame} alt={text} className="minted-card-box" key={id} />
-          {/* <div className="minted-card-box"> */}
-          {/* <img src={mintedcard} alt="mintedcard" /> */}
-          {/* </div> */}
+          <img src={frame} alt={text} className="minted-card-frame" key={id} />
+          <img src={mintedImage} alt="mintedcard" className="minted-card" />
         </div>
 
         <form action="" className="send-form">
           <input
             type="text"
+            value={ethNumber}
             placeholder="enter wallet address"
             style={{
               borderColor: unpackColor,
             }}
           />
 
-          <button  onClick={() => {
-            setIsSent(true);
-          }} style={{ backgroundColor: sendButtonColor }}>SEND</button>
+          <button
+            onClick={() => {
+              setIsSent(true);
+            }}
+            style={{ backgroundColor: sendButtonColor }}
+          >
+            SEND
+          </button>
         </form>
         <button
           className="unpack_send"
@@ -48,7 +72,6 @@ const Send = (props) => {
             borderColor: unpackColor,
             color: unpackColor,
           }}
-         
         >
           Unpack Your Gift Collection <FiExternalLink />
         </button>
