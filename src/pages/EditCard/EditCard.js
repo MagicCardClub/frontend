@@ -93,10 +93,9 @@ const EditCard = (props) => {
     if (convertedCard.current === null) {
       return;
     }
-
+    setShowGreet(true);
     toPng(convertedCard.current, { cacheBust: true })
       .then((dataUrl) => {
-        setShowGreet(true);
         setBinaryData(dataUrl);
       })
       .then(() => {
