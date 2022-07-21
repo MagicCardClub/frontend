@@ -10,17 +10,18 @@ footer {
   // margin: auto;
 
   @include respondMax(mobile) {
-    background-color: #d9d9d9;
+    margin: 1.5em auto 0;
   }
 
   .newsletter {
-    // @include showBorder(black);
+    // @include showBorder();
     @include flex(center, space-around, column);
     width: 55%;
     height: 300px;
     margin: 0 auto 2em;
     padding: 5px;
     box-sizing: border-box;
+    // display: none;
 
     @include respondMax(lg-tablet) {
       width: 70%;
@@ -29,11 +30,12 @@ footer {
 
     @include respondMax(mobile) {
       width: 90%;
-      margin: 3em auto 0;
+      height: 200px;
+      margin: 1em auto 0;
     }
 
     &-text {
-      // @include showBorder($color: black);
+      // @include showBorder();
       font-style: normal;
       font-weight: 400;
       font-size: 26px;
@@ -41,7 +43,7 @@ footer {
       color: black;
 
       @include respondMax(lg-tablet) {
-        font-size: 18px;
+        font-size: 11px;
         letter-spacing: inherit;
         text-align: center;
 
@@ -150,6 +152,7 @@ footer {
     // @include showBorder(black);
     height: 250px;
     @include flex(center, space-around);
+    display: none;
 
     @include respondMin(sm-desktop) {
       @include flex(center, space-around, column-reverse);
@@ -159,14 +162,14 @@ footer {
     }
 
     @include respondMax(lg-tablet) {
-      @include flex(center, space-around);
+      @include flex(center, space-around, column-reverse);
       width: 100vw;
-      height: 100px;
+      height: 200px;
       margin: 1em 0 0;
     }
 
     .site_nav {
-      // @include showBorder(black);
+      // @include showBorder();
       height: 100%;
       width: 95%;
       @include flex(center, space-around, row wrap);
@@ -185,8 +188,8 @@ footer {
       }
 
       @include respondMax(lg-tablet) {
-        @include flex(center, flex-start, row wrap);
-        width: 70%;
+        @include flex(center, space-around, row wrap);
+        width: 100%;
         height: 100px;
       }
 
@@ -210,6 +213,7 @@ footer {
         }
 
         @include respondMax(lg-tablet) {
+          @include flex();
           width: 150px;
           font-weight: 500;
           font-style: normal;
@@ -224,6 +228,7 @@ footer {
           font-style: normal;
           letter-spacing: inherit;
           font-size: 11px;
+          margin: auto;
         }
       }
     }
@@ -232,7 +237,7 @@ footer {
       width: 27%;
       // @include showBorder();
       list-style: none;
-      @include flex(center, space-around row wrap);
+      @include flex(center, space-around, row wrap);
       box-sizing: border-box;
       position: relative;
       top: -30px;
@@ -245,14 +250,30 @@ footer {
 
       @include respondMax(lg-tablet) {
         display: inherit;
+        position: static;
+        width: 300px;
+        @include flex(center, space-around, row wrap);
+      }
+
+      @include respondMax(mobile) {
+        display: inherit;
+        position: static;
+        width: 300px;
+        @include flex(center, space-around, row);
       }
 
       li {
         width: 33%;
+        height: max-content;
+        width: max-content;
 
         @include respondMin(sm-desktop) {
           @include flex(center, space-around, row);
           width: 30%;
+
+          @include respondMax(mobile) {
+            display: block;
+          }
         }
       }
       a {
@@ -261,12 +282,17 @@ footer {
         height: 40px;
         width: 40px;
         background: inherit;
-        color: #6c6c6c;
         @include flex();
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
         font-size: 1.5em;
+
+        @include respondMax(mobile) {
+          height: 30px;
+          width: 30px;
+          font-size: 1em;
+        }
 
         &:hover {
           transform: scale(1.2);
@@ -279,7 +305,7 @@ footer {
     // @include showBorder(black);
     width: 100%;
     height: max-content;
-    border-bottom: 2px solid rgba(93, 88, 88, 0.28);
+    border-bottom: 1px solid #ffffff;
     @include flex(center, center);
     box-sizing: border-box;
 
@@ -287,7 +313,7 @@ footer {
       width: 600px;
 
       @include respondMax(mobile) {
-        width: 250px;
+        width: 300px;
         height: 100px;
       }
     }
@@ -297,7 +323,7 @@ footer {
     // @include showBorder(white);
     margin: 10px auto 0;
     width: 200px;
-    height: 70px;
+    height: 40px;
     @include flex(center, space-around);
     font-size: 22px;
     font-style: normal;
@@ -307,6 +333,7 @@ footer {
 
     @include respondMax(mobile) {
       width: 20%;
+      height: max-content;
       font-size: 8px;
       margin: 2em auto 0;
     }

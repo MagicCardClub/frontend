@@ -8,31 +8,24 @@
   overflow: hidden;
 
   @include respondMax(lg-tablet) {
-    width: 90%;
-    height: 200px;
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
   @include respondMax(mobile) {
-    width: 90%;
-    height: 150px;
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    top: 70px;
   }
 
   > .slide {
     grid-area: 2 / 2;
   }
 }
-
-// .slide {
-//transform-style: preserve-3d;
-// border: solid 1px red;
-
-// &[data-active] {
-//   .slideContent > * {
-//     transform: none;
-//     opacity: 1;
-//   }
-// }
-// }
 
 .slideContent {
   width: 300px;
@@ -46,13 +39,9 @@
   align-content: center;
 
   @include respondMax(lg-tablet) {
-    width: 100px;
-    height: 100px;
-  }
-
-  @include respondMax(mobile) {
-    width: 80px;
-    height: 100px;
+    // @include showBorder();
+    width: 218px;
+    height: 284px;
   }
 
   transform-style: preserve-3d;

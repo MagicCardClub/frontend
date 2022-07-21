@@ -36,6 +36,10 @@ const EditCard = (props) => {
   //saves username to local storage
   const [name, setName] = useLocalStorage("user's name", "");
   const [storedEthValue, setStoredEthValue] = useLocalStorage("ethNumber", "");
+  const [storedUserImage, setStoredUserImage] = useLocalStorage(
+    "userimage",
+    ""
+  );
   const [binaryData, setBinaryData] = useLocalStorage("binaryData", "");
 
   //sets index for selected template for editing blank cards
@@ -78,14 +82,15 @@ const EditCard = (props) => {
   //user uploading image
   const handleImageUpload = (e) => {
     const [file] = e.target.files;
-    if (!file) {
-      console.log("Not a file");
-    } else {
+    if (file) {
       const reader = new FileReader();
-      const { current } = uploadedImage;
-      current.file = file;
+      // const { current } = uploadedImage;
+      // current.file = file;
       reader.onload = (e) => {
-        current.src = e.target.result;
+        // current.src = e.target.result;
+        // console.log(current.src);
+        setStoredUserImage(e.target.result);
+        console.log(storedUserImage);
       };
       reader.readAsDataURL(file);
     }
@@ -96,16 +101,16 @@ const EditCard = (props) => {
     if (convertedCard.current === null) {
       return;
     }
+
     setShowGreet(true);
+
     toPng(convertedCard.current, { cacheBust: true })
       .then((dataUrl) => {
         setBinaryData(dataUrl);
+        setIsEdited(true);
       })
       .then(() => {
         console.log(binaryData);
-        setTimeout(() => {
-          setIsEdited(true);
-        }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -129,7 +134,7 @@ const EditCard = (props) => {
       />
       <div
         className="edit-card-modal_container"
-        style={{ backgroundColor: editModalBg }}
+        style={{ backgroundColor: mintModalBg }}
       >
         <EditCardModal
           key={id}
@@ -142,6 +147,7 @@ const EditCard = (props) => {
           name={name}
           greeting={greeting}
           editModalBg={editModalBg}
+          storedUserImage={storedUserImage}
         />
 
         <div
