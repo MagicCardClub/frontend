@@ -134,7 +134,7 @@ const EditCard = (props) => {
       />
       <div
         className="edit-card-modal_container"
-        style={{ backgroundColor: editModalBg }}
+        style={{ backgroundColor: mintModalBg }}
       >
         <EditCardModal
           key={id}

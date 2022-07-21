@@ -1,7 +1,7 @@
 @import "./config/config.scss";
 
 .App {
-  // position: relative;
+  position: relative;
   z-index: 1;
   background-position: cover;
   background-repeat: no-repeat;
@@ -13,6 +13,15 @@
     width: 100%;
     background-position: cover;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 100% 800px;
+    transition: all 1.5s ease-in-out;
+  }
+
+  @include respondMax(mobile) {
+    width: 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 830px;
+    transition: all 1.5s ease-in-out;
   }
 }
