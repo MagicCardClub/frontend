@@ -7,24 +7,24 @@ import congratsPink from "assets/images/blankCards/congrats/pink.png";
 import congratsYellow from "assets/images/blankCards/congrats/yellow.png";
 import congratsRed from "assets/images/blankCards/congrats/red.png";
 //Birthday cards
-import birthdayyellow from "assets/images/blankCards/birthday/birthdayyellow.png";
-import birthdayblue from "assets/images/blankCards/birthday/birthdayblue.png";
-import birthdaypink from "assets/images/blankCards/birthday/birthdaypink.png";
-import birthdaypurple from "assets/images/blankCards/birthday/birthdaypurple.png";
-import birthdayred from "assets/images/blankCards/birthday/birthdayred.png";
+import birthdayyellow from "assets/images/blankCards/birthday/yellow.png";
+import birthdayblue from "assets/images/blankCards/birthday/blue.png";
+import birthdaypink from "assets/images/blankCards/birthday/pink.png";
+import birthdaypurple from "assets/images/blankCards/birthday/purple.png";
+import birthdayred from "assets/images/blankCards/birthday/red.png";
 //Easter cards
-import easterblue from "assets/images/blankCards/easter/easterblue.png";
-import easterpink from "assets/images/blankCards/easter/easterpink.png";
-import easterred from "assets/images/blankCards/easter/easterred.png";
+import easterblue from "assets/images/blankCards/easter/blue.png";
+import easterpink from "assets/images/blankCards/easter/pink.png";
+import easterred from "assets/images/blankCards/easter/red.png";
 
 //Halloween cards
-import halloweenblue from "assets/images/blankCards/halloween/halloweenblue.png";
-import halloweenorange from "assets/images/blankCards/halloween/halloweenorange.png";
+import halloweenblue from "assets/images/blankCards/halloween/blue.png";
+import halloweenorange from "assets/images/blankCards/halloween/orange.png";
 //Get Well Soon
-import getwellpink from "assets/images/blankCards/getwell/getwellpink.png";
-import getwellred from "assets/images/blankCards/getwell/getwellred.png";
-import getwellyellow from "assets/images/blankCards/getwell/getwellyellow.png";
-import getwellblue from "assets/images/blankCards/getwell/getwellblue.png";
+import getwellpink from "assets/images/blankCards/getwell/pink.png";
+import getwellred from "assets/images/blankCards/getwell/red.png";
+import getwellyellow from "assets/images/blankCards/getwell/yellow.png";
+import getwellblue from "assets/images/blankCards/getwell/blue.png";
 
 export const blankCard = [
   {

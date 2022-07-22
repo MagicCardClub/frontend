@@ -9,6 +9,12 @@
   cursor: pointer;
   position: relative;
 
+  @include respondMax(mobile) {
+    width: 234px;
+    height: 299px;
+    background: transparent;
+  }
+
   .blank_card-image {
     width: 100%;
     height: 100%;
@@ -18,13 +24,19 @@
 
   .user-name_image {
     position: absolute;
-    top: 100px;
+    top: 80px;
     @include flex();
     // @include showBorder(white);
-    width: 100px;
-    height: 120px;
+    width: 120px;
+    height: 140px;
     border-radius: 10px;
     box-sizing: border-box;
+
+    @include respondMax(mobile) {
+      top: 58px;
+      width: 110px;
+      height: 130px;
+    }
 
     img {
       // @include showBorder;
@@ -66,6 +78,11 @@
   &.show {
     visibility: visible;
   }
+  @include respondMax(mobile) {
+    font-size: 18px;
+    letter-spacing: inherit;
+    bottom: 70px;
+  }
 }
 
 .eth-number_container {
@@ -79,6 +96,11 @@
   top: 290px;
   z-index: 100;
   box-sizing: border-box;
+
+  @include respondMax(mobile) {
+    border: 2px solid white;
+    top: 240px;
+  }
 
   span {
     @include flex;

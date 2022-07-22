@@ -7,7 +7,7 @@
   margin: 2em auto 0;
 
   @include respondMax(mobile) {
-    width: 392px;
+    width: 95%;
     height: auto;
     margin: 1em auto 0;
   }
@@ -24,7 +24,7 @@
       #b200b6 100%
     );
     @include respondMax(mobile) {
-      width: 390px;
+      width: 90%;
       height: 20px;
       border-radius: 15.05px 15.05px 0px 0px;
     }
@@ -40,7 +40,7 @@
     backdrop-filter: opacity(0.4);
 
     @include respondMax(mobile) {
-      width: 390px;
+      width: 90%;
       height: 35px;
       border-radius: 0px 0px 15.05px 15.05px;
     }

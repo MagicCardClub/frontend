@@ -1,7 +1,7 @@
 @import "styles/config/config.scss";
 
 .gc-template {
-  // @include showBorder(black);
+  // @include showBorder(white);
   @include flex(center, center, row);
   position: absolute;
   top: 60px;
@@ -12,10 +12,11 @@
   box-sizing: border-box;
 
   @include respondMax(mobile) {
+    @include showBorder(white);
     position: relative;
     top: 0;
     right: 0;
-    width: 370px;
+    width: 90%;
     height: 79px;
   }
 

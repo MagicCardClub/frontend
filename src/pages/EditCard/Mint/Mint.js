@@ -18,7 +18,7 @@ const Mint = forwardRef((props, cardToMint) => {
 
   const [cardCount, setCardCount] = useState(1);
   const [mintAmount, setMintAmount] = useState(0.025);
-  const [isMinted, setIsMinted] = useState(false);
+  const [isMinted, setIsMinted] = useState(true);
 
   //Functions to increase and decrease amount of eth to mint
   const increaseMintCount = () => {
