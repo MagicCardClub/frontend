@@ -114,7 +114,7 @@ export const landingCarousel = [
     footerButtonColor: "rgba(237, 115, 33, 1)",
     footerIconColor: "white",
     footerIconBg: "rgba(255, 255, 255, 0.2)",
-    mintModalBg: "rgba(27, 29, 29, 0.94)",
+    mintModalBg: "rgba(27, 29, 29, 1)",
   },
   {
     id: 5,

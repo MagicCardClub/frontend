@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "styles/App.scss";
+
+import starone from "assets/images/stars/star-one.png";
+import startwo from "assets/images/stars/star-two.png";
+import starthree from "assets/images/stars/star-three.png";
+import starfour from "assets/images/stars/star-four.png";
+
 import Header from "components/Header/Header";
 import Landing from "pages/Landing/Landing";
 import EditCard from "pages/EditCard/EditCard";
 import Send from "pages/Send/Send";
 import Footer from "components/Footer/Footer";
+
 import { landingCarousel as carousel } from "data/landingCarousel";
 
 const App = () => {
@@ -54,7 +61,11 @@ const App = () => {
         headerIconBg={headerIconBg}
         headerIconColor={headerIconColor}
         headerBg={headerBg}
-      />{" "}
+      />
+      <img src={starone} alt="star" className="starone" />
+      <img src={startwo} alt="star" className="startwo" />
+      <img src={starthree} alt="star" className="starthree" />
+      <img src={starfour} alt="star" className="starfour" />
       <Router>
         <Routes>
           <Route
@@ -100,7 +111,7 @@ const App = () => {
         footerTextColor={footerTextColor}
         footerIconColor={footerIconColor}
         footerIconBg={footerIconBg}
-      />{" "}
+      />
     </div>
   );
 };

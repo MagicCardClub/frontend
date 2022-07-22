@@ -14,42 +14,66 @@
   width: 801px;
   height: 408px;
   margin: 2.5em auto 0;
-  background: #000000;
-  border: none;
+  border: 2px solid white;
   border-radius: 18px;
   position: relative;
   box-sizing: border-box;
+
+  @include respondMax(mobile) {
+    @include flex();
+    width: 90%;
+    height: 390px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
 }
 
 .add-details_container {
   @include flex(center, space-around, column);
   width: 180px;
-  height: 250px;
+  height: 280px;
   border-radius: 40px;
   background-color: transparent;
   position: absolute;
-  top: 100px;
+  top: 90px;
+
+  @include respondMax(mobile) {
+    @include flex(center, space-around, column);
+    width: 165px;
+    height: 245px;
+    border-radius: 40px;
+    top: 90px;
+  }
 
   .add-user-image_btn {
-    @include flex;
+    @include flex(center, center, row);
     position: absolute;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     background-color: gray;
     color: #000000;
-    font-size: 30px;
-    font-weight: 900px;
+    font-size: 25px;
+    font-weight: 900;
     cursor: pointer;
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 10px;
     transition: all 0.2s ease-in-out;
 
     &:hover {
       transform: scale(1.1);
+    }
+
+    @include respondMax(mobile) {
+      @include flex(center, center, row);
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      top: 3px;
+      left: 20px;
     }
   }
 
@@ -77,12 +101,17 @@
     font-weight: 800px;
     cursor: pointer;
     position: absolute;
-    top: 120px;
-    right: 40px;
+    top: 130px;
+    right: 35px;
     transition: all 0.5s ease-in-out;
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    @include respondMax(mobile) {
+      top: 105px;
+      right: 30px;
     }
 
     .icon {
@@ -103,6 +132,11 @@
     z-index: 100;
     visibility: hidden;
     opacity: 0;
+
+    @include respondMax(mobile) {
+      width: 150px;
+      height: 80px;
+    }
 
     &.open {
       opacity: 1;
@@ -133,6 +167,12 @@
       border-radius: 10px;
       outline: none;
       padding: 5px;
+
+      @include respondMax(mobile) {
+        width: 70%;
+        height: 30px;
+        font-size: 14px;
+      }
     }
 
     button {
@@ -145,6 +185,12 @@
       font-weight: 800;
       color: black;
       cursor: pointer;
+
+      @include respondMax(mobile) {
+        width: 40%;
+        height: 20px;
+        font-size: 12px;
+      }
     }
   }
 
@@ -153,7 +199,11 @@
     width: max-content;
     @include flex(center, space-around);
     position: absolute;
-    top: 150px;
+    top: 158px;
+
+    @include respondMax(mobile) {
+      top: 145px;
+    }
 
     .color {
       width: 18px;
@@ -162,6 +212,11 @@
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       margin: 0 2px;
+
+      @include respondMax(mobile) {
+        width: 16px;
+        height: 16px;
+      }
 
       &:hover {
         transform: scale(1.1);
@@ -179,11 +234,16 @@
   }
 
   .eth-counts {
-    // @include showBorder;
+    // @include showBorder(white);
     @include flex(center, space-around);
-    width: 70%;
+    width: 60%;
     position: absolute;
-    top: 180px;
+    top: 200px;
+
+    @include respondMax(mobile) {
+      width: 50%;
+      top: 175px;
+    }
 
     .eth-count_btns {
       // @include showBorder;
@@ -191,9 +251,14 @@
       width: 100%;
       color: white;
       font-size: 12px;
-      padding: 5px;
+      padding: 2px;
       box-sizing: border-box;
       cursor: pointer;
+
+      @include respondMax(mobile) {
+        font-size: 10px;
+        padding: 0;
+      }
 
       button {
         border: none;
@@ -225,6 +290,15 @@
   font-weight: 600;
   color: white;
   cursor: pointer;
+
+  @include respondMax(mobile) {
+    width: 70px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 0.7em;
+    right: 5px;
+    bottom: 5px;
+  }
 }
 
 .edit-eth_modal {
@@ -232,13 +306,19 @@
   border: 2px solid transparent;
   position: absolute;
   top: 250px;
-  width: 100px;
-  height: 50px;
+  width: 150px;
+  height: 100px;
   background-color: white;
   border-radius: 10px;
   z-index: 100;
   visibility: hidden;
   opacity: 0;
+
+  @include respondMax(mobile) {
+    top: 220px;
+    width: 100px;
+    height: 50px;
+  }
 
   &.open {
     opacity: 1;
