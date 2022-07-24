@@ -27,6 +27,11 @@ const Send = (props) => {
     };
   }, [mintedImage, ethNumber]);
 
+  const handleSend = () => {
+    localStorage.clear();
+    setIsSent(true);
+  };
+
   if (isSent) {
     localStorage.setItem("ethNumber", "");
     return <SentNotif circleColor={unpackColor} />;
@@ -45,12 +50,13 @@ const Send = (props) => {
         >
           <img src={frame} alt={text} className="minted-card-frame" key={id} />
           <img src={mintedImage} alt="mintedcard" className="minted-card" />
+          <span style={{ color: sendButtonColor }}>MINT SUCCESSFUL</span>
         </div>
 
         <form action="" className="send-form">
           <input
             type="text"
-            value={ethNumber}
+            // value={ethNumber}
             placeholder="enter wallet address"
             style={{
               borderColor: unpackColor,
@@ -58,9 +64,7 @@ const Send = (props) => {
           />
 
           <button
-            onClick={() => {
-              setIsSent(true);
-            }}
+            onClick={handleSend}
             style={{ backgroundColor: sendButtonColor }}
           >
             SEND
