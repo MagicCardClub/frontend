@@ -3,6 +3,13 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
 
 import "./Footer.scss";
+
+import starseven from "assets/images/stars/star-one.png";
+import stareight from "assets/images/stars/star-two.png";
+import starfive from "assets/images/stars/star-five.png";
+import starsix from "assets/images/stars/star-four.png";
+// import shopcart from "assets/images/cart-giftbox/shopping-cart.png";
+
 import giftImage from "assets/images/footer/three_gifts.png";
 
 const Footer = (props) => {
@@ -23,6 +30,13 @@ const Footer = (props) => {
         boxShadow: `0px -10px 20px 10px ${footerBg}`,
       }}
     >
+      {/* <img src={shopcart} alt="cart" className="shopcart-footer" /> */}
+
+      <img src={starseven} alt="star" className="starseven" />
+      <img src={stareight} alt="star" className="stareight" />
+      <img src={starfive} alt="star" className="starfive" />
+      <img src={starsix} alt="star" className="starsix" />
+
       <div className="newsletter">
         <div className="newsletter-text" style={{ color: footerTextColor }}>
           Get the latest update on upcoming gift card <br /> types for your
