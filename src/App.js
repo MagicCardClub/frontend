@@ -97,7 +97,7 @@ const App = () => {
             element={
               <Send
                 sendButtonColor={headerButtonColor}
-                sendModalBg={footerBg}
+                sendModalBg={mintModalBg}
                 unpackColor={headerButtonColor}
                 sendFrame={bgImage}
               />

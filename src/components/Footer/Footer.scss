@@ -14,11 +14,21 @@ footer {
     margin: 1.5em auto 0;
   }
 
-  // .shopcart-footer {
-  //   position: absolute;
-  //   width: 200px;
-  //   height: 200px;
-  // }
+  .cart-footer {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 400px;
+    height: 400px;
+
+    @include respondMax(mobile) {
+      position: relative;
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: auto;
+    }
+  }
 
   .starseven {
     position: absolute;

@@ -102,10 +102,9 @@ const EditCard = (props) => {
       return;
     }
 
-    setShowGreet(true);
-
     toPng(convertedCard.current, { cacheBust: true })
       .then((dataUrl) => {
+        setShowGreet(true);
         setBinaryData(dataUrl);
         setIsEdited(true);
       })
@@ -264,7 +263,8 @@ const EditCard = (props) => {
 
         <button
           className="done-btn"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             onConvertCard();
           }}
           style={{ backgroundColor: editButtonColor }}

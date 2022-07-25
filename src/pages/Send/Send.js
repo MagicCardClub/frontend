@@ -27,15 +27,10 @@ const Send = (props) => {
     };
   }, [mintedImage, ethNumber]);
 
-  const handleSend = () => {
-    localStorage.clear();
+  const handleSending = (e) => {
+    e.preventDefault();
     setIsSent(true);
   };
-
-  if (isSent) {
-    localStorage.setItem("ethNumber", "");
-    return <SentNotif circleColor={unpackColor} />;
-  }
 
   const { id, frame, text } = sendFrames[sendFrame];
 
@@ -64,7 +59,7 @@ const Send = (props) => {
           />
 
           <button
-            onClick={handleSend}
+            onClick={handleSending}
             style={{ backgroundColor: sendButtonColor }}
           >
             SEND
@@ -80,6 +75,19 @@ const Send = (props) => {
           Unpack Your Gift Collection <FiExternalLink />
         </button>
       </div>
+      {/* <SentNotif
+        isSent={isSent}
+        circleColor={unpackColor}
+        sendModalBg={sendModalBg}
+      /> */}
+      {isSent ? (
+        <SentNotif
+          isSent={isSent}
+          setIsSent={setIsSent}
+          circleColor={unpackColor}
+          sendModalBg={sendModalBg}
+        />
+      ) : null}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 .send {
   width: 100%;
+  position: relative;
 }
 
 .send-action-container {
@@ -146,7 +147,7 @@
   }
 }
 
-.unpack_send {
+button.unpack_send {
   border-width: 2px;
   @include flex($justify: space-evenly);
   position: absolute;
