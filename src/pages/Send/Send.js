@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import "./Send.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
@@ -65,21 +66,20 @@ const Send = (props) => {
             SEND
           </button>
         </form>
-        <button
-          className="unpack_send"
-          style={{
-            borderColor: unpackColor,
-            color: unpackColor,
-          }}
-        >
-          Unpack Your Gift Collection <FiExternalLink />
-        </button>
+        <Link to="/collections" className="link-unpack_send">
+          {" "}
+          <button
+            className="unpack_send"
+            style={{
+              borderColor: unpackColor,
+              color: unpackColor,
+            }}
+          >
+            Unpack Your Gift Collection <FiExternalLink />
+          </button>
+        </Link>
       </div>
-      {/* <SentNotif
-        isSent={isSent}
-        circleColor={unpackColor}
-        sendModalBg={sendModalBg}
-      /> */}
+
       {isSent ? (
         <SentNotif
           isSent={isSent}

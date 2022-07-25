@@ -147,12 +147,24 @@
   }
 }
 
-button.unpack_send {
-  border-width: 2px;
-  @include flex($justify: space-evenly);
+//for router
+.link-unpack_send {
+  text-decoration: none;
+  @include flex;
   position: absolute;
   right: 90px;
   bottom: 40px;
+
+  @include respondMax(mobile) {
+    display: none;
+  }
+}
+
+button.unpack_send {
+  border-width: 2px;
+  outline: none;
+  @include flex($justify: space-evenly);
+  // position: absolute;
   background-color: transparent;
   width: 400px;
   height: 50px;
@@ -163,10 +175,10 @@ button.unpack_send {
   font-size: 21px;
   color: #ffffff;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 
-  svg {
-    position: relative;
-    font-size: 15px;
+  &:hover {
+    transform: scale(0.9);
   }
 
   @include respondMax(mobile) {

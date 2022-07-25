@@ -361,10 +361,15 @@ main {
   }
 }
 
+//for router link
+.link-unpack_landing {
+  text-decoration: none;
+}
+
 button.unpack-btn {
   border: 1px solid white;
   @include flex($justify: space-evenly);
-  width: 35%;
+  width: 500px;
   height: 50px;
   margin: 3em auto 50px;
   border-radius: 40px;
@@ -375,6 +380,11 @@ button.unpack-btn {
   color: #ffffff;
   box-sizing: border-box;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(0.9);
+  }
 
   @include respondMax(lg-tablet) {
     width: 250px;
