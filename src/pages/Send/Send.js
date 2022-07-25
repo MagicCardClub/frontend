@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import "./Send.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
@@ -27,10 +28,10 @@ const Send = (props) => {
     };
   }, [mintedImage, ethNumber]);
 
-  if (isSent) {
-    localStorage.setItem("ethNumber", "");
-    return <SentNotif circleColor={unpackColor} />;
-  }
+  const handleSending = (e) => {
+    e.preventDefault();
+    setIsSent(true);
+  };
 
   const { id, frame, text } = sendFrames[sendFrame];
 
@@ -45,12 +46,13 @@ const Send = (props) => {
         >
           <img src={frame} alt={text} className="minted-card-frame" key={id} />
           <img src={mintedImage} alt="mintedcard" className="minted-card" />
+          <span style={{ color: sendButtonColor }}>MINT SUCCESSFUL</span>
         </div>
 
         <form action="" className="send-form">
           <input
             type="text"
-            value={ethNumber}
+            // value={ethNumber}
             placeholder="enter wallet address"
             style={{
               borderColor: unpackColor,
@@ -58,24 +60,34 @@ const Send = (props) => {
           />
 
           <button
-            onClick={() => {
-              setIsSent(true);
-            }}
+            onClick={handleSending}
             style={{ backgroundColor: sendButtonColor }}
           >
             SEND
           </button>
         </form>
-        <button
-          className="unpack_send"
-          style={{
-            borderColor: unpackColor,
-            color: unpackColor,
-          }}
-        >
-          Unpack Your Gift Collection <FiExternalLink />
-        </button>
+        <Link to="/collections" className="link-unpack_send">
+          {" "}
+          <button
+            className="unpack_send"
+            style={{
+              borderColor: unpackColor,
+              color: unpackColor,
+            }}
+          >
+            Unpack Your Gift Collection <FiExternalLink />
+          </button>
+        </Link>
       </div>
+
+      {isSent ? (
+        <SentNotif
+          isSent={isSent}
+          setIsSent={setIsSent}
+          circleColor={unpackColor}
+          sendModalBg={sendModalBg}
+        />
+      ) : null}
     </div>
   );
 };

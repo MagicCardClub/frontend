@@ -12,6 +12,7 @@ import Header from 'components/Header/Header'
 import Landing from 'pages/Landing/Landing'
 import EditCard from 'pages/EditCard/EditCard'
 import Send from 'pages/Send/Send'
+import Collections from 'pages/Collections/Collections'
 import Footer from 'components/Footer/Footer'
 
 import { landingCarousel as carousel } from 'data/landingCarousel'
@@ -97,12 +98,21 @@ const App = () => {
             element={
               <Send
                 sendButtonColor={headerButtonColor}
-                sendModalBg={footerBg}
+                sendModalBg={mintModalBg}
                 unpackColor={headerButtonColor}
                 sendFrame={bgImage}
               />
             }
-          />{' '}
+          />
+          <Route
+            path='collections'
+            element={
+              <Collections
+                iconButtonColor={headerButtonColor}
+                collectionModalBg={mintModalBg}
+              />
+            }
+          />
         </Routes>
       </Router>
       <Footer

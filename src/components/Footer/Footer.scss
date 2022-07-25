@@ -7,10 +7,71 @@ footer {
   box-sizing: border-box;
   background-color: white;
   box-sizing: border-box;
+  position: relative;
   // margin: auto;
 
   @include respondMax(mobile) {
     margin: 1.5em auto 0;
+  }
+
+  .cart-footer {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 400px;
+    height: 400px;
+
+    @include respondMax(mobile) {
+      position: relative;
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: auto;
+    }
+  }
+
+  .starseven {
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    width: 30px;
+
+    @include respondMax(mobile) {
+      width: 15px;
+    }
+  }
+  .stareight {
+    position: absolute;
+    right: 10%;
+    top: 60px;
+    width: 30px;
+
+    @include respondMax(mobile) {
+      width: 15px;
+    }
+  }
+  .starfive {
+    position: absolute;
+    bottom: 200px;
+    left: 10%;
+    width: 30px;
+
+    @include respondMax(mobile) {
+      right: 5%;
+      width: 15px;
+    }
+  }
+
+  .starsix {
+    position: absolute;
+    right: 2%;
+    bottom: 100px;
+    right: 10%;
+    width: 30px;
+
+    @include respondMax(mobile) {
+      width: 15px;
+    }
   }
 
   .newsletter {

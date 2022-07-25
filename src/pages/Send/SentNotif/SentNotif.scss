@@ -2,11 +2,40 @@
 
 .sent-notif {
   // @include showBorder;
+  position: absolute;
   @include flex();
-  position: relative;
-  width: 900px;
+  top: 200px;
+  left: 25%;
+  width: 600px;
   height: 550px;
   margin: 1em auto;
+  z-index: 300;
+
+  @include respondMax(mobile) {
+    width: 300px;
+    height: 500px;
+    top: 100px;
+    // left: 2.5%;
+  }
+
+  .notif-container {
+    position: absolute;
+    @include flex();
+    // @include showBorder;
+    width: 95%;
+    height: 100%;
+    border-radius: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 300ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
+
+    &.sent {
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+    }
+  }
 
   .sent-circle {
     @include flex();

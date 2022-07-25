@@ -12,10 +12,10 @@
   z-index: 300;
 
   @include respondMax(mobile) {
-    width: 90%;
+    width: 95%;
     height: 590px;
     top: 100px;
-    left: 5%;
+    left: 2.5%;
   }
 }
 
@@ -104,7 +104,7 @@
 
 .amount-of-cards-btn {
   @include flex;
-  @include showBorder();
+  // @include showBorder();
   position: absolute;
   top: 400px;
   width: max-content;
