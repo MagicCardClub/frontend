@@ -5,6 +5,7 @@ import { MdOutlineCancel } from "react-icons/md";
 
 import "./Collections.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
+import MintedCards from "./MintedCards/MintedCards";
 
 const Collections = (props) => {
   const { iconButtonColor, collectionModalBg } = props;
@@ -32,7 +33,9 @@ const Collections = (props) => {
         <div
           className="collections_minted-cards"
           style={{ backgroundColor: collectionModalBg }}
-        ></div>
+        >
+          <MintedCards />
+        </div>
       </div>
     </section>
   );

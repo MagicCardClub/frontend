@@ -1,0 +1,6 @@
+@import "styles/config/config.scss";
+
+section.minted-cards {
+  @include showBorder;
+  width: 70%;
+}
