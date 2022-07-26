@@ -37,6 +37,8 @@ const Collections = (props) => {
 
           <FaBell className="icon bell" style={{ color: iconButtonColor }} />
 
+          <div className="notif-count">3</div>
+
           <div className={`filter-options ${filterOpen ? "open" : ""}`}>
             <div className="header">Sort by</div>
             <div className="options">
