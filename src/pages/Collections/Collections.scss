@@ -19,11 +19,13 @@ section.collections {
     @include flex(center, space-between, row wrap);
     width: 100%;
     height: 50px;
+    position: relative;
 
     .icon {
       //   @include showBorder(white);
       width: 30px;
       height: 30px;
+      cursor: pointer;
     }
 
     .search-box {
@@ -57,6 +59,55 @@ section.collections {
         color: white;
       }
     }
+
+    .filter-options {
+      @include flex(center, space-evenly, column);
+      position: absolute;
+      right: 40px;
+      top: 60px;
+      width: 209px;
+      height: 195px;
+      background: #cb0101;
+      border-radius: 9px;
+      z-index: 100;
+      visibility: hidden;
+
+      &.open {
+        visibility: visible;
+      }
+
+      .header {
+        // @include showBorder(white);
+        width: max-content; // font-family: 'Viga';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        color: #c9c9c9;
+      }
+
+      .options {
+        // @include showBorder(white);
+        @include flex(center, space-around, column);
+        width: 100%;
+        height: 70%;
+        // font-family: 'Viga';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 18px;
+        text-align: center;
+        color: #ffffff;
+
+        span {
+          width: 100%;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #c9c9c9;
+          }
+        }
+      }
+    }
   }
 
   .collections_minted-cards {
@@ -66,5 +117,12 @@ section.collections {
     border-radius: 10px;
     margin: 1em auto 0;
     overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+
+    &.blur {
+      filter: blur(6.65833px);
+    }
   }
 }

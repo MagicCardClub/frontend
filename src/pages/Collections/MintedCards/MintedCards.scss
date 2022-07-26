@@ -1,12 +1,11 @@
 @import "styles/config/config.scss";
 
 section.minted-cards {
-  @include showBorder;
+  //   @include showBorder;
   @include flex(center, flex-start, row wrap);
   width: 70%;
   height: 90%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  box-sizing: border-box;
 
   .card-container {
     @include showBorder;
@@ -20,10 +19,36 @@ section.minted-cards {
     box-sizing: border-box;
 
     .favorite {
-      @include showBorder(white);
+      //   @include showBorder(white);
       @include flex(center, space-between, row);
-      width: 100%;
+      width: 80%;
       height: 40px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: 0px;
+        width: 100%;
+        height: 1px;
+        background: radial-gradient(
+          50% 50% at 50% 50%,
+          #d9d9d9 0%,
+          rgba(217, 217, 217, 0) 100%
+        );
+      }
+
+      .icon.heart {
+        color: red;
+        width: 18px;
+        height: 18px;
+      }
+
+      .icon.calendar {
+        color: white;
+        width: 18px;
+        height: 18px;
+      }
     }
 
     .card-image {
@@ -32,7 +57,7 @@ section.minted-cards {
     }
 
     .send-claim {
-      @include showBorder(white);
+      //   @include showBorder(white);
       @include flex(center, space-around, row);
       width: 100%;
       height: 40px;
@@ -40,7 +65,7 @@ section.minted-cards {
       background-blend-mode: overlay;
       backdrop-filter: blur(9.79165px);
       border-radius: 0px 0px 7px 7px;
-      box-shadow: 0px 0px 8px 8px black;
+      box-shadow: 0px 0px 5px 2px black;
 
       button {
         width: 45px;
@@ -67,6 +92,7 @@ section.minted-cards {
 
         &:last-of-type {
           color: black;
+          background-color: #d9d9d9;
         }
       }
 
