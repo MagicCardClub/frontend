@@ -27,3 +27,5 @@ const collections = [
   { id: 11, image: collectiontwelve },
   { id: 12, image: collectionthirteen },
 ];
+
+export { collections };
