@@ -64,13 +64,13 @@
 
 .greeting {
   // @include showBorder(white);
-  @include flex();
+  @include flex(center, center, row nowrap);
   position: absolute;
   bottom: 95px;
-  width: max-content;
+  width: 250px;
   font-size: 18px;
   font-family: "Benne", serif;
-  height: 30px;
+  height: max-content;
   font-weight: 800;
   letter-spacing: 1px;
   color: white;
