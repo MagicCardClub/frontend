@@ -16,7 +16,7 @@ const Collections = (props) => {
   const { iconButtonColor, collectionModalBg } = props;
 
   if (collections.length === 0) {
-    return <NoCard />;
+    return <NoCard mintButtonColor={iconButtonColor} />;
   }
 
   return (
