@@ -6,6 +6,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import "./Collections.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import MintedCards from "./MintedCards/MintedCards";
+import Claim from "./Claim/Claim";
 import NoCard from "./NoCard/NoCard";
 import { collections } from "data/collections";
 
@@ -14,6 +15,8 @@ const filterOptions = ["Date", "Name", "Template", "Favorite"];
 const Collections = (props) => {
   const [filterOpen, setFilterOpen] = useState(false);
   const { iconButtonColor, collectionModalBg } = props;
+  const [claimOpen, setClaimOpen] = useState(false);
+  const [cardIndex, setCardIndex] = useState(0);
 
   if (collections.length === 0) {
     return <NoCard mintButtonColor={iconButtonColor} />;
@@ -49,20 +52,34 @@ const Collections = (props) => {
           <div className={`filter-options ${filterOpen ? "open" : ""}`}>
             <div className="header">Sort by</div>
             <div className="options">
-              {filterOptions.map((option) => {
-                return <span>{option}</span>;
+              {filterOptions.map((option, index) => {
+                return <span key={index}>{option}</span>;
               })}
             </div>
           </div>
         </div>
 
         <div
-          className={`collections_minted-cards ${filterOpen ? "blur" : ""}`}
+          className={`collections_minted-cards ${
+            filterOpen || claimOpen ? "blur" : ""
+          }`}
           style={{ backgroundColor: collectionModalBg }}
         >
-          <MintedCards collections={collections} />
+          <MintedCards
+            collections={collections}
+            setClaimOpen={setClaimOpen}
+            setCardIndex={setCardIndex}
+          />
         </div>
       </div>
+      <Claim
+        claimModalBg={collectionModalBg}
+        claimButtonColor={iconButtonColor}
+        claimOpen={claimOpen}
+        setClaimOpen={setClaimOpen}
+        cardIndex={cardIndex}
+        collections={collections}
+      />
     </section>
   );
 };

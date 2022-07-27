@@ -3,6 +3,8 @@
 section.collections {
   width: 100%;
   margin: auto;
+  position: relative;
+  @include flex;
 }
 
 .collections-container {

@@ -1,0 +1,105 @@
+@import "styles/config/config.scss";
+
+section.claim {
+  //   @include showBorder;
+  @include flex(center, space-around, column);
+  width: 38%;
+  height: 520px;
+  position: absolute;
+  bottom: 6em;
+  border-radius: 8px;
+  z-index: 100;
+  visibility: hidden;
+
+  &.open {
+    visibility: visible;
+  }
+
+  .claim-card_container {
+    // @include showBorder;
+    @include flex;
+    position: relative;
+    width: 243px;
+    height: 322px;
+    background-image: linear-gradient(
+      180deg,
+      #00f9f9 0%,
+      #b400f3 30.21%,
+      #00a3ff 67.19%,
+      #ef00c9 100%
+    );
+    border-radius: 12px;
+
+    .claim-card_box {
+      @include flex(center, space-around, column);
+      width: 95%;
+      height: 95%;
+      background-color: #020202;
+      border-radius: 12px;
+
+      img {
+        width: 188px;
+        height: 237px;
+      }
+
+      .unclaimed {
+        @include showBorder(white);
+        @include flex(center, space-between, row);
+        width: 90%;
+        color: white;
+        font-size: 11px;
+      }
+
+      .pending {
+        @include showBorder(white);
+        @include flex(center, space-between, row);
+        width: 90%;
+        color: white;
+        font-size: 9px;
+        color: #949494;
+
+        .icon-heart {
+          color: red;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .claim-eth_amount {
+    @include flex(center, center, row wrap);
+    gap: 5px;
+    width: 235px;
+    height: 49px;
+    background: #000000;
+    border-radius: 9px;
+
+    .icon-eth {
+      color: gray;
+      font-size: 14px;
+    }
+
+    span {
+      color: white;
+      text-align: center;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 12px;
+    }
+  }
+
+  button.claim-card {
+    border: none;
+    width: 160px;
+    height: 60px;
+    border-radius: 10px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    text-shadow: 0px 2.7px 2.7px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+}

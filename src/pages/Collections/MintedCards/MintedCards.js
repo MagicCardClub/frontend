@@ -5,7 +5,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import "./MintedCards.scss";
 
 const MintedCards = (props) => {
-  const { collections } = props;
+  const { collections, setClaimOpen } = props;
 
   return (
     <section className="minted-cards">
@@ -21,7 +21,13 @@ const MintedCards = (props) => {
             <div className="send-claim">
               <button>SEND</button>
               <span>0.095</span>
-              <button>CLAIM</button>
+              <button
+                onClick={() => {
+                  setClaimOpen(true);
+                }}
+              >
+                CLAIM
+              </button>
             </div>
           </div>
         );
