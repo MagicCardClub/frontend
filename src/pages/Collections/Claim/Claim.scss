@@ -43,7 +43,7 @@ section.claim {
       }
 
       .unclaimed {
-        @include showBorder(white);
+        // @include showBorder(white);
         @include flex(center, space-between, row);
         width: 90%;
         color: white;
@@ -51,7 +51,7 @@ section.claim {
       }
 
       .pending {
-        @include showBorder(white);
+        // @include showBorder(white);
         @include flex(center, space-between, row);
         width: 90%;
         color: white;
@@ -72,7 +72,7 @@ section.claim {
     width: 235px;
     height: 49px;
     background: #000000;
-    border-radius: 9px;
+    // border-radius: 9px;
 
     .icon-eth {
       color: gray;
