@@ -101,19 +101,25 @@ const EditCard = (props) => {
     if (convertedCard.current === null) {
       return;
     }
-
-    toPng(convertedCard.current, { cacheBust: true })
-      .then((dataUrl) => {
-        setShowGreet(true);
-        setBinaryData(dataUrl);
-        setIsEdited(true);
-      })
-      .then(() => {
-        console.log(binaryData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //display converted card
+    setIsEdited(true);
+    //delay dispay of greeting
+    setTimeout(() => {
+      setShowGreet(true);
+    }, 1000);
+    //delay conversion
+    setTimeout(() => {
+      toPng(convertedCard.current, { cacheBust: true })
+        .then((dataUrl) => {
+          setBinaryData(dataUrl);
+        })
+        .then(() => {
+          console.log(binaryData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 2000);
   }, [convertedCard, binaryData, setBinaryData]);
 
   const cards = blankCard[selectedTemplate];

@@ -3,9 +3,10 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaCalendarAlt } from "react-icons/fa";
 
 import "./MintedCards.scss";
-import { collections } from "data/collections";
 
-const MintedCards = () => {
+const MintedCards = (props) => {
+  const { collections } = props;
+
   return (
     <section className="minted-cards">
       {collections.map((card) => {

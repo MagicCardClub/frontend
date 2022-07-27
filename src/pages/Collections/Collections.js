@@ -6,12 +6,19 @@ import { MdOutlineCancel } from "react-icons/md";
 import "./Collections.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import MintedCards from "./MintedCards/MintedCards";
+import NoCard from "./NoCard/NoCard";
+import { collections } from "data/collections";
 
 const filterOptions = ["Date", "Name", "Template", "Favorite"];
 
 const Collections = (props) => {
   const [filterOpen, setFilterOpen] = useState(false);
   const { iconButtonColor, collectionModalBg } = props;
+
+  if (collections.length === 0) {
+    return <NoCard />;
+  }
+
   return (
     <section className="collections">
       <InfoHeader />
@@ -53,7 +60,7 @@ const Collections = (props) => {
           className={`collections_minted-cards ${filterOpen ? "blur" : ""}`}
           style={{ backgroundColor: collectionModalBg }}
         >
-          <MintedCards />
+          <MintedCards collections={collections} />
         </div>
       </div>
     </section>

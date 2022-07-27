@@ -1,0 +1,35 @@
+@import "styles/config/config.scss";
+
+section.no-card {
+  width: 100%;
+
+  .no-card_display {
+    @include showBorder;
+    @include flex(center, space-around, column);
+    height: 650px;
+    width: 950px;
+    margin: 2em auto;
+
+    .no-card_image {
+      @include showBorder;
+      width: 323px;
+      height: 462px;
+    }
+
+    .no-card_texts {
+      @include showBorder;
+      @include flex(center, space-evenly, column);
+      width: 100%;
+
+      span {
+        width: 100%;
+        text-align: center;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 39px;
+        letter-spacing: -0.01em;
+        color: #606060;
+      }
+    }
+  }
+}
