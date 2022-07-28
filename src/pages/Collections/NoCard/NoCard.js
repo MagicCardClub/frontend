@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./NoCard.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
+import nullcollection from "assets/images/nullcollection.png";
 
 const NoCard = (props) => {
   const { mintButtonColor } = props;
@@ -11,7 +12,9 @@ const NoCard = (props) => {
       <InfoHeader />
 
       <div className="no-card_display">
-        <div className="no-card_image"></div>
+        <div className="no-card_image">
+          <img src={nullcollection} alt="null collection" />
+        </div>
         <div className="no-card_texts">
           <span>OMG!</span>
           <span>You have no existing Gift Card in your collection.</span>
