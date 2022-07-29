@@ -14,6 +14,10 @@ section.collections {
   //   @include showBorder(white);
   @include flex($flex: column wrap);
 
+  @include respondMax(mobile) {
+    width: 100%;
+  }
+
   //for search queries
 
   .search-container {
@@ -23,20 +27,35 @@ section.collections {
     height: 50px;
     position: relative;
 
+    @include respondMax(mobile) {
+      @include flex(center, space-evenly, row wrap);
+      width: 100%;
+    }
+
     .icon {
-      //   @include showBorder(white);
       width: 30px;
       height: 30px;
       cursor: pointer;
+
+      @include respondMax(mobile) {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     .search-box {
-      //   @include showBorder();
+      // @include showBorder();
       width: 90%;
       height: 100%;
       border-radius: 8px;
       @include flex();
       position: relative;
+
+      @include respondMax(mobile) {
+        width: 75%;
+        height: 40px;
+        border-radius: 15px;
+      }
 
       input {
         height: 30px;
@@ -44,16 +63,27 @@ section.collections {
         border: none;
         border-left: 1px solid white;
         width: 80%;
-        padding: 0 0 0 20px;
+        padding-left: 20px;
         background: none;
         color: white;
         font-size: 20px;
+
+        @include respondMax(mobile) {
+          width: 80%;
+          height: 80%;
+          font-size: 16px;
+          padding-left: 10px;
+        }
       }
 
       .icon.search {
         position: absolute;
         left: 30px;
         color: white;
+
+        @include respondMax(mobile) {
+          left: 8px;
+        }
       }
       .icon.cancel {
         position: absolute;
@@ -74,6 +104,14 @@ section.collections {
       border-radius: 50%;
       background-color: red;
       color: #ffffff;
+
+      @include respondMax(mobile) {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+        font-size: 8px;
+      }
     }
 
     .filter-options {
@@ -94,7 +132,6 @@ section.collections {
       }
 
       .header {
-        // @include showBorder(white);
         width: max-content; // font-family: 'Viga';
         font-style: normal;
         font-weight: 400;
@@ -104,7 +141,6 @@ section.collections {
       }
 
       .options {
-        // @include showBorder(white);
         @include flex(center, space-around, column);
         width: 100%;
         height: 70%;
@@ -143,7 +179,14 @@ section.collections {
     scrollbar-width: thin;
 
     &.blur {
-      filter: blur(6.65833px);
+      filter: blur(6px);
+    }
+
+    @include respondMax(mobile) {
+      width: 100%;
+      height: 550px;
+      border-radius: 0px;
+      overflow: none;
     }
   }
 }

@@ -39,7 +39,7 @@ const Send = (props) => {
     <div className="send">
       <InfoHeader />
 
-      <div className="send-action-container">
+      <div className={`send-action-container ${isSent ? "blur" : ""}`}>
         <div
           className="minted-card-modal"
           style={{ backgroundColor: sendModalBg }}
@@ -60,6 +60,7 @@ const Send = (props) => {
           />
 
           <button
+            className="send-card-btn"
             onClick={handleSending}
             style={{ backgroundColor: sendButtonColor }}
           >

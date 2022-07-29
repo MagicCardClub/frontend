@@ -119,7 +119,7 @@ const EditCard = (props) => {
         .catch((err) => {
           console.log(err);
         });
-    }, 2000);
+    }, 3000);
   }, [convertedCard, binaryData, setBinaryData]);
 
   const cards = blankCard[selectedTemplate];
@@ -138,7 +138,7 @@ const EditCard = (props) => {
         editModalBg={editModalBg}
       />
       <div
-        className="edit-card-modal_container"
+        className={`edit-card-modal_container ${isEdited ? "blur" : ""}`}
         style={{ backgroundColor: mintModalBg }}
       >
         <EditCardModal
