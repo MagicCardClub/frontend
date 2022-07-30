@@ -1,7 +1,7 @@
 @import "styles/config/config.scss";
 
 section.claim {
-  //   @include showBorder;
+  // @include showBorder;
   @include flex(center, space-around, column);
   width: 38%;
   height: 520px;
@@ -13,6 +13,10 @@ section.claim {
 
   &.open {
     visibility: visible;
+  }
+
+  @include respondMax(mobile) {
+    width: 90%;
   }
 
   .claim-card_container {
@@ -72,7 +76,11 @@ section.claim {
     width: 235px;
     height: 49px;
     background: #000000;
-    // border-radius: 9px;
+    border-radius: 6px;
+
+    @include respondMax(mobile) {
+      width: 60%;
+    }
 
     .icon-eth {
       color: gray;
@@ -101,5 +109,12 @@ section.claim {
     color: #ffffff;
     text-shadow: 0px 2.7px 2.7px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+
+    @include respondMax(mobile) {
+      width: 40%;
+      height: 50px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
   }
 }

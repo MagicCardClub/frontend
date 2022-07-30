@@ -9,13 +9,12 @@
   width: 600px;
   height: 550px;
   margin: 1em auto;
-  z-index: 300;
 
   @include respondMax(mobile) {
-    width: 300px;
-    height: 500px;
+    width: 90%;
+    height: 400px;
     top: 100px;
-    // left: 2.5%;
+    left: 5%;
   }
 
   .notif-container {
@@ -25,6 +24,7 @@
     width: 95%;
     height: 100%;
     border-radius: 20px;
+    z-index: 300;
     visibility: hidden;
     opacity: 0;
     transform: scale(0);
@@ -46,12 +46,23 @@
     border-radius: 50%;
     box-sizing: border-box;
 
+    @include respondMax(mobile) {
+      width: 220px;
+      height: 220px;
+      top: 50px;
+    }
+
     .mark-icon {
       position: absolute;
       width: 150px;
       height: 150px;
       border: none;
       color: white;
+
+      @include respondMax(mobile) {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     .mail-icon {
@@ -63,6 +74,16 @@
       height: 240px;
       background-image: url("../../../assets/images/send/mailicon.png");
       background-position: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include respondMax(mobile) {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        right: -25px;
+        bottom: -10px;
+      }
     }
   }
 
@@ -76,5 +97,10 @@
     font-size: 41px;
     letter-spacing: -0.01em;
     text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+
+    @include respondMax(mobile) {
+      font-size: 32px;
+      bottom: 30px;
+    }
   }
 }

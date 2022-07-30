@@ -19,6 +19,10 @@
   position: relative;
   box-sizing: border-box;
 
+  &.blur {
+    filter: blur(3px);
+  }
+
   @include respondMax(mobile) {
     @include flex();
     width: 90%;
