@@ -255,7 +255,7 @@ footer {
       }
 
       a {
-        // width: 200px;
+        position: relative;
         width: max-content;
         font-weight: 500;
         font-style: normal;
@@ -269,8 +269,20 @@ footer {
         margin: 0 5px 0;
         transition: all 0.5s ease-in-out;
 
-        &:hover {
-          text-decoration: underline;
+        &::after {
+          position: absolute;
+          content: "";
+          background: white;
+          bottom: 0;
+          right: 0;
+          height: 4px;
+          width: 0%;
+          transition: 300ms ease-in-out;
+        }
+
+        &:hover::after {
+          width: 100%;
+          left: 0;
         }
 
         @include respondMax(lg-tablet) {
@@ -339,6 +351,7 @@ footer {
       }
       a {
         @include showBorder(transparent);
+        position: relative;
         display: block;
         height: 40px;
         width: 40px;
