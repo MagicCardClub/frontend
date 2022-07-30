@@ -42,7 +42,7 @@ const Claim = (props) => {
           setClaimOpen(false);
         }}
       >
-        MINT
+        CLAIM
       </button>
     </section>
   );

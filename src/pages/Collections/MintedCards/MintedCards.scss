@@ -1,8 +1,10 @@
 @import "styles/config/config.scss";
 
 section.minted-cards {
-  @include showBorder;
-  @include flex(center, flex-start, row wrap);
+  // @include showBorder;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto;
   width: 70%;
   height: 90%;
   box-sizing: border-box;
@@ -10,7 +12,6 @@ section.minted-cards {
   @include respondMax(mobile) {
     width: 100%;
     height: 550px;
-    @include flex(center, flex-start, row wrap);
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -30,9 +31,9 @@ section.minted-cards {
 
     @include respondMax(mobile) {
       @include flex(center, space-around, column);
-      width: 110px;
+      width: 120px;
       height: 185px;
-      margin: 4px 2px 4px 6px;
+      margin: auto;
       border-radius: 5px;
     }
 
