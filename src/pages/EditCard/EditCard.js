@@ -84,11 +84,8 @@ const EditCard = (props) => {
     const [file] = e.target.files;
     if (file) {
       const reader = new FileReader();
-      // const { current } = uploadedImage;
-      // current.file = file;
+
       reader.onload = (e) => {
-        // current.src = e.target.result;
-        // console.log(current.src);
         setStoredUserImage(e.target.result);
         console.log(storedUserImage);
       };
@@ -103,10 +100,8 @@ const EditCard = (props) => {
     }
     //display converted card
     setIsEdited(true);
-    //delay dispay of greeting
-    setTimeout(() => {
-      setShowGreet(true);
-    }, 1000);
+    setShowGreet(true);
+
     //delay conversion
     setTimeout(() => {
       toPng(convertedCard.current, { cacheBust: true })
@@ -119,7 +114,7 @@ const EditCard = (props) => {
         .catch((err) => {
           console.log(err);
         });
-    }, 3000);
+    }, 1000);
   }, [convertedCard, binaryData, setBinaryData]);
 
   const cards = blankCard[selectedTemplate];

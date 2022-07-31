@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import 'styles/App.scss'
 
@@ -9,17 +8,16 @@ import starthree from 'assets/images/stars/star-three.png'
 import starfour from 'assets/images/stars/star-four.png'
 
 import Header from 'components/Header/Header'
-import Landing from 'pages/Landing/Landing'
-import EditCard from 'pages/EditCard/EditCard'
-import Send from 'pages/Send/Send'
-import Collections from 'pages/Collections/Collections'
+import AllRoutes from 'Routes/AllRoutes'
 import Footer from 'components/Footer/Footer'
+import { useBackgroundId } from 'hooks/useBackgroundId'
 
 import { landingCarousel as carousel } from 'data/landingCarousel'
 
 const App = () => {
   const [isConnected, setIsConnected] = useState(false)
-  const [bgImage, setBgImage] = useState(0)
+
+  const [bgImage, setBgImage] = useBackgroundId(0)
 
   const handleConnected = () => {
     setIsConnected((prev) => !prev)
@@ -45,6 +43,31 @@ const App = () => {
     mintModalBg,
   } = carousel[bgImage]
 
+  const otherProps = {
+    isConnected,
+    handleConnected,
+    changeBackground,
+    mintModalBg,
+    bgImage,
+    textColorone,
+    textColortwo,
+  }
+
+  const headerProps = {
+    headerButtonColor,
+    headerIconBg,
+    headerIconColor,
+    headerBg,
+  }
+
+  const footerProps = {
+    footerBg,
+    footerButtonColor,
+    footerTextColor,
+    footerIconBg,
+    footerIconColor,
+  }
+
   return (
     <div
       className='App'
@@ -55,73 +78,20 @@ const App = () => {
         transitionTimingFunction: 'ease-in-out',
       }}
     >
-      <Header
-        handleConnected={handleConnected}
-        isConnected={isConnected}
-        headerButtonColor={headerButtonColor}
-        headerIconBg={headerIconBg}
-        headerIconColor={headerIconColor}
-        headerBg={headerBg}
-      />
+      <Header otherProps={otherProps} headerProps={headerProps} />
       <img src={starone} alt='star' className='starone' />
       <img src={startwo} alt='star' className='startwo' />
       <img src={starthree} alt='star' className='starthree' />
       <img src={starfour} alt='star' className='starfour' />
-      <Router>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <Landing
-                isConnected={isConnected}
-                carousel={carousel}
-                changeBackground={changeBackground}
-                textColorone={textColorone}
-                textColortwo={textColortwo}
-                footerBg={footerBg}
-              />
-            }
-          />{' '}
-          <Route
-            path='edit'
-            element={
-              <EditCard
-                changeBackground={changeBackground}
-                editButtonColor={headerButtonColor}
-                editModalBg={footerBg}
-                mintModalBg={mintModalBg}
-              />
-            }
-          />{' '}
-          <Route
-            path='send'
-            element={
-              <Send
-                sendButtonColor={headerButtonColor}
-                sendModalBg={mintModalBg}
-                unpackColor={headerButtonColor}
-                sendFrame={bgImage}
-              />
-            }
-          />
-          <Route
-            path='collections'
-            element={
-              <Collections
-                iconButtonColor={headerButtonColor}
-                collectionModalBg={mintModalBg}
-              />
-            }
-          />
-        </Routes>
-      </Router>
-      <Footer
-        footerBg={footerBg}
-        footerButtonColor={footerButtonColor}
-        footerTextColor={footerTextColor}
-        footerIconColor={footerIconColor}
-        footerIconBg={footerIconBg}
+
+      <AllRoutes
+        carousel={carousel}
+        headerProps={headerProps}
+        footerProps={footerProps}
+        otherProps={otherProps}
       />
+
+      <Footer footerProps={footerProps} />
     </div>
   )
 }

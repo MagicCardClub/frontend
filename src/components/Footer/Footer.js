@@ -13,13 +13,14 @@ import cart from "assets/images/footer/cart.png";
 import giftImage from "assets/images/footer/three_gifts.png";
 
 const Footer = (props) => {
+  const { footerProps } = props;
   const {
     footerBg,
     footerButtonColor,
     footerTextColor,
     footerIconBg,
     footerIconColor,
-  } = props;
+  } = footerProps;
 
   const currentYear = new Date().getFullYear();
 
