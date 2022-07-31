@@ -5,19 +5,26 @@ import { Link } from "react-router-dom";
 import "./Send.scss";
 import InfoHeader from "components/shared/InfoHeader/InfoHeader";
 import SentNotif from "./SentNotif/SentNotif";
-import { sendFrames } from "data/frames";
+import { sendFrames as frames } from "data/frames";
 
 const Send = (props) => {
+  const [sendFrames] = useState(frames);
+  const [frameId, setFrameId] = useState(0);
   const [isSent, setIsSent] = useState(false);
   const [mintedImage, setMintedImage] = useState();
   const [ethNumber, setEthNumber] = useState();
-  const { sendButtonColor, sendModalBg, unpackColor, sendFrame } = props;
+
+  const { sendButtonColor, sendModalBg, unpackColor } = props;
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       const data = JSON.parse(localStorage.getItem("binaryData"));
       const ethToSend = JSON.parse(localStorage.getItem("ethNumber"));
+      const frameData = JSON.parse(localStorage.getItem("bgIndex"));
+
       if (data) {
+        const frameIndex = parseInt(frameData);
+        setFrameId(frameIndex);
         setMintedImage(data);
         setEthNumber(ethToSend);
       }
@@ -33,7 +40,7 @@ const Send = (props) => {
     setIsSent(true);
   };
 
-  const { id, frame, text } = sendFrames[sendFrame];
+  const { id, frame, text } = sendFrames[frameId];
 
   return (
     <div className="send">

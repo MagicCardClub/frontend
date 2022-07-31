@@ -1,22 +1,16 @@
 import React, { useState, useRef } from "react";
 import "./GiftCardTemplate.scss";
 import { landingCarousel as giftcardtemplates } from "data/landingCarousel";
+import { useLocalStorage } from "hooks/useLocalStorage";
 
 const GiftCardTemplate = (props) => {
   const [activeCard, setActiveCard] = useState(0);
 
   //using custom hook to set frame of card
+  const [storedBgIndex, setStoredBgIndex] = useLocalStorage("bgIndex", "");
 
   const { color, changeBackground, handleSelectedTemplate, editModalBg } =
     props;
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
 
   //ref for targetting active gift card template
   const activeTemplate = useRef(false);
@@ -24,17 +18,10 @@ const GiftCardTemplate = (props) => {
   //setting active gift card template index
   const handleActiveCard = (index) => {
     setActiveCard(index);
+    setStoredBgIndex(index);
+    console.log(storedBgIndex);
     activeTemplate.current = true;
   };
-
-  //handling blur event to set any
-  // active gift card template to non-active
-  // const handleClickOutside = () => {
-  //   if (activeTemplate.current) {
-  //     setActiveCard(null);
-  //     activeTemplate.current = false;
-  //   }
-  // };
 
   return (
     <div className="gc-template">

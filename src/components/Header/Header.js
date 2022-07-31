@@ -6,14 +6,12 @@ import "./Header.scss";
 import logo from "assets/images/header/mc_logo.png";
 
 const Header = (props) => {
-  const {
-    headerButtonColor,
-    headerIconBg,
-    headerIconColor,
-    headerBg,
-    handleConnected,
-    isConnected,
-  } = props;
+  const { otherProps, headerProps } = props;
+  const { headerButtonColor, headerIconBg, headerIconColor, headerBg } =
+    headerProps;
+
+  const { handleConnected, isConnected } = otherProps;
+
   return (
     <header>
       <div
