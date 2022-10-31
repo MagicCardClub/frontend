@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
+import { useAccount } from "wagmi";
 
 import "./Landing.scss";
 import Carousel from "pages/Landing/Carousel/Carousel";
 
 const Landing = (props) => {
-  const {
-    carousel,
-    changeBackground,
-    textColorone,
-    textColortwo,
-    footerBg,
-    isConnected,
-  } = props;
+  const { carousel, changeBackground, textColorone, textColortwo, footerBg } =
+    props;
+  const { isConnected } = useAccount();
 
   return (
     <main>

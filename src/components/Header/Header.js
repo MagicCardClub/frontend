@@ -1,6 +1,8 @@
 import React from "react";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
 
 import "./Header.scss";
 import logo from "assets/images/header/mc_logo.png";
@@ -10,7 +12,12 @@ const Header = (props) => {
   const { headerButtonColor, headerIconBg, headerIconColor, headerBg } =
     headerProps;
 
-  const { handleConnected, isConnected } = otherProps;
+  // const { handleConnected, isConnected } = otherProps;
+  const { address, isConnected } = useAccount();
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  const { disconnect } = useDisconnect();
 
   return (
     <header>
@@ -74,10 +81,13 @@ const Header = (props) => {
         </ul>
         <button
           className="connect-btn"
-          onClick={handleConnected}
+          onClick={() => {
+            if (!address) connect();
+            else disconnect();
+          }}
           style={{ backgroundColor: headerButtonColor }}
         >
-          {isConnected ? "0xjwneu7hdytfuygiugctrs" : "Connect wallet"}
+          {isConnected ? address : "Connect wallet"}
         </button>
       </div>
     </header>

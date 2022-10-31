@@ -14,7 +14,7 @@ import { useLocalStorage } from "hooks/useLocalStorage";
 const EditCard = (props) => {
   const [selectedTemplate, setSelectedTemplate] = useState(0);
   const [cardOption, setCardOption] = useState(0);
-  const [ethereumCount, setEthereumCount] = useState(0.01);
+  const [ethereumCount, setEthereumCount] = useState(10);
   const [nameModal, setNameModal] = useState(false);
   const [username, setUserName] = useState("");
   const [isEdited, setIsEdited] = useState(false);
@@ -28,7 +28,7 @@ const EditCard = (props) => {
 
   //edit eth number
   const [editEth, setEditEth] = useState(false);
-  const [ethNumber, setEthNumber] = useState(0.02);
+  const [ethNumber, setEthNumber] = useState(10);
 
   //props
   const { changeBackground, editButtonColor, editModalBg, mintModalBg } = props;
@@ -55,17 +55,17 @@ const EditCard = (props) => {
   //handlers for increasing or decreasing ethereum
   const addToEthereum = () => {
     if (ethereumCount < 0) {
-      setEthereumCount(0.01);
+      setEthereumCount(10);
     } else {
-      setEthereumCount((c) => c + 0.01);
+      setEthereumCount((c) => c + 10);
     }
   };
 
   const decreaseEthereum = () => {
-    if (ethereumCount <= 0.01) {
-      setEthereumCount(0.01);
+    if (ethereumCount <= 10) {
+      setEthereumCount(10);
     } else {
-      setEthereumCount((c) => c - 0.01);
+      setEthereumCount((c) => c - 10);
     }
   };
 
@@ -230,7 +230,7 @@ const EditCard = (props) => {
           <div className="eth-counts">
             <div className="eth-count_btns">
               <button onClick={decreaseEthereum}>-</button>
-              <span>0.01</span>
+              <span>10</span>
               <button onClick={addToEthereum}>+</button>
             </div>
           </div>
@@ -242,7 +242,7 @@ const EditCard = (props) => {
               <input
                 type="number"
                 id="ethnumber"
-                step="0.02"
+                step="10"
                 value={Number.isNaN(ethNumber) ? "" : ethNumber}
                 onChange={handleEditing}
               />
