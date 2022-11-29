@@ -1,5 +1,6 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
+import { MagicSpinner } from "react-spinners-kit";
 
 import "./Mint.scss";
 import { mintFrames } from "data/frames";
@@ -14,6 +15,7 @@ const Mint = forwardRef((props, cardToMint) => {
     setShowGreet,
     selectedTemplate,
     binaryData,
+    color,
   } = props;
 
   const [cardCount, setCardCount] = useState(1);
@@ -55,12 +57,23 @@ const Mint = forwardRef((props, cardToMint) => {
       >
         <div className="edited-card_box">
           <img src={frame} alt={text} key={id} className="frame" />
-          <img
-            src={binaryData}
-            alt="convertedimage"
-            ref={cardToMint}
-            className="card-to-mint"
-          />
+
+          {binaryData ? (
+            <img
+              src={binaryData}
+              alt="convertedimage"
+              ref={cardToMint}
+              className="card-to-mint"
+            />
+          ) : (
+            <div className="card-to-mint skeleton">
+              <MagicSpinner
+                size={100}
+                color={color}
+                loading={binaryData === null}
+              />
+            </div>
+          )}
         </div>
         <div className="text">Enter Number of Gift Cards to Mint.</div>
 

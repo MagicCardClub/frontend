@@ -19,6 +19,26 @@
   }
 }
 
+.skeleton {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsla(201, 20%, 80%, 0.328);
+  }
+  100% {
+    background-color: hsla(0, 0%, 51%, 0.842);
+  }
+  0% {
+    background-color: hsla(201, 20%, 80%, 0.507);
+  }
+}
+
 .mint-action-container {
   position: relative;
   // @include showBorder();

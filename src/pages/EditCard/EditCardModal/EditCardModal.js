@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FaEthereum } from "react-icons/fa";
+import Barcode from "react-barcode";
 
-import "./EditCardModal.scss";
 import defaultImage from "assets/images/defaultImage.webp";
+import "./EditCardModal.scss";
 
 const EditCardModal = (props) => {
   const {
@@ -47,20 +47,24 @@ const EditCardModal = (props) => {
           alt="user"
           ref={uploadedImage}
         />
-        <div className="name">{name}</div>
+        {/* <div className="name">{name}</div> */}
       </div>
-      <span className={`greeting ${showGreet ? "show" : ""}`}>{greeting}</span>
-      <div
-        className="eth-number_container"
-        onClick={() => {
-          setEditEth(true);
-        }}
+      <span
+        className={`greeting ${showGreet ? "show" : ""}`}
+        style={{ color: color }}
       >
-        <div className="eth-logo" style={{ backgroundColor: color }}>
-          <FaEthereum />
-        </div>
-        <span>{ethereumCount.toFixed(2)} eth</span>
-      </div>
+        {greeting}
+      </span>
+      {/* <div className="barcode">
+        <Barcode
+          value="Happy Birthday everyone"
+          lineColor={color}
+          background="#000"
+          displayValue={false}
+          width={2}
+          height={25}
+        />
+      </div> */}
     </div>
   );
 };

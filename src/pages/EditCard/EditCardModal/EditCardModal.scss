@@ -66,14 +66,14 @@
   // @include showBorder(white);
   @include flex(center, center, row nowrap);
   position: absolute;
-  bottom: 95px;
+  bottom: 65px;
   width: 250px;
-  font-size: 18px;
-  font-family: "Benne", serif;
+  font-size: 28px;
+  font-family: 'Caveat Brush';
   height: max-content;
   font-weight: 800;
   letter-spacing: 1px;
-  color: white;
+  text-shadow: -4px 3px 0 #3a50d9, -14px 7px 0 #0a0e27;
   visibility: hidden;
 
   &.show {
@@ -86,46 +86,6 @@
   }
 }
 
-.eth-number_container {
-  border: 2px solid white;
-  @include flex(center, center, row nowrap);
-  width: 80px;
+.barcode {
   height: 25px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: absolute;
-  top: 290px;
-  z-index: 100;
-  box-sizing: border-box;
-
-  @include respondMax(mobile) {
-    border: 2px solid white;
-    top: 240px;
-  }
-
-  span {
-    @include flex;
-    color: white;
-    background-color: black;
-    border: none;
-    width: 70%;
-    padding: 0 0 0 5px;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height: 100%;
-    font-size: 11px;
-    box-sizing: border-box;
-  }
-
-  .eth-logo {
-    display: none;
-    width: 30%;
-    height: 100%;
-    @include flex;
-    border-right: 2px solid white;
-    cursor: pointer;
-    // @include showBorder;
-  }
 }

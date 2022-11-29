@@ -1,6 +1,8 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import { toPng } from "html-to-image";
 import { FaFeatherAlt } from "react-icons/fa";
+import ReactTooltip from "react-tooltip";
+import USDCIcon from "assets/icons/usdc-coin-icon.svg";
 
 import "./EditCard.scss";
 import Mint from "pages/EditCard/Mint/Mint";
@@ -101,6 +103,7 @@ const EditCard = (props) => {
     //display converted card
     setIsEdited(true);
     setShowGreet(true);
+    setBinaryData(null);
 
     //delay conversion
     setTimeout(() => {
@@ -169,16 +172,16 @@ const EditCard = (props) => {
             onChange={handleImageUpload}
           />
 
-          <button
+          {/* <button
             className="add-user-name_btn"
             onClick={() => {
               setNameModal(true);
             }}
           >
             <FaFeatherAlt />
-          </button>
+          </button> */}
 
-          <div
+          {/* <div
             className={`add-name_modal ${nameModal ? "open" : ""}`}
             style={{ border: `1px solid ${color}` }}
           >
@@ -205,7 +208,7 @@ const EditCard = (props) => {
                 Save
               </button>
             </form>
-          </div>
+          </div> */}
 
           <div className="card-color_options">
             {cards.options.map((card, index) => {
@@ -233,6 +236,30 @@ const EditCard = (props) => {
               <span>10</span>
               <button onClick={addToEthereum}>+</button>
             </div>
+          </div>
+          <div
+            className="eth-number_container"
+            style={{ border: `2px solid ${color}` }}
+          >
+            <div
+              className="eth-logo"
+              style={{
+                backgroundColor: color,
+                borderRight: `2px solid ${color}`,
+              }}
+            >
+              <img src={USDCIcon} alt={color} className="blank_card-image" />
+            </div>
+            <span
+              data-for="token-amount"
+              data-tip={`${ethereumCount.toFixed(2)} USDC`}
+              onClick={() => {
+                setEditEth(true);
+              }}
+            >
+              {ethereumCount.toFixed(2)} USDC
+            </span>
+            <ReactTooltip id="token-amount" />
           </div>
           <div
             className={`edit-eth_modal ${editEth ? "open" : ""}`}
@@ -285,6 +312,7 @@ const EditCard = (props) => {
           selectedTemplate={selectedTemplate}
           ethereumCount={ethereumCount}
           storedEthValue={storedEthValue}
+          color={color}
         />
       ) : null}
     </div>
